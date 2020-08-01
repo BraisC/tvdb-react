@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Styled } from './styled';
 
 const Header = () => (
-  <div>
+  <Styled.Header>
     <NavLink to="/">Header</NavLink>
-  </div>
+  </Styled.Header>
 );
 
 export default Header;
