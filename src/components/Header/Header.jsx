@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header = (props) => (
+const Header = () => (
   <div>
     <NavLink to="/">Header</NavLink>
   </div>
