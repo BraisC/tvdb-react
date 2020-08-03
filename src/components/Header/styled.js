@@ -12,6 +12,9 @@ const Header = styled.header`
 const Logo = styled.div`
   background-color: var(--color-red);
   color: #f4f4f4;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 1.3rem 5rem;
 `;
 
 export const Styled = {
