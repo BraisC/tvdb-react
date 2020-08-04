@@ -4,7 +4,7 @@ const Header = styled.header`
   display: flex;
   background: var(--color-primary);
   align-items: center;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
 `;
 
 const Logo = styled.div`
@@ -18,6 +18,7 @@ const Logo = styled.div`
 const Menu = styled.ul`
   padding: 0 2rem;
   display: flex;
+  margin-right: auto;
 
   & li {
     list-style: none;
@@ -29,11 +30,10 @@ const Menu = styled.ul`
     text-transform: uppercase;
     text-decoration: none;
     padding: 1rem 3rem;
-    transition: 0.5s ease;
+    transition: 0.2s ease;
 
     &:hover {
       color: var(--color-red);
-      transition: 0.2s ease;
     }
 
     & span {
@@ -46,8 +46,47 @@ const Menu = styled.ul`
   }
 `;
 
+const SearchBar = styled.form`
+  width: 40rem;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  transition: 0.2s ease;
+  padding-left: 5rem;
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
+
+  &::placeholder {
+    opacity: 35%;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-family: Montserrat;
+  }
+`;
+
+const SearchIcon = styled.label`
+  color: var(--color-red);
+  margin-right: -3.5rem;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 999;
+`;
+
 export const Styled = {
   Header,
   Logo,
   Menu,
+  SearchBar,
+  SearchInput,
+  SearchIcon,
 };

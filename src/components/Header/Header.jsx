@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { Styled } from './styled';
+import { SearchBar } from './SearchBar';
 
 const MenuOptions = ['home', 'popular', 'top', 'on air', 'today', 'genre'];
 
@@ -32,9 +33,11 @@ const Header = () => {
     <Styled.Header>
       <Styled.Logo>TVDB</Styled.Logo>
       <Menu />
+      <SearchBar />
       <button type="button" onClick={handleClick}>
         Switch Theme
       </button>
+      <input type="checkbox" checked={themeContext.theme === 'dark'} name="" id="" />
     </Styled.Header>
   );
 };
