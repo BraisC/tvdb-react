@@ -3,4 +3,11 @@ import ReactDOM from 'react-dom';
 
 import { App } from 'components';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { MyThemeProvider } from './contexts/myThemeContext';
+
+ReactDOM.render(
+  <MyThemeProvider>
+    <App />
+  </MyThemeProvider>,
+  document.getElementById('root')
+);

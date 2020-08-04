@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 const routes = (
   <div>
-    <Route path="/">
+    <Route path="/" exact>
       <div>hola</div>
     </Route>
   </div>

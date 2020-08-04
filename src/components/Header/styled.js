@@ -4,6 +4,7 @@ const Header = styled.header`
   display: flex;
   background: var(--color-primary);
   align-items: center;
+  transition: 0.5s ease;
 `;
 
 const Logo = styled.div`
@@ -28,9 +29,11 @@ const Menu = styled.ul`
     text-transform: uppercase;
     text-decoration: none;
     padding: 1rem 3rem;
+    transition: 0.5s ease;
 
     &:hover {
       color: var(--color-red);
+      transition: 0.2s ease;
     }
 
     & span {
