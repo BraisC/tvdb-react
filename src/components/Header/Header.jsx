@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { MyThemeContext } from 'contexts/myThemeContext';
 import { Styled } from './styled';
 import { SearchBar } from './SearchBar';
+import { ThemeToggler } from './ThemeToggler';
 
 const MenuOptions = ['home', 'popular', 'top', 'on air', 'today', 'genre'];
 
@@ -22,24 +22,13 @@ const Menu = () => (
   </Styled.Menu>
 );
 
-const Header = () => {
-  const themeContext = useContext(MyThemeContext);
-
-  const handleClick = () => {
-    themeContext.themeToggler();
-  };
-
-  return (
-    <Styled.Header>
-      <Styled.Logo>TVDB</Styled.Logo>
-      <Menu />
-      <SearchBar />
-      <button type="button" onClick={handleClick}>
-        Switch Theme
-      </button>
-      <input type="checkbox" checked={themeContext.theme === 'dark'} name="" id="" />
-    </Styled.Header>
-  );
-};
+const Header = () => (
+  <Styled.Header>
+    <Styled.Logo>TVDB</Styled.Logo>
+    <Menu />
+    <SearchBar />
+    <ThemeToggler />
+  </Styled.Header>
+);
 
 export default Header;
