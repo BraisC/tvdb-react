@@ -4,11 +4,11 @@ import { Styled } from './styled';
 import { SearchBar } from './SearchBar';
 import { ThemeToggler } from './ThemeToggler';
 
-const MenuOptions = ['home', 'popular', 'top', 'on air', 'today', 'genre'];
+const MenuOptions = ['popular', 'top', 'on air', 'today', 'genre'];
 
 const MenuItem = (props) => (
   <li>
-    <NavLink to={`/${props.value.split(' ').join('').replace('home', '')}`} exact>
+    <NavLink to={`/${props.value.split(' ').join('').replace('popular', '')}`} exact>
       <span>{`${props.value}`}</span>
     </NavLink>
   </li>

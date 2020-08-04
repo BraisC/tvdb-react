@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { Popular } from 'pages';
 
 const routes = (
   <div>
     <Route path="/" exact>
-      <div>hola</div>
+      <Popular />
     </Route>
   </div>
 );
