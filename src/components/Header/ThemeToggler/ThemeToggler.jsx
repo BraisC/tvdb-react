@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { Styled } from './styled';
 
+//TODO animate with framer motion
+
 const ThemeToggler = () => {
   const themeContext = useContext(MyThemeContext);
 
