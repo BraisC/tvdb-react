@@ -3,38 +3,21 @@ import { NavLink } from 'react-router-dom';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { Styled } from './styled';
 
+const MenuOptions = ['home', 'popular', 'top', 'on air', 'today', 'genre'];
+
+const MenuItem = (props) => (
+  <li>
+    <NavLink to={`/${props.value.split(' ').join('').replace('home', '')}`} exact>
+      <span>{`${props.value}`}</span>
+    </NavLink>
+  </li>
+);
+
 const Menu = () => (
   <Styled.Menu>
-    <li>
-      <NavLink to="/" exact>
-        <span>home</span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/popular">
-        <span>popular</span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/top">
-        <span>top</span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/onair">
-        <span>on air</span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/today">
-        <span>today</span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/genre">
-        <span>genre</span>
-      </NavLink>
-    </li>
+    {MenuOptions.map((val) => (
+      <MenuItem key={val} value={val} />
+    ))}
   </Styled.Menu>
 );
 
