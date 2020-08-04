@@ -46,7 +46,7 @@ const CheckBox = styled.input`
   &:checked ~ ${Toggler} {
     background-color: var(--color-primary);
     right: calc(100% - 3px);
-    transform: translateX(100%);
+    transform: translateX(100%); /* this helps the growing as it will adjust with the width */
   }
 `;
 
