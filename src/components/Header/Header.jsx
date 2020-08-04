@@ -38,11 +38,10 @@ const Menu = () => (
   </Styled.Menu>
 );
 
-const Header = (props) => {
+const Header = () => {
   const themeContext = useContext(MyThemeContext);
 
   const handleClick = () => {
-    console.log('toggle');
     themeContext.themeToggler();
   };
 

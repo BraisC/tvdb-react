@@ -1,6 +1,6 @@
 import React from 'react';
 import { darkTheme } from 'utils/theme';
-import { useDarkMode } from 'hooks/useDarkMode';
+import { useThemeSwitch } from 'hooks/useThemeSwitch';
 
 export const MyThemeContext = React.createContext({
   theme: darkTheme,
@@ -8,7 +8,7 @@ export const MyThemeContext = React.createContext({
 });
 
 export const MyThemeProvider = ({ children }) => {
-  const [theme, themeToggler] = useDarkMode();
+  const [theme, themeToggler] = useThemeSwitch();
 
   return (
     <MyThemeContext.Provider value={{ theme, themeToggler }}>{children}</MyThemeContext.Provider>
