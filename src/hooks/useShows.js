@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import tmdbAPI from 'api/tmdb';
 
-export const useTVShows = (page = '1', route = '/') => {
+export const useShows = (page = '1', route = '/') => {
   const [data, setData] = useState([]);
   let path = route.replace('shows/', '').split(' ').join('_');
   path = path === '/' ? '/popular' : path;
