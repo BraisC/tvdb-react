@@ -8,7 +8,10 @@ const MenuOptions = ['popular', 'top', 'on air', 'today', 'genre'];
 
 const MenuItem = (props) => (
   <li>
-    <NavLink to={`/${props.value.split(' ').join('').replace('popular', '')}`} exact>
+    <NavLink
+      to={`/${'shows/'.concat(props.value.split(' ').join('')).replace('shows/popular', '')}`}
+      exact
+    >
       <span>{`${props.value}`}</span>
     </NavLink>
   </li>

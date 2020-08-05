@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { Popular } from 'pages';
+import { ShowsPage } from 'pages';
 
 const routes = (
   <div>
-    <Route path="/" exact>
-      <Popular />
+    <Route path={['/', '/shows/:category']} exact>
+      <ShowsPage />
     </Route>
   </div>
 );
