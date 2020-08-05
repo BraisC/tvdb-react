@@ -1,14 +1,17 @@
 import React from 'react';
 import { ShowList } from 'components';
-import { useHistory } from 'react-router-dom';
+import { useTVShows } from 'hooks/useTVShows';
+import { useLocation } from 'react-router-dom';
 
-const ShowsPage = (props) => {
-  const history = useHistory();
-  console.log(history);
+const ShowsPage = () => {
+  const location = useLocation();
+  const data = useTVShows('1', location.pathname);
+
+  console.log(location);
+  console.log(data);
 
   return (
     <>
-      <button onClick={() => history.goBack()} />
       <ShowList />;
     </>
   );

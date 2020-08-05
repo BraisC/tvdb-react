@@ -4,14 +4,17 @@ import { Styled } from './styled';
 import { SearchBar } from './SearchBar';
 import { ThemeToggler } from './ThemeToggler';
 
-const MenuOptions = ['popular', 'top', 'on air', 'today', 'genre'];
+const MenuOptions = [
+  { name: 'popular', route: '/' },
+  { name: 'top', route: 'top rated' },
+  { name: 'on air', route: 'on the air' },
+  { name: 'today', route: 'airing today' },
+  { name: 'genre', route: 'genre' },
+];
 
 const MenuItem = (props) => (
   <li>
-    <NavLink
-      to={`/${'shows/'.concat(props.value.split(' ').join('')).replace('shows/popular', '')}`}
-      exact
-    >
+    <NavLink to={`/shows/${props.route}`.replace('shows//', '')} exact>
       <span>{`${props.value}`}</span>
     </NavLink>
   </li>
@@ -20,7 +23,7 @@ const MenuItem = (props) => (
 const Menu = () => (
   <Styled.Menu>
     {MenuOptions.map((val) => (
-      <MenuItem key={val} value={val} />
+      <MenuItem key={val.name} value={val.name} route={val.route} />
     ))}
   </Styled.Menu>
 );
