@@ -13,7 +13,7 @@ const SearchInput = styled.input`
   border: none;
   font-size: 1.5rem;
   color: var(--text-color);
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   padding-left: 5rem;
 
   &:focus::placeholder {
@@ -25,6 +25,7 @@ const SearchInput = styled.input`
     color: var(--text-color);
     text-transform: uppercase;
     font-family: Montserrat;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 `;
 

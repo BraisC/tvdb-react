@@ -9,6 +9,8 @@ const Wrapper = styled.div`
     'header'
     'content'
     'footer';
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background: var(--color-secondary);
 `;
 
 const ContentWrapper = styled.div`

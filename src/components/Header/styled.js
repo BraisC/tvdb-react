@@ -4,7 +4,7 @@ const Header = styled.header`
   display: flex;
   background: var(--color-primary);
   align-items: center;
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   grid-area: header;
 `;
 

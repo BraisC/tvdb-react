@@ -28,7 +28,7 @@ export default createGlobalStyle`
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      background-color: ${(props) => props.theme.secondary};
+      background-color: var(--color-secondary);
     }
     form,
     input,
