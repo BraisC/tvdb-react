@@ -9,14 +9,14 @@ const tmdb = axios.create({
 });
 
 export async function getShows(page = 1, route = '/') {
-  let path = route.replace('shows/', '').split(' ').join('_');
-  path = path === '/' ? '/popular' : path;
+  let path = route.split(' ').join('_');
+  path = path === '/' ? 'popular' : path;
   const res = {
     data: null,
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv${path}`, {
+    res.data = await tmdb.get(`/tv/${path}`, {
       params: {
         page,
       },

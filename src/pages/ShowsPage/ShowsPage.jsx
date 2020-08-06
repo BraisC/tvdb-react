@@ -1,36 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { ShowList } from 'components';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 
 const ShowsPage = () => {
   const history = useHistory();
-  const location = useLocation();
+  const { category } = useParams();
   const [shows, setShows] = useState([]);
+  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  //const [error, setError] = useState();
 
   useEffect(() => {
     async function getData() {
-      const res = await getShows('1', location.pathname);
+      const res = await getShows(page, category);
       if (res.error) {
-        setIsLoading(false);
         history.push('/error');
         console.log(res.error.status);
-
-        // setError(res.error);
-      } else {
         setIsLoading(false);
+      } else {
         setShows(res.data.data.results);
+        setIsLoading(false);
       }
     }
-
     getData();
-  }, [location.pathname, history]);
+  }, [category, history, page]);
 
-  //console.log(error);
-  console.log(shows);
-  console.log(location);
+  console.log(isLoading);
 
   return isLoading ? 'Loading' : <ShowList shows={shows} />;
 };
