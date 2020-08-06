@@ -6,8 +6,8 @@ import { getShows } from 'api/tmdb';
 const ShowsPage = () => {
   const history = useHistory();
   const { category } = useParams();
-  const [shows, setShows] = useState([]);
-  const [page, setPage] = useState(1);
+  const [shows, setShows] = useState();
+  const [page, setPage] = useState('1');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,9 +23,8 @@ const ShowsPage = () => {
       }
     }
     getData();
+    return () => setIsLoading(true);
   }, [category, history, page]);
-
-  console.log(isLoading);
 
   return isLoading ? 'Loading' : <ShowList shows={shows} />;
 };
