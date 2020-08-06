@@ -26,5 +26,3 @@ export async function getShows(page = 1, route = '/') {
 
   return res;
 }
-
-export default tmdb;

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import routes from 'routes';
-import { Header } from 'components';
+import { Header, Footer } from 'components';
 import GlobalStyles from 'utils/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'utils/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
+import { Styled } from './styled';
 
 function App() {
   const context = useContext(MyThemeContext);
@@ -14,8 +15,11 @@ function App() {
     <Router>
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <Header />
-        {routes}
+        <Styled.Wrapper>
+          <Header />
+          <Styled.ContentWrapper>{routes}</Styled.ContentWrapper>
+          <Footer />
+        </Styled.Wrapper>
       </ThemeProvider>
     </Router>
   );

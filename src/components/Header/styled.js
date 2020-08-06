@@ -5,6 +5,7 @@ const Header = styled.header`
   background: var(--color-primary);
   align-items: center;
   transition: 0.2s ease;
+  grid-area: header;
 `;
 
 const Logo = styled.div`
