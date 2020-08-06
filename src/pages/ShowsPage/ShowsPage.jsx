@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ShowList } from 'components';
-import { useShows } from 'hooks/useShows';
 import { useLocation } from 'react-router-dom';
+import { getShows } from 'api/tmdb';
 
 const ShowsPage = () => {
   const location = useLocation();
-  const data = useShows('1', location.pathname);
+  const [shows, setShows] = useState([]);
 
+  useEffect(() => {
+    async function getData() {
+      const res = await getShows('1', location.pathname);
+
+      setShows(res.data.results);
+    }
+
+    getData();
+  }, [location.pathname]);
+
+  console.log(shows);
   console.log(location);
-  console.log(data);
 
   return (
     <>

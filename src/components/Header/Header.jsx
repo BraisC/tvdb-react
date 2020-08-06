@@ -9,7 +9,7 @@ const MenuOptions = [
   { name: 'top', route: 'top rated' },
   { name: 'on air', route: 'on the air' },
   { name: 'today', route: 'airing today' },
-  { name: 'genre', route: 'genre' },
+  { name: 'genre', route: '' },
 ];
 
 const MenuItem = (props) => (
