@@ -2,7 +2,7 @@ import React from 'react';
 import { ShowItem } from './ShowItem';
 
 const ShowList = React.memo(function ShowList({ shows }) {
-  console.log(shows);
+  console.log('render list');
   return shows.map((show) => <ShowItem key={show.name} show={show} />);
 });
 

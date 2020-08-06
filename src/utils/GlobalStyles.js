@@ -20,7 +20,7 @@ export default createGlobalStyle`
       --color-primary: ${(props) => props.theme.primary};
       --color-secondary: ${(props) => props.theme.secondary};
       --color-white: ${(props) => props.theme.white};
-      --text-color: ${(props) => props.theme.text};
+      --color-text: ${(props) => props.theme.text};
 
       --shadow-color-dark: rgba(0, 0, 0, 0.25);
     }
