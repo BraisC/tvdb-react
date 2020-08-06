@@ -9,9 +9,12 @@ const ShowsPage = () => {
 
   useEffect(() => {
     async function getData() {
-      const res = await getShows('1', location.pathname);
-
-      setShows(res.data.results);
+      const res = await getShows('1', 'pene');
+      if (res.error) {
+        console.log(res.error);
+      } else {
+        setShows(res.data);
+      }
     }
 
     getData();
