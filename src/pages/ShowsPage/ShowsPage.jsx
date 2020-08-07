@@ -18,7 +18,7 @@ const ShowsPage = () => {
         history.push('/error');
         setIsLoading(false);
       } else {
-        setShows(res.data.data.results);
+        setShows(res.data.data);
         setIsLoading(false);
       }
     }
@@ -26,11 +26,15 @@ const ShowsPage = () => {
     return () => setIsLoading(true);
   }, [category, history, page]);
   console.log('render page');
+  if (isLoading) {
+    return 'Loading';
+  }
+
   return (
     <Styled.Wrapper>
       <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>
-      {isLoading ? 'Loader' : <ShowList shows={shows} />}
-      <div>PAGINACION</div>
+      <ShowList shows={shows.results} />
+      <div>{shows.total_pages}</div>
     </Styled.Wrapper>
   );
 };

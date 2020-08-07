@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(10rem, 25rem));
   justify-content: space-between;
   gap: 4rem;
-  overflow: hidden;
   padding: 0 2rem; /* so shadows dont get cut */
 `;
 
