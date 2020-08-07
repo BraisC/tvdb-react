@@ -4,7 +4,8 @@ const Header = styled.header`
   display: flex;
   background: var(--color-primary);
   align-items: center;
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  grid-area: header;
 `;
 
 const Logo = styled.div`
@@ -25,7 +26,7 @@ const Menu = styled.ul`
   }
 
   & a {
-    color: var(--text-color);
+    color: var(--color-text);
     font-size: 1.8rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -58,7 +59,7 @@ const SearchInput = styled.input`
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: var(--text-color);
+  color: var(--color-text);
   transition: 0.2s ease;
   padding-left: 5rem;
 
@@ -68,7 +69,7 @@ const SearchInput = styled.input`
 
   &::placeholder {
     opacity: 35%;
-    color: var(--text-color);
+    color: var(--color-text);
     text-transform: uppercase;
     font-family: Montserrat;
   }

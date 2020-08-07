@@ -12,9 +12,10 @@ const SearchInput = styled.input`
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: var(--text-color);
-  transition: 0.2s ease;
+  color: var(--color-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
   padding-left: 5rem;
+  font-family: Montserrat;
 
   &:focus::placeholder {
     opacity: 0;
@@ -22,15 +23,17 @@ const SearchInput = styled.input`
 
   &::placeholder {
     opacity: 35%;
-    color: var(--text-color);
+    color: var(--color-text);
     text-transform: uppercase;
     font-family: Montserrat;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 `;
 
 const SearchIcon = styled.label`
   color: var(--color-red);
   margin-right: -3.5rem;
+  margin-top: 3px;
   font-size: 2.2rem;
   cursor: pointer;
   z-index: 999;
