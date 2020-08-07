@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ShowList } from 'components';
+import { ShowList, Pagination } from 'components';
 import { useParams, useHistory } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 import { Styled } from './styled';
@@ -34,7 +34,7 @@ const ShowsPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>
       <ShowList shows={shows.results} />
-      <div>{shows.total_pages}</div>
+      <Pagination pages={shows.total_pages} />
     </Styled.Wrapper>
   );
 };
