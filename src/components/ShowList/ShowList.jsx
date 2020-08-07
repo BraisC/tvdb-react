@@ -1,9 +1,16 @@
 import React from 'react';
 import { ShowItem } from './ShowItem';
+import { Styled } from './styled';
 
 const ShowList = React.memo(function ShowList({ shows }) {
   console.log('render list');
-  return shows.map((show) => <ShowItem key={show.name} show={show} />);
+  return (
+    <Styled.Wrapper>
+      {shows.map((show) => (
+        <ShowItem key={show.name} show={show} />
+      ))}
+    </Styled.Wrapper>
+  );
 });
 
 export default ShowList;

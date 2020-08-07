@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   background: var(--color-secondary);
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.section`
   grid-area: content;
 `;
 

@@ -15,6 +15,7 @@ const SearchInput = styled.input`
   color: var(--color-text);
   transition: background-color 0.2s ease, color 0.2s ease;
   padding-left: 5rem;
+  font-family: Montserrat;
 
   &:focus::placeholder {
     opacity: 0;
@@ -32,6 +33,7 @@ const SearchInput = styled.input`
 const SearchIcon = styled.label`
   color: var(--color-red);
   margin-right: -3.5rem;
+  margin-top: 3px;
   font-size: 2.2rem;
   cursor: pointer;
   z-index: 999;

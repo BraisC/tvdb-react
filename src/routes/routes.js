@@ -1,13 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ShowsPage } from 'pages';
 
 const routes = (
-  <div>
+  <Switch>
     <Route path={['/', '/shows/:category']} exact>
       <ShowsPage />
     </Route>
-  </div>
+  </Switch>
 );
 
 export default routes;
