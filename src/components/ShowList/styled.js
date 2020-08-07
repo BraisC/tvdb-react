@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const ShowList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 25rem));
   justify-content: space-between;
@@ -9,5 +9,5 @@ const Wrapper = styled.div`
 `;
 
 export const Styled = {
-  Wrapper,
+  ShowList,
 };

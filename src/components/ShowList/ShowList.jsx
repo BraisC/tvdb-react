@@ -5,11 +5,11 @@ import { Styled } from './styled';
 const ShowList = React.memo(function ShowList({ shows }) {
   console.log('render list');
   return (
-    <Styled.Wrapper>
+    <Styled.ShowList>
       {shows.map((show) => (
         <ShowItem key={show.name} show={show} />
       ))}
-    </Styled.Wrapper>
+    </Styled.ShowList>
   );
 });
 
