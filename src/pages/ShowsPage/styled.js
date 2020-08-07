@@ -13,6 +13,7 @@ const PageTitle = styled.h2`
   font-weight: 100;
   text-transform: uppercase;
   margin-bottom: 4rem;
+  transition: color 0.2s ease;
 `;
 
 export const Styled = {

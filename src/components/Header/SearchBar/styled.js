@@ -23,10 +23,9 @@ const SearchInput = styled.input`
 
   &::placeholder {
     opacity: 35%;
-    color: var(--color-text);
     text-transform: uppercase;
     font-family: Montserrat;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: 0.2s ease;
   }
 `;
 

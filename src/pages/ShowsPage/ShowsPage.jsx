@@ -25,7 +25,7 @@ const ShowsPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [category, history, page]);
-
+  console.log('render page');
   return (
     <Styled.Wrapper>
       <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>

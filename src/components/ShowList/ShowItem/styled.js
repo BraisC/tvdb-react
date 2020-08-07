@@ -11,9 +11,10 @@ const Title = styled.span`
   text-align: center;
   margin-top: 1rem;
   font-size: 1.6rem;
+  transition: color 0.2s ease;
 `;
 
-const Item = styled(Link)`
+const ItemLink = styled(Link)`
   color: var(--color-text);
   text-decoration: none;
   display: flex;
@@ -29,6 +30,6 @@ const Item = styled(Link)`
 
 export const Styled = {
   Wrapper,
-  Item,
+  ItemLink,
   Title,
 };

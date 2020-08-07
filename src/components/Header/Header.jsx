@@ -14,7 +14,7 @@ const MenuOptions = [
 
 const MenuItem = (props) => (
   <li>
-    <NavLink to={`/shows/${props.route}`.replace('shows//', '')} exact>
+    <NavLink to={`${process.env.PUBLIC_URL}/shows/${props.route}`.replace('shows//', '')} exact>
       <span>{`${props.value}`}</span>
     </NavLink>
   </li>
