@@ -7,7 +7,7 @@ const Footer = () => (
     <Styled.Credits>Made by Brais Cao</Styled.Credits>
     <Styled.Attribution>
       <Styled.Credits>Powered by</Styled.Credits>
-      <Styled.Logo src={logo} />
+      <Styled.Logo src={logo} alt="TMDB Logo" />
     </Styled.Attribution>
   </Styled.Footer>
 );
