@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { ShowList, Pagination } from 'components';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
+import queryString from 'query-string';
 import { Styled } from './styled';
 
 const ShowsPage = () => {
   const history = useHistory();
-  const { category } = useParams();
+  const { category, page } = useParams();
+  const location = useLocation();
   const [shows, setShows] = useState();
-  const [page, setPage] = useState(1);
+  //const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
+  const params = queryString.parse(location.search);
 
   useEffect(() => {
     async function getData() {
-      const res = await getShows(page, category);
+      const res = await getShows(params.page, category);
       if (res.error) {
         history.push('/error');
         setIsLoading(false);
@@ -24,8 +28,8 @@ const ShowsPage = () => {
     }
     getData();
     return () => setIsLoading(true);
-  }, [category, history, page]);
-  console.log('render page');
+  }, [category, history, params.page]);
+  console.log('render page' + params.page);
   if (isLoading) {
     return 'Loading';
   }
@@ -34,7 +38,7 @@ const ShowsPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>
       <ShowList shows={shows.results} />
-      <Pagination pages={shows.total_pages} />
+      <Pagination currentPage={page} totalPages={shows.total_pages} />
     </Styled.Wrapper>
   );
 };
