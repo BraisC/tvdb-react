@@ -7,17 +7,20 @@ const Pagination = styled.div`
   align-items: center;
   padding: 3rem;
   font-size: 1.4rem;
+  gap: 1rem;
 `;
 
 const Button = styled(Link)`
   padding: 1rem 1.5rem;
   text-decoration: none;
   color: var(--color-text);
-  background-color: var(--color-primary);
+  background-color: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-primary)')};
   transition: 0.2s ease;
+  font-weight: 500;
 
   &:hover {
-    color: var(--color-red);
+    color: ${(props) => (props.active ? 'var(--color-white)' : 'var(--color-red)')};
+    cursor: ${(props) => (props.active ? 'default' : 'pointer')};
   }
 `;
 

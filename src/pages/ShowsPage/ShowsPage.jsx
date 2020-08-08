@@ -7,7 +7,7 @@ import { Styled } from './styled';
 
 const ShowsPage = () => {
   const history = useHistory();
-  const { category, page } = useParams();
+  const { category } = useParams();
   const location = useLocation();
   const [shows, setShows] = useState();
   //const [page, setPage] = useState(1);
@@ -38,7 +38,7 @@ const ShowsPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>
       <ShowList shows={shows.results} />
-      <Pagination currentPage={page} totalPages={shows.total_pages} />
+      <Pagination currentPage={params.page} totalPages={shows.total_pages} />
     </Styled.Wrapper>
   );
 };
