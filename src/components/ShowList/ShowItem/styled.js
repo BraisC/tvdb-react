@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Item = styled.div`
   color: var(--color-text);
+  opacity: ${(props) => (props.loaded ? '1' : '0')};
   transition: 1s ease;
 `;
 

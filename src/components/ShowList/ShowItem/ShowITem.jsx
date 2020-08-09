@@ -5,7 +5,7 @@ const ShowItem = ({ show }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Styled.Item style={{ opacity: loaded ? 1 : 0 }}>
+    <Styled.Item loaded={loaded}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
         <img
           onLoad={() => setLoaded(true)}
