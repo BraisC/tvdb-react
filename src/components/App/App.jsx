@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import routes from 'routes';
 import { Header, Footer } from 'components';
-import GlobalStyles from 'utils/GlobalStyles';
+import GlobalStyles from 'styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from 'utils/theme';
+import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { Styled } from './styled';
 

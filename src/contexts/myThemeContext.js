@@ -1,5 +1,5 @@
 import React from 'react';
-import { darkTheme } from 'utils/theme';
+import { darkTheme } from 'styles/theme';
 import { useThemeSwitch } from 'hooks/useThemeSwitch';
 
 export const MyThemeContext = React.createContext({
