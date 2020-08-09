@@ -37,7 +37,11 @@ const ShowsPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       <ShowList shows={shows.results} />
-      <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={shows.total_pages} />
+      <Pagination
+        currentPage={parseInt(params.page ?? '1')}
+        totalPages={shows.total_pages}
+        size={7}
+      />
     </Styled.Wrapper>
   );
 };
