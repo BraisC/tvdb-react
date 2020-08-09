@@ -7,7 +7,8 @@ const ShowItem = ({ show }) => {
   return (
     <Styled.Item loaded={loaded}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
-        <img
+        <Styled.Image
+          loading="lazy"
           onLoad={() => setLoaded(true)}
           src={`https://image.tmdb.org/t/p/w342${show.poster_path}`}
           alt={show.name}

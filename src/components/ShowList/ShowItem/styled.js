@@ -16,6 +16,13 @@ const Title = styled.span`
   transition: color 0.2s ease;
 `;
 
+const Image = styled.img`
+  width: 100%;
+  height: 37.5rem;
+  object-fit: cover;
+  transition: 0.2s ease;
+`;
+
 const ItemLink = styled(Link)`
   color: var(--color-text);
   text-decoration: none;
@@ -30,15 +37,8 @@ const ItemLink = styled(Link)`
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
   }
 
-  &:hover img {
+  &:hover ${Image} {
     transform: scaleY(1.2);
-  }
-
-  & img {
-    width: 100%;
-    height: 37.5rem;
-    object-fit: cover;
-    transition: 0.2s ease;
   }
 `;
 
@@ -46,4 +46,5 @@ export const Styled = {
   Item,
   ItemLink,
   Title,
+  Image,
 };
