@@ -10,7 +10,6 @@ const ShowsPage = () => {
   const { category } = useParams();
   const location = useLocation();
   const [shows, setShows] = useState();
-  //const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const params = queryString.parse(location.search);
@@ -29,16 +28,16 @@ const ShowsPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [category, history, params.page]);
-  console.log('render page' + params.page);
+
   if (isLoading) {
     return 'Loading';
   }
 
   return (
     <Styled.Wrapper>
-      <Styled.PageTitle>{category || 'popular'}</Styled.PageTitle>
+      <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       <ShowList shows={shows.results} />
-      <Pagination currentPage={params.page} totalPages={shows.total_pages} />
+      <Pagination currentPage={params.page ?? '1'} totalPages={shows.total_pages} />
     </Styled.Wrapper>
   );
 };
