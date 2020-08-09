@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Item = styled.div`
   color: var(--color-text);
+  transition: 1s ease;
 `;
 
 const Title = styled.span`
