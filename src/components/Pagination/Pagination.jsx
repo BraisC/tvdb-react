@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styled } from './styled';
 
-const renderPaginationButtons = (currentPage, totalPages, size) => {
+const createPaginationButtons = (currentPage, totalPages, size) => {
   let buttons = [];
 
   //! REFACTOR THIS SHIT
@@ -35,22 +35,25 @@ const renderPaginationButtons = (currentPage, totalPages, size) => {
   }
   //console.log(buttons);
 
+  return buttons;
+};
+
+const Pagination = ({ currentPage, totalPages, size }) => {
+  const paginationButtons = createPaginationButtons(currentPage, totalPages, size);
+
   return (
     <Styled.Pagination>
-      {buttons.map((val) => {
-        if (val === currentPage) {
-          return (
-            <Styled.Button key={val} active to={`${process.env.PUBLIC_URL}?page=${val}`}>
-              {val}
-            </Styled.Button>
-          );
-        }
+      {paginationButtons.map((val, index) => {
         if (val === '...') {
-          return <div key={val}>...</div>;
+          return <div key={val + index}>...</div>;
         }
 
         return (
-          <Styled.Button key={val} to={`${process.env.PUBLIC_URL}?page=${val}`}>
+          <Styled.Button
+            key={val + index}
+            active={val === currentPage}
+            to={`${process.env.PUBLIC_URL}?page=${val}`}
+          >
             {val}
           </Styled.Button>
         );
@@ -58,19 +61,5 @@ const renderPaginationButtons = (currentPage, totalPages, size) => {
     </Styled.Pagination>
   );
 };
-
-const Pagination = ({ currentPage, totalPages, size }) => {
-  const paginationButtons = renderPaginationButtons(currentPage, totalPages, size);
-  console.log(currentPage, totalPages);
-  return paginationButtons;
-};
-
-//if currentpage < 5 show 1,2,3,4,5...500
-//if currentPage >= 5 show 1..currentPage-1, currentPage, currentPage+1 ..500
-//if currentPage+3 == 500, show 1...currentpage-1, currentpage, currentpage+1, currentpage+2, 500
-
-//[1,2,3,4*,5, '...', 500]
-//[1, '...', 2,3*,4, ... , 500]
-//[1, '...', 496, 497*, 498, 499, 500]
 
 export default Pagination;
