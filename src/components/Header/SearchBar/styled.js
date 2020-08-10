@@ -36,6 +36,11 @@ const SearchIcon = styled.label`
   font-size: 2.2rem;
   cursor: pointer;
   z-index: 999;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Styled = {
