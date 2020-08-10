@@ -6,6 +6,10 @@ const ShowList = styled.div`
   justify-content: space-between;
   gap: 4rem;
   padding: 0 2rem; /* so shadows dont get cut */
+
+  &.few {
+    justify-content: start;
+  }
 `;
 
 export const Styled = {

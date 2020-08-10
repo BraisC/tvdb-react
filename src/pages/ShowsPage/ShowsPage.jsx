@@ -39,9 +39,9 @@ const ShowsPage = () => {
   }
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper className={shows.total_results < 5 ? 'few' : null}>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
-      <ShowList shows={shows.results} />
+      <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
       <Pagination
         currentPage={parseInt(params.page ?? '1')}
         totalPages={shows.total_pages}

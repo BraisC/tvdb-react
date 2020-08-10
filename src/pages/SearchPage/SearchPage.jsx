@@ -41,7 +41,7 @@ const SearchPage = () => {
   return (
     <Styled.Wrapper>
       <Styled.PageTitle>{query}</Styled.PageTitle>
-      <ShowList shows={shows.results} />
+      <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
       <Pagination
         currentPage={parseInt(params.page ?? '1')}
         totalPages={shows.total_pages}

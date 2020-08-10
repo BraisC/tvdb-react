@@ -2,10 +2,10 @@ import React from 'react';
 import { ShowItem } from './ShowItem';
 import { Styled } from './styled';
 
-const ShowList = React.memo(function ShowList({ shows }) {
+const ShowList = React.memo(function ShowList({ shows, few }) {
   console.log('render list');
   return (
-    <Styled.ShowList>
+    <Styled.ShowList className={few}>
       {shows.map((show) => (
         <ShowItem key={show.name + show.first_air_date} show={show} />
       ))}
