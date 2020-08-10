@@ -24,6 +24,7 @@ const Image = styled.img`
 
   &.missing-poster {
     object-fit: contain;
+    background-color: var(--color-primary);
   }
 `;
 
