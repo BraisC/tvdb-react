@@ -9,6 +9,26 @@ const generateTitle = (show) => {
   return year ? `${title} (${year})` : title;
 };
 
+export const limitTitle = (title, limit = 18) => {
+  const newTitle = [];
+
+  if (title.length > limit) {
+    title.split(' ').reduce((accumulator, currentValue) => {
+      if (accumulator + currentValue.length < limit) {
+        newTitle.push(currentValue);
+      }
+      return accumulator + currentValue.length;
+    }, 0);
+
+    if (newTitle.join(' ').length === title.length) {
+      return newTitle.join(' ');
+    }
+    return `${newTitle.join(' ')} ...`;
+  }
+
+  return title;
+};
+
 const ShowItem = ({ show }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -17,7 +37,7 @@ const ShowItem = ({ show }) => {
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
         <Styled.Overlay>
           <Styled.Content>
-            <h1>{show.name}</h1>
+            <h2>{limitTitle(generateTitle(show))}</h2>
           </Styled.Content>
         </Styled.Overlay>
         <Styled.Image

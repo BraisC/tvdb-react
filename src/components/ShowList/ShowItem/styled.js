@@ -41,7 +41,12 @@ const Overlay = styled.div`
 `;
 
 const Content = styled.div`
-  transform: scaleX(0.8);
+  transform: scaleX(0.87);
+
+  & h2 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
 `;
 
 const ItemLink = styled(Link)`
