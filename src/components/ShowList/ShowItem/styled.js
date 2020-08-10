@@ -28,6 +28,16 @@ const Image = styled.img`
   }
 `;
 
+const Overlay = styled.div`
+  background-color: rgba(var(--color-transparency), 0.96);
+  height: 37.5rem;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  transition: 0.2s ease;
+`;
+
 const ItemLink = styled(Link)`
   color: var(--color-text);
   text-decoration: none;
@@ -36,6 +46,7 @@ const ItemLink = styled(Link)`
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
   overflow: hidden;
+  position: relative;
 
   &:hover {
     transform: scaleY(1.2) scaleX(1.4);
@@ -45,6 +56,10 @@ const ItemLink = styled(Link)`
   &:hover ${Image} {
     transform: scaleY(1.2);
   }
+
+  &:hover ${Overlay} {
+    opacity: 1;
+  }
 `;
 
 export const Styled = {
@@ -52,4 +67,5 @@ export const Styled = {
   ItemLink,
   Title,
   Image,
+  Overlay,
 };

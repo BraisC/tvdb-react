@@ -19,6 +19,7 @@ export default createGlobalStyle`
       --color-red: #FF6363;
       --color-primary: ${(props) => props.theme.primary};
       --color-secondary: ${(props) => props.theme.secondary};
+      --color-transparency: ${(props) => props.theme.transparency};
       --color-white: ${(props) => props.theme.white};
       --color-text: ${(props) => props.theme.text};
 

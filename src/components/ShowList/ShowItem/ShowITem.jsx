@@ -15,6 +15,7 @@ const ShowItem = ({ show }) => {
   return (
     <Styled.Item loaded={loaded}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
+        <Styled.Overlay />
         <Styled.Image
           loading="lazy"
           onLoad={() => setLoaded(true)}
