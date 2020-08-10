@@ -21,6 +21,10 @@ const Image = styled.img`
   height: 37.5rem;
   object-fit: cover;
   transition: 0.2s ease;
+
+  &.missing-poster {
+    object-fit: contain;
+  }
 `;
 
 const ItemLink = styled(Link)`

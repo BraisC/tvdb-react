@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { missingPoster } from 'images';
 import { Styled } from './styled';
 
 const ShowItem = ({ show }) => {
@@ -10,8 +11,11 @@ const ShowItem = ({ show }) => {
         <Styled.Image
           loading="lazy"
           onLoad={() => setLoaded(true)}
-          src={`https://image.tmdb.org/t/p/w342${show.poster_path}`}
+          src={
+            show.poster_path ? `https://image.tmdb.org/t/p/w342${show.poster_path}` : missingPoster
+          }
           alt={show.name}
+          className={show.poster_path ? null : 'missing-poster'}
         />
       </Styled.ItemLink>
       <Styled.Title>{`${show.name} (${show.first_air_date.substring(0, 4)})`}</Styled.Title>
