@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, ShowListLoader } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
 import queryString from 'query-string';
 import { Styled } from './styled';
 
-const SearchPage = (props) => {
+const SearchPage = () => {
   const history = useHistory();
   const { query } = useParams();
   const location = useLocation();
@@ -30,10 +30,13 @@ const SearchPage = (props) => {
   }, [query, history, params.page]);
 
   if (isLoading) {
-    return 'Loading';
+    return (
+      <Styled.Wrapper>
+        <Styled.PageTitle>{query}</Styled.PageTitle>
+        <ShowListLoader />
+      </Styled.Wrapper>
+    );
   }
-
-  console.log(shows);
 
   return (
     <Styled.Wrapper>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, ShowListLoader } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 import queryString from 'query-string';
@@ -30,7 +30,12 @@ const ShowsPage = () => {
   }, [category, history, params.page]);
 
   if (isLoading) {
-    return 'Loading';
+    return (
+      <Styled.Wrapper>
+        <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
+        <ShowListLoader />
+      </Styled.Wrapper>
+    );
   }
 
   return (
