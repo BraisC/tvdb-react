@@ -15,7 +15,11 @@ const ShowItem = ({ show }) => {
   return (
     <Styled.Item loaded={loaded}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
-        <Styled.Overlay />
+        <Styled.Overlay>
+          <Styled.Content>
+            <h1>{show.name}</h1>
+          </Styled.Content>
+        </Styled.Overlay>
         <Styled.Image
           loading="lazy"
           onLoad={() => setLoaded(true)}

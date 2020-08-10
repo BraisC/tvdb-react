@@ -34,8 +34,14 @@ const Overlay = styled.div`
   width: 100%;
   opacity: 0;
   position: absolute;
+  top: 0;
   z-index: 2;
   transition: 0.2s ease;
+  padding: 2rem 0;
+`;
+
+const Content = styled.div`
+  transform: scaleX(0.8);
 `;
 
 const ItemLink = styled(Link)`
@@ -68,4 +74,5 @@ export const Styled = {
   Title,
   Image,
   Overlay,
+  Content,
 };
