@@ -2,40 +2,37 @@ import React from 'react';
 import { Styled } from './styled';
 
 const createPaginationButtons = (currentPage, totalPages, size) => {
-  let buttons = [];
+  const delta = 1;
+  const range = [];
+  const rangeWithDots = [];
+  let l;
 
-  //! REFACTOR THIS SHIT
+  range.push(1);
 
-  if (currentPage < 5 && totalPages <= 7) {
-    buttons = [1, 2, 3, 4, 5, 6, 7];
-  } else if (currentPage < 5) {
-    buttons = [1, 2, 3, 4, 5, '...', totalPages];
-  } else if (currentPage >= 5 && currentPage + 3 < totalPages) {
-    buttons = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
-  } else if (currentPage + 3 > totalPages) {
-    buttons = [
-      1,
-      '...',
-      totalPages - 4,
-      totalPages - 3,
-      totalPages - 2,
-      totalPages - 1,
-      totalPages,
-    ];
-  } else {
-    buttons = [
-      1,
-      '...',
-      currentPage - 1,
-      currentPage,
-      currentPage + 1,
-      currentPage + 2,
-      totalPages,
-    ];
+  if (totalPages <= 1) {
+    return range;
   }
-  //console.log(buttons);
 
-  return buttons;
+  for (let i = currentPage - delta; i <= currentPage + delta; i++) {
+    if (i < totalPages && i > 1) {
+      range.push(i);
+    }
+  }
+  range.push(totalPages);
+
+  for (const i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1);
+      } else if (i - l !== 1) {
+        rangeWithDots.push('...');
+      }
+    }
+    rangeWithDots.push(i);
+    l = i;
+  }
+
+  return rangeWithDots;
 };
 
 const Pagination = ({ currentPage, totalPages, size }) => {
