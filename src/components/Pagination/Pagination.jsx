@@ -51,8 +51,8 @@ const Pagination = ({ currentPage, totalPages, size }) => {
         return (
           <Styled.Button
             key={val + index}
-            active={val === currentPage}
             to={`${process.env.PUBLIC_URL}?page=${val}`}
+            className={currentPage === val ? 'active' : null}
           >
             {val}
           </Styled.Button>

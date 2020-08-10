@@ -14,9 +14,13 @@ const Button = styled(Link)`
   padding: 1rem 1.5rem;
   text-decoration: none;
   color: var(--color-text);
-  background-color: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-primary)')};
+  background-color: var(--color-primary);
   transition: 0.2s ease;
   font-weight: 500;
+
+  &.active {
+    background-color: var(--color-red);
+  }
 
   &:hover {
     color: ${(props) => (props.active ? 'var(--color-white)' : 'var(--color-red)')};
