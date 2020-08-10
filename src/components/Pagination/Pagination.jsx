@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styled } from './styled';
 
-const createPaginationButtons = (currentPage, totalPages, size) => {
+const createPaginationButtons = (currentPage, totalPages) => {
   const delta = 1;
   const range = [];
   const rangeWithDots = [];
@@ -13,12 +13,27 @@ const createPaginationButtons = (currentPage, totalPages, size) => {
     return range;
   }
 
-  for (let i = currentPage - delta; i <= currentPage + delta; i++) {
-    if (i < totalPages && i > 1) {
+  if (totalPages <= 7) {
+    for (let i = 2; i <= totalPages; i++) {
       range.push(i);
     }
+  } else if (currentPage < 5) {
+    for (let i = 2; i <= 5; i++) {
+      range.push(i);
+    }
+    range.push(totalPages);
+  } else if (currentPage > totalPages - 3) {
+    for (let i = totalPages - 4; i <= totalPages; i++) {
+      range.push(i);
+    }
+  } else {
+    for (let i = currentPage - delta; i <= currentPage + delta; i++) {
+      if (i < totalPages && i > 1) {
+        range.push(i);
+      }
+    }
+    range.push(totalPages);
   }
-  range.push(totalPages);
 
   for (const i of range) {
     if (l) {
@@ -28,6 +43,7 @@ const createPaginationButtons = (currentPage, totalPages, size) => {
         rangeWithDots.push('...');
       }
     }
+
     rangeWithDots.push(i);
     l = i;
   }
