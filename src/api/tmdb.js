@@ -26,3 +26,22 @@ export async function getShows(page = 1, route = '/') {
 
   return res;
 }
+
+export async function getShowsSearch(page = 1, query) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/search/tv/`, {
+      params: {
+        page,
+        query,
+      },
+    });
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
