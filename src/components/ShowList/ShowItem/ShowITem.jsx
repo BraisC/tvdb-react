@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { missingPoster } from 'images';
 import { Styled } from './styled';
 
+const generateTitle = (show) => {
+  const title = show.name;
+  const year = show.first_air_date?.substring(0, 4);
+
+  return year ? `${title} (${year})` : title;
+};
+
 const ShowItem = ({ show }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -18,7 +25,7 @@ const ShowItem = ({ show }) => {
           className={show.poster_path ? null : 'missing-poster'}
         />
       </Styled.ItemLink>
-      <Styled.Title>{`${show.name} (${show.first_air_date.substring(0, 4)})`}</Styled.Title>
+      <Styled.Title>{generateTitle(show)}</Styled.Title>
     </Styled.Item>
   );
 };
