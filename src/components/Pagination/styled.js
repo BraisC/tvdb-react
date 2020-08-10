@@ -22,9 +22,13 @@ const Button = styled(Link)`
     background-color: var(--color-red);
   }
 
+  &.active:hover {
+    cursor: default;
+    color: var(--color-white);
+  }
+
   &:hover {
-    color: ${(props) => (props.active ? 'var(--color-white)' : 'var(--color-red)')};
-    cursor: ${(props) => (props.active ? 'default' : 'pointer')};
+    color: var(--color-red);
   }
 `;
 
