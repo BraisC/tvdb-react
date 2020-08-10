@@ -54,7 +54,7 @@ const createPaginationButtons = (currentPage, totalPages) => {
 const Pagination = ({ currentPage, totalPages, size }) => {
   const paginationButtons = createPaginationButtons(currentPage, totalPages, size);
 
-  if (totalPages === 1) return null;
+  if (totalPages <= 1) return null;
 
   return (
     <Styled.Pagination>
