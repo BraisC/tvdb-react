@@ -29,7 +29,7 @@ export default createGlobalStyle`
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      background-color: var(--color-secondary);
+      
     }
     form,
     input,

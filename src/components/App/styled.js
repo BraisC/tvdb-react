@@ -9,12 +9,12 @@ const Wrapper = styled.div`
     'header'
     'content'
     'footer';
-  transition: background-color 0.2s ease, color 0.2s ease;
-  background: var(--color-secondary);
 `;
 
 const ContentWrapper = styled.section`
   grid-area: content;
+  background-color: var(--color-secondary);
+  transition: background-color 0.2s ease;
 `;
 
 export const Styled = {
