@@ -6,6 +6,7 @@ import GlobalStyles from 'styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
+import { GenresProvider } from 'contexts/genresContext';
 import { Styled } from './styled';
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
         <Styled.Wrapper>
-          <Header />
+          <GenresProvider>
+            <Header />
+          </GenresProvider>
           <Styled.ContentWrapper>{routes}</Styled.ContentWrapper>
           <Footer />
         </Styled.Wrapper>

@@ -15,9 +15,23 @@ const Logo = styled.div`
   font-weight: bold;
   padding: 1.3rem 5rem;
 `;
+const SubMenu = styled.ul`
+  display: none;
+  position: absolute;
+  background-color: var(--color-primary);
+  z-index: 3;
 
-const SubMenu = styled.span`
+  &:hover {
+    display: block;
+  }
+`;
+
+const SubMenuButton = styled.span`
   cursor: pointer;
+
+  &:hover ~ ${SubMenu} {
+    display: block;
+  }
 `;
 
 const Menu = styled.ul`
@@ -30,7 +44,7 @@ const Menu = styled.ul`
   }
 
   & a,
-  & ${SubMenu} {
+  & ${SubMenuButton} {
     color: var(--color-text);
     font-size: 1.8rem;
     text-transform: uppercase;
@@ -95,5 +109,6 @@ export const Styled = {
   SearchBar,
   SearchInput,
   SearchIcon,
+  SubMenuButton,
   SubMenu,
 };

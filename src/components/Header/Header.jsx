@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { GenresContext } from 'contexts/genresContext';
 import { Styled } from './styled';
 import { SearchBar } from './SearchBar';
 import { ThemeToggler } from './ThemeToggler';
@@ -12,31 +13,46 @@ const MenuOptions = [
   { name: 'genre' },
 ];
 
-const MenuItem = (props) => (
+const SubMenuItem = ({ value }) => (
   <li>
-    <NavLink to={`${process.env.PUBLIC_URL}/shows/${props.route}`.replace('shows//', '')} exact>
-      <span>{`${props.value}`}</span>
+    <NavLink to={`${process.env.PUBLIC_URL}/genre/${value}`} exact>
+      <span>{`${value}`}</span>
     </NavLink>
   </li>
 );
 
-const MenuItemSub = (props) => (
+const SubMenu = ({ value, subvalues }) => (
   <li>
-    <Styled.SubMenu>{props.value}</Styled.SubMenu>
+    <Styled.SubMenuButton>{value}</Styled.SubMenuButton>
+    <Styled.SubMenu>
+      {subvalues ? subvalues?.map((s) => <SubMenuItem key={s.name} value={s.name} />) : null}
+    </Styled.SubMenu>
   </li>
 );
 
-const Menu = () => (
-  <Styled.Menu>
-    {MenuOptions.map((val) =>
-      val.route ? (
-        <MenuItem key={val.name} value={val.name} route={val.route} />
-      ) : (
-        <MenuItemSub key={val.name} value={val.name} />
-      )
-    )}
-  </Styled.Menu>
+const MenuItem = ({ value, route }) => (
+  <li>
+    <NavLink to={`${process.env.PUBLIC_URL}/shows/${route}`.replace('shows//', '')} exact>
+      <span>{`${value}`}</span>
+    </NavLink>
+  </li>
 );
+
+const Menu = () => {
+  const genres = useContext(GenresContext);
+
+  return (
+    <Styled.Menu>
+      {MenuOptions.map((val) =>
+        val.route ? (
+          <MenuItem key={val.name} value={val.name} route={val.route} />
+        ) : (
+          <SubMenu key={val.name} value={val.name} subvalues={genres} />
+        )
+      )}
+    </Styled.Menu>
+  );
+};
 
 const Header = () => (
   <Styled.Header>
