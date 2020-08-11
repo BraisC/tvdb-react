@@ -72,7 +72,7 @@ const Content = styled.div`
   height: 100%;
 
   opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 
   & h2 {
     font-weight: 600;
