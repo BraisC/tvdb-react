@@ -27,7 +27,9 @@ const SubMenu = styled.ul`
   transition: all 0.5s ease;
   grid-template-rows: repeat(8, auto);
   grid-auto-flow: column;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  visibility: hidden;
+  pointer-events: none;
 
   & li a {
     padding: 0.5rem 1rem;
@@ -39,15 +41,20 @@ const SubMenu = styled.ul`
   &:hover {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
   }
 `;
 
 const SubMenuButton = styled.span`
   cursor: pointer;
+`;
 
-  &:hover ~ ${SubMenu} {
+const SubMenuWrapper = styled.li`
+  &:hover > ${SubMenu} {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 `;
 
@@ -128,4 +135,5 @@ export const Styled = {
   SearchIcon,
   SubMenuButton,
   SubMenu,
+  SubMenuWrapper,
 };

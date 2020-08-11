@@ -22,12 +22,12 @@ const SubMenuItem = ({ value }) => (
 );
 
 const SubMenu = ({ value, subvalues }) => (
-  <li>
+  <Styled.SubMenuWrapper>
     <Styled.SubMenuButton>{value}</Styled.SubMenuButton>
     <Styled.SubMenu>
       {subvalues ? subvalues?.map((s) => <SubMenuItem key={s.name} value={s.name} />) : null}
     </Styled.SubMenu>
-  </li>
+  </Styled.SubMenuWrapper>
 );
 
 const MenuItem = ({ value, route }) => (
