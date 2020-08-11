@@ -91,7 +91,7 @@ const ShowItem = ({ show }) => {
               </Styled.ContentHeader>
               <Styled.ContentSummary>
                 <h3>Summary</h3>
-                <p>{limitTextLength(details.overview, 200)}</p>
+                <p>{limitTextLength(details.overview, 200) || 'No summary'}</p>
               </Styled.ContentSummary>
               <Styled.ContentSeasons>
                 {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
