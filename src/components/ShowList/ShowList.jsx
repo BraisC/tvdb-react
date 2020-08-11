@@ -3,7 +3,6 @@ import { ShowItem } from './ShowItem';
 import { Styled } from './styled';
 
 const ShowList = React.memo(function ShowList({ shows, few }) {
-  console.log('render list');
   return (
     <Styled.ShowList className={few}>
       {shows.map((show) => (

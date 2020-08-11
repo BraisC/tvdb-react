@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { missingPoster } from 'images';
+import { getDetails } from 'api/tmdb';
 import { Styled } from './styled';
 
 const generateTitle = (show) => {
@@ -9,7 +10,7 @@ const generateTitle = (show) => {
   return year ? `${title} (${year})` : title;
 };
 
-export const limitTitle = (title, limit = 18) => {
+const limitTitle = (title, limit = 18) => {
   const newTitle = [];
 
   if (title.length > limit) {
@@ -31,14 +32,33 @@ export const limitTitle = (title, limit = 18) => {
 
 const ShowItem = ({ show }) => {
   const [loaded, setLoaded] = useState(false);
+  const [details, setDetails] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  console.log('item');
+
+  const handleHover = async () => {
+    const res = await getDetails(show.id);
+    if (res.error) {
+      setIsLoading(false);
+    } else {
+      setDetails(res.data.data);
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <Styled.Item loaded={loaded}>
+    <Styled.Item loaded={loaded} onMouseEnter={handleHover}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
         <Styled.Overlay>
-          <Styled.Content>
-            <h2>{limitTitle(generateTitle(show))}</h2>
-          </Styled.Content>
+          {isLoading ? (
+            'Loading'
+          ) : (
+            <Styled.Content>
+              <h2>{limitTitle(generateTitle(details))}</h2>
+              <h3>{details.genres.map((genre) => genre.name).join(', ')}</h3>
+            </Styled.Content>
+          )}
         </Styled.Overlay>
         <Styled.Image
           loading="lazy"

@@ -7,6 +7,34 @@ const tmdb = axios.create({
   },
 });
 
+export async function getGenres() {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/genre/tv/list`);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
+export async function getDetails(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/tv/${id}`);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
 export async function getShows(page = 1, route = '/') {
   let path = route.split(' ').join('_');
   path = path === '/' ? 'popular' : path;
