@@ -6,6 +6,8 @@ const Header = styled.header`
   align-items: center;
   transition: background-color 0.2s ease, color 0.2s ease;
   grid-area: header;
+  position: relative;
+  z-index: 3;
 `;
 
 const Logo = styled.div`
@@ -15,14 +17,28 @@ const Logo = styled.div`
   font-weight: bold;
   padding: 1.3rem 5rem;
 `;
+
 const SubMenu = styled.ul`
-  display: none;
+  display: grid;
   position: absolute;
+  transform: translateY(50%);
+  opacity: 0;
   background-color: var(--color-primary);
-  z-index: 3;
+  transition: all 0.5s ease;
+  grid-template-rows: repeat(8, auto);
+  grid-auto-flow: column;
+  padding: 1rem;
+
+  & li a {
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+
+    display: block;
+  }
 
   &:hover {
-    display: block;
+    transform: translateY(0);
+    opacity: 1;
   }
 `;
 
@@ -30,7 +46,8 @@ const SubMenuButton = styled.span`
   cursor: pointer;
 
   &:hover ~ ${SubMenu} {
-    display: block;
+    transform: translateY(0);
+    opacity: 1;
   }
 `;
 
