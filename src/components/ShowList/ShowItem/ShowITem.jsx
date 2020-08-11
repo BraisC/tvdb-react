@@ -76,7 +76,7 @@ const ShowItem = ({ show }) => {
     imgHeight.current = img.height;
     setContentLoaded(true);
   };
-
+  console.log(contentLoaded);
   return (
     <Styled.Item loaded={loaded} onMouseEnter={handleHover}>
       <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
@@ -84,7 +84,7 @@ const ShowItem = ({ show }) => {
           {isLoading ? (
             'Loading'
           ) : (
-            <Styled.Content contentLoaded={contentLoaded}>
+            <Styled.Content contentLoaded={details.networks[0]?.logo_path ? contentLoaded : true}>
               <Styled.ContentHeader>
                 <h2>{limitTextLength(generateTitle(details))}</h2>
                 <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
@@ -105,12 +105,14 @@ const ShowItem = ({ show }) => {
                   <h3>Rating</h3>
                   <Styled.ContentStars>{generateStars(details.vote_average)}</Styled.ContentStars>
                 </Styled.ContentRating>
-                <Styled.ContentLogo
-                  small={imgHeight.current > 100}
-                  onLoad={handleContentLoad}
-                  src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}
-                  alt=""
-                />
+                {details.networks[0]?.logo_path ? (
+                  <Styled.ContentLogo
+                    small={imgHeight.current > 100}
+                    onLoad={handleContentLoad}
+                    src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}
+                    alt="Network"
+                  />
+                ) : null}
               </Styled.ContentFooter>
             </Styled.Content>
           )}
