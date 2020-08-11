@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 import { Styled } from './styled';
 
 const generateTitle = (show) => {
@@ -10,7 +13,7 @@ const generateTitle = (show) => {
   return year ? `${title} (${year})` : title;
 };
 
-const limitTitle = (title, limit = 18) => {
+const limitTextLength = (title, limit = 18) => {
   const newTitle = [];
 
   if (title.length > limit) {
@@ -30,21 +33,48 @@ const limitTitle = (title, limit = 18) => {
   return title;
 };
 
+const generateStars = (valoration) => {
+  const full = Math.trunc(valoration / 2);
+  const decimal = Math.round(((valoration / 2) % 1) * 10);
+  const result = [];
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= full || (i === full + 1 && decimal > 6)) {
+      result.push(<FontAwesomeIcon key={i} icon={faStar} />);
+    } else if (i === full + 1 && decimal > 2 && decimal < 6) {
+      result.push(<FontAwesomeIcon key={i} icon={faStarHalfAlt} />);
+    } else {
+      result.push(<FontAwesomeIcon key={i} icon={faStarEmpty} />);
+    }
+  }
+
+  return result;
+};
+
 const ShowItem = ({ show }) => {
   const [loaded, setLoaded] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
   const [details, setDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  console.log('item');
+  const imgHeight = useRef();
 
   const handleHover = async () => {
-    const res = await getDetails(show.id);
-    if (res.error) {
-      setIsLoading(false);
-    } else {
-      setDetails(res.data.data);
-      setIsLoading(false);
+    if (!details) {
+      const res = await getDetails(show.id);
+      if (res.error) {
+        setIsLoading(false);
+      } else {
+        setDetails(res.data.data);
+        setIsLoading(false);
+      }
     }
+  };
+
+  const handleContentLoad = (event) => {
+    const img = new Image();
+    img.src = event.target.src;
+    imgHeight.current = img.height;
+    setContentLoaded(true);
   };
 
   return (
@@ -54,9 +84,34 @@ const ShowItem = ({ show }) => {
           {isLoading ? (
             'Loading'
           ) : (
-            <Styled.Content>
-              <h2>{limitTitle(generateTitle(details))}</h2>
-              <h3>{details.genres.map((genre) => genre.name).join(', ')}</h3>
+            <Styled.Content contentLoaded={contentLoaded}>
+              <Styled.ContentHeader>
+                <h2>{limitTextLength(generateTitle(details))}</h2>
+                <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
+              </Styled.ContentHeader>
+              <Styled.ContentSummary>
+                <h3>Summary</h3>
+                <p>{limitTextLength(details.overview, 200)}</p>
+              </Styled.ContentSummary>
+              <Styled.ContentSeasons>
+                {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
+              </Styled.ContentSeasons>
+              <Styled.ContentStatus>
+                <h3>Status</h3>
+                <span>{details.status}</span>
+              </Styled.ContentStatus>
+              <Styled.ContentFooter>
+                <Styled.ContentRating>
+                  <h3>Rating</h3>
+                  <Styled.ContentStars>{generateStars(details.vote_average)}</Styled.ContentStars>
+                </Styled.ContentRating>
+                <Styled.ContentLogo
+                  small={imgHeight.current > 100}
+                  onLoad={handleContentLoad}
+                  src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}
+                  alt=""
+                />
+              </Styled.ContentFooter>
             </Styled.Content>
           )}
         </Styled.Overlay>

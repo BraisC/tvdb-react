@@ -18,7 +18,7 @@ const Title = styled.span`
 
 const Image = styled.img`
   width: 100%;
-  height: 37.5rem;
+  height: 38rem;
   object-fit: cover;
   transition: 0.2s ease;
 
@@ -30,23 +30,14 @@ const Image = styled.img`
 
 const Overlay = styled.div`
   background-color: rgba(var(--color-transparency), 0.96);
-  height: 37.5rem;
+  height: 38rem;
   width: 100%;
   opacity: 0;
   position: absolute;
   top: 0;
   z-index: 2;
-  transition: 0.2s ease;
+  transition: opacity 0.2s ease;
   padding: 2rem 0;
-`;
-
-const Content = styled.div`
-  transform: scaleX(0.87);
-
-  & h2 {
-    font-weight: 600;
-    font-size: 2rem;
-  }
 `;
 
 const ItemLink = styled(Link)`
@@ -73,6 +64,65 @@ const ItemLink = styled(Link)`
   }
 `;
 
+const Content = styled.div`
+  transform: scaleX(0.87);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
+  transition: opacity 1s ease;
+
+  & h2 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+`;
+
+const ContentHeader = styled.div``;
+
+const ContentSummary = styled.div`
+  & h3 {
+    font-size: 1.4rem;
+  }
+  & p {
+    font-size: 1.1rem;
+  }
+`;
+const ContentSeasons = styled.span`
+  font-weight: 600;
+  font-size: 1.4rem;
+`;
+
+const ContentStatus = styled.div`
+  & h3 {
+    font-size: 1.4rem;
+  }
+  & p {
+    font-size: 1.1rem;
+  }
+`;
+
+const ContentFooter = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+
+const ContentRating = styled.div`
+  & h3 {
+    font-size: 1.4rem;
+  }
+`;
+
+const ContentStars = styled.div`
+  color: var(--color-red);
+`;
+const ContentLogo = styled.img`
+  max-width: ${(props) => (props.small ? '4rem' : '9rem')};
+`;
+
 export const Styled = {
   Item,
   ItemLink,
@@ -80,4 +130,12 @@ export const Styled = {
   Image,
   Overlay,
   Content,
+  ContentHeader,
+  ContentSummary,
+  ContentSeasons,
+  ContentStatus,
+  ContentRating,
+  ContentFooter,
+  ContentStars,
+  ContentLogo,
 };
