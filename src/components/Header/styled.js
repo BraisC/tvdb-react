@@ -16,6 +16,10 @@ const Logo = styled.div`
   padding: 1.3rem 5rem;
 `;
 
+const SubMenu = styled.span`
+  cursor: pointer;
+`;
+
 const Menu = styled.ul`
   padding: 0 2rem;
   display: flex;
@@ -25,7 +29,8 @@ const Menu = styled.ul`
     list-style: none;
   }
 
-  & a {
+  & a,
+  & ${SubMenu} {
     color: var(--color-text);
     font-size: 1.8rem;
     text-transform: uppercase;
@@ -90,4 +95,5 @@ export const Styled = {
   SearchBar,
   SearchInput,
   SearchIcon,
+  SubMenu,
 };

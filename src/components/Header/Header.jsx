@@ -9,7 +9,7 @@ const MenuOptions = [
   { name: 'top', route: 'top rated' },
   { name: 'on air', route: 'on the air' },
   { name: 'today', route: 'airing today' },
-  { name: 'genre', route: '' },
+  { name: 'genre' },
 ];
 
 const MenuItem = (props) => (
@@ -20,11 +20,21 @@ const MenuItem = (props) => (
   </li>
 );
 
+const MenuItemSub = (props) => (
+  <li>
+    <Styled.SubMenu>{props.value}</Styled.SubMenu>
+  </li>
+);
+
 const Menu = () => (
   <Styled.Menu>
-    {MenuOptions.map((val) => (
-      <MenuItem key={val.name} value={val.name} route={val.route} />
-    ))}
+    {MenuOptions.map((val) =>
+      val.route ? (
+        <MenuItem key={val.name} value={val.name} route={val.route} />
+      ) : (
+        <MenuItemSub key={val.name} value={val.name} />
+      )
+    )}
   </Styled.Menu>
 );
 
