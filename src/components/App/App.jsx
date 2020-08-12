@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import routes from 'routes';
+import Routes from 'routes';
 import { Header, Footer } from 'components';
 import GlobalStyles from 'styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
@@ -20,7 +20,9 @@ function App() {
           <GenresProvider>
             <Header />
           </GenresProvider>
-          <Styled.ContentWrapper>{routes}</Styled.ContentWrapper>
+          <Styled.ContentWrapper>
+            <Routes />
+          </Styled.ContentWrapper>
           <Footer />
         </Styled.Wrapper>
       </ThemeProvider>
