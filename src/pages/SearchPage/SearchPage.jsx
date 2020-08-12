@@ -29,24 +29,21 @@ const SearchPage = () => {
     return () => setIsLoading(true);
   }, [query, history, params.page]);
 
-  if (isLoading) {
-    return (
-      <Styled.Wrapper>
-        <Styled.PageTitle>{query}</Styled.PageTitle>
-        <ShowListLoader />
-      </Styled.Wrapper>
-    );
-  }
-
   return (
     <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
-      <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
-      <Pagination
-        currentPage={parseInt(params.page ?? '1')}
-        totalPages={shows.total_pages}
-        size={7}
-      />
+      {isLoading ? (
+        <ShowListLoader />
+      ) : (
+        <>
+          <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={shows.total_pages}
+            size={7}
+          />
+        </>
+      )}
     </Styled.Wrapper>
   );
 };

@@ -29,24 +29,21 @@ const ShowsPage = () => {
     return () => setIsLoading(true);
   }, [category, history, params.page]);
 
-  if (isLoading) {
-    return (
-      <Styled.Wrapper>
-        <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
-        <ShowListLoader />
-      </Styled.Wrapper>
-    );
-  }
-
   return (
-    <Styled.Wrapper className={shows.total_results < 5 ? 'few' : null}>
+    <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
-      <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
-      <Pagination
-        currentPage={parseInt(params.page ?? '1')}
-        totalPages={shows.total_pages}
-        size={7}
-      />
+      {isLoading ? (
+        <ShowListLoader />
+      ) : (
+        <>
+          <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={shows.total_pages}
+            size={7}
+          />
+        </>
+      )}
     </Styled.Wrapper>
   );
 };
