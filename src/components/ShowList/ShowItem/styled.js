@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Item = styled(motion.div)`
+const ShowItem = styled(motion.div)`
   color: var(--color-text);
 `;
 
@@ -39,7 +39,7 @@ const Overlay = styled.div`
   padding: 2rem 0;
 `;
 
-const ItemLink = styled(Link)`
+const ShowItemLink = styled(Link)`
   color: var(--color-text);
   text-decoration: none;
   display: flex;
@@ -122,8 +122,8 @@ const ContentLogo = styled.img`
 `;
 
 export const Styled = {
-  Item,
-  ItemLink,
+  ShowItem,
+  ShowItemLink,
   Title,
   Image,
   Overlay,

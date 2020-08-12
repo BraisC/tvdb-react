@@ -35,13 +35,13 @@ const ShowItem = ({ show }) => {
   };
 
   return (
-    <Styled.Item
+    <Styled.ShowItem
       onMouseEnter={handleHover}
       animate={posterLoaded && { opacity: 1 }}
       initial={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Styled.ItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
+      <Styled.ShowItemLink to={`${process.env.PUBLIC_URL}/show/${show.name}`}>
         <Styled.Overlay>
           {isLoading ? (
             'Loading'
@@ -95,9 +95,9 @@ const ShowItem = ({ show }) => {
           alt={show.name}
           className={show.poster_path ? null : 'missing-poster'}
         />
-      </Styled.ItemLink>
+      </Styled.ShowItemLink>
       <Styled.Title>{utils.generateTitle(show)}</Styled.Title>
-    </Styled.Item>
+    </Styled.ShowItem>
   );
 };
 
