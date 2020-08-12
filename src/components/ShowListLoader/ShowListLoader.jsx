@@ -4,7 +4,7 @@ import { ShowItemLoader } from './ShowItemLoader';
 
 const ShowListLoader = () => {
   const items = [...Array(20).keys()];
-  console.log(items);
+  console.log('Loader');
   return (
     <Styled.ShowListLoader>
       {items.map((show, i) => (
