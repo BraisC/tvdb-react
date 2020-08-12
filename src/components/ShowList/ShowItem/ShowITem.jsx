@@ -75,7 +75,7 @@ const ShowItem = ({ show }) => {
                 </Styled.ContentRating>
                 {details.networks[0]?.logo_path ? (
                   <Styled.ContentLogo
-                    small={imgHeight.current > 100}
+                    small={imgHeight.current > 80}
                     onLoad={handleContentLoad}
                     contentLoaded={contentLoaded}
                     src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}

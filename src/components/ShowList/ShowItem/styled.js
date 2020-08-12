@@ -116,7 +116,7 @@ const ContentStars = styled.div`
   color: var(--color-red);
 `;
 const ContentLogo = styled.img`
-  max-width: ${(props) => (props.small ? '4rem' : '9rem')};
+  max-width: ${(props) => (props.small ? '5rem' : '9rem')};
   opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
   transition: opacity 1s ease;
 `;
