@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const Item = styled.div`
+const Item = styled(motion.div)`
   color: var(--color-text);
-  opacity: ${(props) => (props.loaded ? '1' : '0')};
-  transition: opacity 1s ease;
 `;
 
 const Title = styled.span`
@@ -64,15 +63,12 @@ const ItemLink = styled(Link)`
   }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   transform: scaleX(0.87);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
-  opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
-  transition: opacity 0.5s ease;
 
   & h2 {
     font-weight: 600;
@@ -121,6 +117,8 @@ const ContentStars = styled.div`
 `;
 const ContentLogo = styled.img`
   max-width: ${(props) => (props.small ? '4rem' : '9rem')};
+  opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
+  transition: opacity 1s ease;
 `;
 
 export const Styled = {
