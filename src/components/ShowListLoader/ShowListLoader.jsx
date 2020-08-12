@@ -1,5 +1,17 @@
 import React from 'react';
+import { Styled } from './styled';
+import { ShowItemLoader } from './ShowItemLoader';
 
-const ShowListLoader = () => <div>LOADER</div>;
+const ShowListLoader = () => {
+  const items = [...Array(20).keys()];
+  console.log(items);
+  return (
+    <Styled.ShowListLoader>
+      {items.map((show, i) => (
+        <ShowItemLoader key={i} />
+      ))}
+    </Styled.ShowListLoader>
+  );
+};
 
 export default ShowListLoader;
