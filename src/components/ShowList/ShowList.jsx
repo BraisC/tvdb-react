@@ -13,5 +13,3 @@ const ShowList = React.memo(function ShowList({ shows, few }) {
 });
 
 export default ShowList;
-
-//Recibe una lista de shows y la renderiza
