@@ -4,6 +4,7 @@ import { getDetails } from 'api/tmdb';
 import utils from 'utils';
 import { Loader } from 'components';
 import { Styled } from './styled';
+import { ShowItemContentLoader } from './ShowItemContentLoader';
 
 const ShowItem = ({ show }) => {
   const [details, setDetails] = useState();
@@ -45,7 +46,7 @@ const ShowItem = ({ show }) => {
       <Styled.ShowItemLink to={`${process.env.PUBLIC_URL}/show/${show.name.replace('%', '%25')}`}>
         <Styled.Overlay>
           {isLoading ? (
-            'Loading'
+            <ShowItemContentLoader />
           ) : (
             <Styled.Content
               animate={{ opacity: 1 }}
