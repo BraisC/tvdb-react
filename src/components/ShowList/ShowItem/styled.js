@@ -114,6 +114,10 @@ const ContentRating = styled.div`
 
 const ContentStars = styled.div`
   color: var(--color-red);
+
+  & span {
+    margin-right: 2px;
+  }
 `;
 const ContentLogo = styled.img`
   max-width: ${(props) => (props.small ? '5rem' : '9rem')};

@@ -37,11 +37,23 @@ const generateStars = (valoration) => {
 
   for (let i = 1; i <= 5; i++) {
     if (i <= full || (i === full + 1 && decimal > 6)) {
-      result.push(<FontAwesomeIcon key={i} icon={faStar} />);
+      result.push(
+        <span>
+          <FontAwesomeIcon key={i} icon={faStar} />
+        </span>
+      );
     } else if (i === full + 1 && decimal > 2 && decimal < 6) {
-      result.push(<FontAwesomeIcon key={i} icon={faStarHalfAlt} />);
+      result.push(
+        <span>
+          <FontAwesomeIcon key={i} icon={faStarHalfAlt} />
+        </span>
+      );
     } else {
-      result.push(<FontAwesomeIcon key={i} icon={faStarEmpty} />);
+      result.push(
+        <span>
+          <FontAwesomeIcon key={i} icon={faStarEmpty} />
+        </span>
+      );
     }
   }
 
