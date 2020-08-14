@@ -117,7 +117,7 @@ const ContentStars = styled.div`
 `;
 const ContentLogo = styled.img`
   max-width: ${(props) => (props.small ? '5rem' : '9rem')};
-  opacity: ${(props) => (props.contentLoaded ? '1' : '0')};
+  opacity: ${(props) => (props.logoLoaded ? '1' : '0')};
   transition: opacity 1s ease;
 `;
 

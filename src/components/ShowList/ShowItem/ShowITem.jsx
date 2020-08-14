@@ -6,7 +6,7 @@ import { Styled } from './styled';
 
 const ShowItem = ({ show }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
-  const [contentLoaded, setContentLoaded] = useState(false);
+  const [logoLoaded, setLogoLoaded] = useState(false);
   const [details, setDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const imgHeight = useRef();
@@ -23,11 +23,11 @@ const ShowItem = ({ show }) => {
     }
   };
 
-  const handleContentLoad = (event) => {
+  const handleLogoLoad = (event) => {
     const img = new Image();
     img.src = event.target.src;
     imgHeight.current = img.height;
-    setContentLoaded(true);
+    setLogoLoaded(true);
   };
 
   const handlePosterLoad = () => {
@@ -76,8 +76,8 @@ const ShowItem = ({ show }) => {
                 {details.networks[0]?.logo_path ? (
                   <Styled.ContentLogo
                     small={imgHeight.current > 80}
-                    onLoad={handleContentLoad}
-                    contentLoaded={contentLoaded}
+                    onLoad={handleLogoLoad}
+                    logoLoaded={logoLoaded}
                     src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}
                     alt="Network"
                   />
