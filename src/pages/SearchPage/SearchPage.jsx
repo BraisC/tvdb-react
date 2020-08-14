@@ -30,7 +30,7 @@ const SearchPage = () => {
   }, [query, history, params.page]);
 
   return (
-    <>
+    <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
       {isLoading ? (
         <ShowListLoader />
@@ -44,7 +44,7 @@ const SearchPage = () => {
           />
         </>
       )}
-    </>
+    </Styled.Wrapper>
   );
 };
 

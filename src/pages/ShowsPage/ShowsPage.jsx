@@ -30,7 +30,7 @@ const ShowsPage = () => {
   }, [category, history, params.page]);
 
   return (
-    <>
+    <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       {isLoading ? (
         <ShowListLoader />
@@ -44,7 +44,7 @@ const ShowsPage = () => {
           />
         </>
       )}
-    </>
+    </Styled.Wrapper>
   );
 };
 
