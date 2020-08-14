@@ -15,14 +15,14 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
-        <GlobalStyles />
-        <Styled.Wrapper>
-          <GenresProvider>
+        <GenresProvider>
+          <GlobalStyles />
+          <Styled.Wrapper>
             <Header />
-          </GenresProvider>
-          <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
-          <Footer />
-        </Styled.Wrapper>
+            <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
+            <Footer />
+          </Styled.Wrapper>
+        </GenresProvider>
       </ThemeProvider>
     </Router>
   );
