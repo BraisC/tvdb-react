@@ -5,10 +5,10 @@ import utils from 'utils';
 import { Styled } from './styled';
 
 const ShowItem = ({ show }) => {
-  const [posterLoaded, setPosterLoaded] = useState(false);
-  const [logoLoaded, setLogoLoaded] = useState(false);
   const [details, setDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [posterLoaded, setPosterLoaded] = useState(false);
+  const [logoLoaded, setLogoLoaded] = useState(false);
   const imgHeight = useRef();
 
   const handleHover = async () => {
