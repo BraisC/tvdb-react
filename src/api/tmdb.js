@@ -73,3 +73,22 @@ export async function getShowsSearch(page = 1, query) {
 
   return res;
 }
+
+export async function getShowsGenre(page = 1, genres) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/discover/tv/`, {
+      params: {
+        page,
+        with_genres: genres.join(','),
+      },
+    });
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getGenres } from 'api/tmdb';
 
-export const GenresContext = React.createContext(['si']);
+export const GenresContext = React.createContext([]);
 
 export const GenresProvider = ({ children }) => {
   const [genres, setGenres] = useState();
