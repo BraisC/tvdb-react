@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'header'
@@ -19,7 +19,6 @@ const ContentWrapper = styled.section`
   padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 `;
 
 export const Styled = {
