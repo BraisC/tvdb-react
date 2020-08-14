@@ -20,7 +20,6 @@ const GenrePage = () => {
     async function getData() {
       if (genres) {
         const genreId = genres?.filter((v) => v.name === genre).map((v) => v.id);
-        console.log(genreId);
         const res = await getShowsGenre(params.page, genreId);
         if (res.error) {
           history.push('/error');
