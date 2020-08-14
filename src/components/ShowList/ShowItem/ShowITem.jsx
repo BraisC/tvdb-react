@@ -37,7 +37,7 @@ const ShowItem = ({ show }) => {
   return (
     <Styled.ShowItem
       onMouseEnter={handleHover}
-      animate={posterLoaded && { opacity: 1 }}
+      animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
@@ -86,7 +86,13 @@ const ShowItem = ({ show }) => {
             </Styled.Content>
           )}
         </Styled.Overlay>
-        <Styled.Image
+        <Styled.PosterLoader
+          style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
+        >
+          LoaderPoster
+        </Styled.PosterLoader>
+        <Styled.Poster
+          style={{ opacity: posterLoaded ? '1' : '0' }}
           loading="lazy"
           onLoad={handlePosterLoad}
           src={

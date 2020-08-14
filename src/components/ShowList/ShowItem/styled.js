@@ -15,16 +15,26 @@ const Title = styled.span`
   transition: color 0.2s ease;
 `;
 
-const Image = styled.img`
+const Poster = styled.img`
   width: 100%;
   height: 38rem;
   object-fit: cover;
-  transition: 0.2s ease;
+  transition: 0.8s ease;
+  background-color: var(--color-primary);
 
   &.missing-poster {
     object-fit: contain;
     background-color: var(--color-primary);
   }
+`;
+
+const PosterLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
 `;
 
 const Overlay = styled.div`
@@ -54,7 +64,7 @@ const ShowItemLink = styled(Link)`
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
   }
 
-  &:hover ${Image} {
+  &:hover ${Poster} {
     transform: scaleY(1.2);
   }
 
@@ -129,7 +139,8 @@ export const Styled = {
   ShowItem,
   ShowItemLink,
   Title,
-  Image,
+  Poster,
+  PosterLoader,
   Overlay,
   Content,
   ContentHeader,
