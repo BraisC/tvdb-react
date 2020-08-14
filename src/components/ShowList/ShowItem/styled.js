@@ -19,7 +19,7 @@ const Poster = styled.img`
   width: 100%;
   height: 38rem;
   object-fit: cover;
-  transition: 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.2s ease;
   background-color: var(--color-primary);
 
   &.missing-poster {
