@@ -38,20 +38,20 @@ const generateStars = (valoration) => {
   for (let i = 1; i <= 5; i++) {
     if (i <= full || (i === full + 1 && decimal > 6)) {
       result.push(
-        <span>
-          <FontAwesomeIcon key={i} icon={faStar} />
+        <span key={i}>
+          <FontAwesomeIcon icon={faStar} />
         </span>
       );
     } else if (i === full + 1 && decimal > 2 && decimal < 6) {
       result.push(
-        <span>
-          <FontAwesomeIcon key={i} icon={faStarHalfAlt} />
+        <span key={i}>
+          <FontAwesomeIcon icon={faStarHalfAlt} />
         </span>
       );
     } else {
       result.push(
-        <span>
-          <FontAwesomeIcon key={i} icon={faStarEmpty} />
+        <span key={i}>
+          <FontAwesomeIcon icon={faStarEmpty} />
         </span>
       );
     }
