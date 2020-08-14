@@ -92,3 +92,35 @@ export async function getShowsGenre(page = 1, genres) {
 
   return res;
 }
+
+export async function getCredits(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/tv/${id}/credits`);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
+export async function getRecommendations(page = 1, id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/tv/${id}/recommendations`, {
+      params: {
+        page,
+      },
+    });
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
