@@ -46,10 +46,11 @@ const Casting = styled.div`
   display: flex;
   width: 100%;
   gap: 2rem;
+  overflow-x: auto;
 `;
 
 const CastingItem = styled.div`
-  width: 10rem;
+  flex: 0 0 10rem;
 `;
 
 const CastingImage = styled.img`
