@@ -37,12 +37,7 @@ const ShowItem = ({ show }) => {
   };
 
   return (
-    <Styled.ShowItem
-      onMouseEnter={handleHover}
-      animate={{ opacity: 1 }}
-      initial={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-    >
+    <Styled.ShowItem onMouseEnter={handleHover}>
       <Styled.ShowItemLink
         to={{
           pathname: `${process.env.PUBLIC_URL}/show/${show.id}`,

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
+import { Styled } from './styled';
 
 const ShowPage = () => {
   const { id } = useParams();
