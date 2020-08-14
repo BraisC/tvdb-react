@@ -52,8 +52,11 @@ const ShowPage = () => {
   return isLoading ? (
     <div>Loading</div>
   ) : (
-    <>
-      <Styled.ShowInfo>
+    <Styled.Wrapper>
+      <Styled.ShowInfo
+        background={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${show.backdrop_path}`}
+      >
+        <Styled.Filter />
         <Styled.Poster>
           <Styled.PosterImage
             src={
@@ -108,7 +111,7 @@ const ShowPage = () => {
           size={7}
         />
       </div>
-    </>
+    </Styled.Wrapper>
   );
 };
 
