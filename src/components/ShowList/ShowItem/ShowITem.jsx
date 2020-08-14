@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
 import utils from 'utils';
-import Loader from 'components/Loader/Loader';
+import { Loader } from 'components';
 import { Styled } from './styled';
 
 const ShowItem = ({ show }) => {
