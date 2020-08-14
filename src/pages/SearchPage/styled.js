@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  color: var(--color-text);
+  padding: 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+`;
+
 const PageTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 100;
@@ -9,5 +16,6 @@ const PageTitle = styled.h2`
 `;
 
 export const Styled = {
+  Wrapper,
   PageTitle,
 };
