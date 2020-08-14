@@ -36,7 +36,7 @@ const GenrePage = () => {
   }, [genre, history, params.page, genres]);
 
   return (
-    <Styled.Wrapper>
+    <>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
       {isLoading ? (
         <ShowListLoader />
@@ -50,7 +50,7 @@ const GenrePage = () => {
           />
         </>
       )}
-    </Styled.Wrapper>
+    </>
   );
 };
 
