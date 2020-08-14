@@ -19,7 +19,6 @@ const ContentWrapper = styled.section`
   padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
 `;
 
