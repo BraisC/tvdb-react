@@ -4,3 +4,4 @@ export { default as Footer } from './Footer';
 export { default as ShowList } from './ShowList';
 export { default as ShowListLoader } from './ShowListLoader';
 export { default as Pagination } from './Pagination';
+export { default as Loader } from './Loader';

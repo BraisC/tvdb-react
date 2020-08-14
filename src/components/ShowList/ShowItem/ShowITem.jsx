@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
 import utils from 'utils';
+import Loader from 'components/Loader/Loader';
 import { Styled } from './styled';
 
 const ShowItem = ({ show }) => {
@@ -89,7 +90,7 @@ const ShowItem = ({ show }) => {
         <Styled.PosterLoader
           style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
         >
-          LoaderPoster
+          <Loader />
         </Styled.PosterLoader>
         <Styled.Poster
           style={{ opacity: posterLoaded ? '1' : '0' }}
