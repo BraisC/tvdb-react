@@ -20,6 +20,7 @@ const Button = styled(Link)`
 
   &.active {
     background-color: var(--color-red);
+    color: var(--color-white);
   }
 
   &.active:hover {
