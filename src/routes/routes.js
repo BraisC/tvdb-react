@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ShowsPage, SearchPage, GenrePage } from 'pages';
+import { ShowsPage, SearchPage, GenrePage, ShowPage } from 'pages';
 
 const createRoutes = () => (
   <Switch>
@@ -12,6 +12,9 @@ const createRoutes = () => (
     </Route>
     <Route path="/search/:query" exact>
       <SearchPage />
+    </Route>
+    <Route path="/show/:id" exact>
+      <ShowPage />
     </Route>
   </Switch>
 );
