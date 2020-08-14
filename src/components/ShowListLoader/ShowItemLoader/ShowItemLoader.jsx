@@ -1,6 +1,6 @@
 import React from 'react';
 import { Styled } from './styled';
 
-const ShowItemLoader = () => <Styled.ShowItemLoader />;
+const ShowItemLoader = ({ children }) => <Styled.ShowItemLoader>{children}</Styled.ShowItemLoader>;
 
 export default ShowItemLoader;
