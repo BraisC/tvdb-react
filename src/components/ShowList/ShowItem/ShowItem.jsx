@@ -43,7 +43,7 @@ const ShowItem = ({ show }) => {
       initial={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <Styled.ShowItemLink to={`${process.env.PUBLIC_URL}/show/${show.name.replace('%', '%25')}`}>
+      <Styled.ShowItemLink to={`${process.env.PUBLIC_URL}/show/${show.id}`}>
         <Styled.Overlay>
           {isLoading ? (
             <ShowItemContentLoader />
