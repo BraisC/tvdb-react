@@ -13,7 +13,7 @@ const ShowInfo = styled.div`
   background-image: url(${(props) => props.background});
   background-size: cover;
   /* background-position: right -200px top; */
-  padding: 6rem;
+  padding: 4rem;
   position: relative;
 `;
 
@@ -34,13 +34,14 @@ const Poster = styled.div`
 
 const PosterImage = styled.img`
   width: 100%;
+  display: block;
 `;
 
 const Data = styled.div`
   display: flex;
   align-self: stretch;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   z-index: 2;
   background-color: rgba(var(--color-transparency), 0.8);
   padding: 6rem;
