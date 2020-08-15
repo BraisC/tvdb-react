@@ -176,6 +176,6 @@ export async function getShowsPage(page = 1, id) {
   } catch (err) {
     res.error = err.response;
   }
-  console.log(res);
+
   return res;
 }
