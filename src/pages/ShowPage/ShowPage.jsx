@@ -34,8 +34,6 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [history, id, params.page]);
 
-  console.log(config);
-
   return error ? (
     'Error'
   ) : (
@@ -61,7 +59,7 @@ const ShowPage = () => {
                 <Styled.DataHeaderLeft>
                   <div>
                     <h1>{utils.generateTitle(show)}</h1>
-                    <span>{show.rating}</span>
+                    {show.rating && <span>{show.rating}</span>}
                   </div>
                   <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
                 </Styled.DataHeaderLeft>
