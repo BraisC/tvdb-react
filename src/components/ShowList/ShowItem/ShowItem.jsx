@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
 import utils from 'utils';
@@ -12,15 +12,15 @@ const ShowItem = ({ show }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
   const [logoLoaded, setLogoLoaded] = useState(false);
   const imgHeight = useRef();
-
+  const isUnMounted = useRef(false);
   const handleHover = async () => {
     if (!details) {
       const res = await getDetails(show.id);
       if (res.error) {
-        setIsLoading(false);
+        !isUnMounted.current && setIsLoading(false);
       } else {
-        setDetails(res.data.data);
-        setIsLoading(false);
+        !isUnMounted.current && setDetails(res.data.data);
+        !isUnMounted.current && setIsLoading(false);
       }
     }
   };
@@ -29,12 +29,19 @@ const ShowItem = ({ show }) => {
     const img = new Image();
     img.src = event.target.src;
     imgHeight.current = img.height;
-    setLogoLoaded(true);
+    !isUnMounted.current && setLogoLoaded(true);
   };
 
   const handlePosterLoad = () => {
-    setPosterLoaded(true);
+    !isUnMounted.current && setPosterLoaded(true);
   };
+
+  useEffect(
+    () => () => {
+      isUnMounted.current = true;
+    },
+    []
+  );
 
   return (
     <Styled.ShowItem onMouseEnter={handleHover}>
