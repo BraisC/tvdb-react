@@ -12,7 +12,6 @@ const ShowInfo = styled.div`
   align-items: center;
   background-image: url(${(props) => props.background});
   background-size: cover;
-  /* background-position: right -200px top; */
   padding: 4rem;
   position: relative;
 `;
@@ -21,20 +20,21 @@ const Filter = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--color-transparency), 0.5);
+  background-color: rgba(var(--color-transparency), 0.85);
   z-index: 1;
 `;
 
 const Poster = styled.div`
   width: 50rem;
   z-index: 2;
-  padding: 2rem;
-  background-color: rgba(var(--color-transparency), 0.8);
+  padding: 4rem;
+  /* background-color: rgba(var(--color-transparency), 0.8); */
 `;
 
 const PosterImage = styled.img`
   width: 100%;
   display: block;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
 `;
 
 const Data = styled.div`
@@ -43,17 +43,17 @@ const Data = styled.div`
   flex-direction: column;
   width: 60%;
   z-index: 2;
-  background-color: rgba(var(--color-transparency), 0.8);
+  /* background-color: rgba(var(--color-transparency), 0.8); */
   padding: 6rem;
 `;
 
-const ContentRating = styled.div`
+const DataRating = styled.div`
   & h3 {
     font-size: 1.4rem;
   }
 `;
 
-const ContentStars = styled.div`
+const DataStars = styled.div`
   color: var(--color-red);
 
   & span {
@@ -91,8 +91,8 @@ export const Styled = {
   Poster,
   PosterImage,
   Data,
-  ContentStars,
-  ContentRating,
+  DataStars,
+  DataRating,
   Casting,
   CastingImage,
   CastingItemsWrapper,
