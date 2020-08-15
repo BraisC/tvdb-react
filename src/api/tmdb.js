@@ -35,6 +35,20 @@ export async function getDetails(id) {
   return res;
 }
 
+export async function getCertifications(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/tv/${id}/content_ratings`);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
 export async function getShows(page = 1, route = '/') {
   let path = route.split(' ').join('_');
   path = path === '/' ? 'popular' : path;
