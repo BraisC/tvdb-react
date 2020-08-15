@@ -22,6 +22,7 @@ export default createGlobalStyle`
       --color-transparency: ${(props) => props.theme.transparency};
       --color-white: ${(props) => props.theme.white};
       --color-text: ${(props) => props.theme.text};
+      --color-transparency-show: ${(props) => props.theme.transparencyShow};
 
       --shadow-color-dark: rgba(0, 0, 0, 0.25);
     }
