@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
 import { missingPoster } from 'images';
 import utils from 'utils';
@@ -6,6 +6,7 @@ import { ShowList, Pagination, Button } from 'components';
 import { getShowsPage } from 'api/tmdb';
 import queryString from 'query-string';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { ConfigContext } from 'contexts/configContext';
 import { Styled } from './styled';
 
 const ShowPage = () => {
@@ -15,6 +16,7 @@ const ShowPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
+  const config = useContext(ConfigContext);
 
   const params = queryString.parse(location.search);
 
@@ -32,7 +34,7 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [history, id, params.page]);
 
-  console.log(show);
+  console.log(config);
 
   return error ? (
     'Error'
@@ -43,15 +45,14 @@ const ShowPage = () => {
       ) : (
         <>
           <Styled.ShowInfo
-            background={
-              show.backdrop &&
-              `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${show.backdrop}`
-            }
+            background={show.backdrop && `${config.url}/${config.backdrop.custom}${show.backdrop}`}
           >
             <Styled.Filter />
             <Styled.Poster>
               <Styled.PosterImage
-                src={show.poster ? `https://image.tmdb.org/t/p/w780${show.poster}` : missingPoster}
+                src={
+                  show.poster ? `${config.url}/${config.poster.big}${show.poster}` : missingPoster
+                }
                 alt={show.name}
               />
             </Styled.Poster>
@@ -109,7 +110,7 @@ const ShowPage = () => {
                 <Styled.DataFooterRight>
                   {show.network.logo ? (
                     <img
-                      src={`https://image.tmdb.org/t/p/w154${show.network.logo}`}
+                      src={`${config.url}/${config.logo.big}${show.network.logo}`}
                       alt="Network"
                     />
                   ) : null}
@@ -124,7 +125,7 @@ const ShowPage = () => {
                 {show.cast.map((v) => (
                   <Styled.CastingItem key={v.id + v.character}>
                     <Styled.CastingImage
-                      src={`https://image.tmdb.org/t/p/w185${v.profile_path}`}
+                      src={`${config.url}/${config.profile.normal}${v.profile_path}`}
                       alt={v.name}
                     />
                   </Styled.CastingItem>

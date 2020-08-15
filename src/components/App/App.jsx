@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { GenresProvider } from 'contexts/genresContext';
+import { ConfigProvider } from 'contexts/configContext';
 import { Styled } from './styled';
 
 function App() {
@@ -15,14 +16,16 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
-        <GenresProvider>
-          <GlobalStyles />
-          <Styled.Wrapper>
-            <Header />
-            <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
-            <Footer />
-          </Styled.Wrapper>
-        </GenresProvider>
+        <ConfigProvider>
+          <GenresProvider>
+            <GlobalStyles />
+            <Styled.Wrapper>
+              <Header />
+              <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
+              <Footer />
+            </Styled.Wrapper>
+          </GenresProvider>
+        </ConfigProvider>
       </ThemeProvider>
     </Router>
   );

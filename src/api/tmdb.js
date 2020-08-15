@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { mapShowPage } from 'mappers';
+import { mapShowPage, mapConfig } from 'mappers';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -7,6 +7,21 @@ const tmdb = axios.create({
     api_key: process.env.REACT_APP_API,
   },
 });
+
+export async function getConfig() {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    const configRes = await tmdb.get(`/configuration`);
+    res.data = mapConfig(configRes.data);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
 
 export async function getGenres() {
   const res = {
