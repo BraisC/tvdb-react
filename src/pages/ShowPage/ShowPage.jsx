@@ -70,7 +70,7 @@ const ShowPage = () => {
                 </Styled.DataHeaderRight>
               </Styled.DataHeader>
               <Styled.DataSection>
-                <h3>Overview</h3>
+                <h3>Summary</h3>
                 <p>{show.overview}</p>
               </Styled.DataSection>
               <Styled.DataSeasons>
@@ -134,13 +134,14 @@ const ShowPage = () => {
             </Styled.Casting>
           </Styled.CastingContainer>
 
-          <div>
+          <Styled.SeasonsContainer>
             <h2>Seasons</h2>
             {show.seasons.map((v) => (
               <div key={v.id}>{v.name}</div>
             ))}
-          </div>
-          <div>
+          </Styled.SeasonsContainer>
+
+          <Styled.RecommendedContainer>
             <h2>Recommended</h2>
             <ShowList
               shows={show.recommendations.results}
@@ -151,7 +152,7 @@ const ShowPage = () => {
               totalPages={show.recommendations.total_pages}
               size={7}
             />
-          </div>
+          </Styled.RecommendedContainer>
         </>
       )}
     </Styled.Wrapper>

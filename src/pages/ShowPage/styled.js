@@ -161,6 +161,13 @@ const CastingContainer = styled.div`
   flex-direction: column;
   max-width: 100%;
   padding: 3rem 6rem;
+
+  & h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 4rem;
+  }
 `;
 
 const Casting = styled.div`
@@ -178,6 +185,34 @@ const CastingItem = styled.div`
 `;
 
 const CastingImage = styled.img``;
+
+const SeasonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 3rem 6rem;
+
+  & h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 4rem;
+  }
+`;
+
+const RecommendedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 3rem 6rem;
+
+  & h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 4rem;
+  }
+`;
 
 export const Styled = {
   Wrapper,
@@ -204,4 +239,6 @@ export const Styled = {
   CastingItemsWrapper,
   CastingItem,
   CastingContainer,
+  SeasonsContainer,
+  RecommendedContainer,
 };
