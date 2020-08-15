@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { mapShowPage } from 'mappers';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -136,5 +137,45 @@ export async function getRecommendations(page = 1, id) {
     res.error = err.response;
   }
 
+  return res;
+}
+
+export async function getVideos(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    res.data = await tmdb.get(`/tv/${id}/videos`);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
+export async function getShowsPage(page = 1, id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+
+  try {
+    const showRes = await getDetails(id);
+    const creditsRes = await getCredits(id);
+    const recommendationsRes = await getRecommendations(page, id);
+    const certificationsRes = await getCertifications(id);
+    const videosRes = await getVideos(id);
+    res.data = mapShowPage(
+      showRes.data.data,
+      creditsRes.data.data,
+      recommendationsRes.data.data,
+      certificationsRes.data.data,
+      videosRes.data.data
+    );
+  } catch (err) {
+    res.error = err.response;
+  }
+  console.log(res);
   return res;
 }
