@@ -184,7 +184,12 @@ const CastingItem = styled.div`
   flex: 0 0 10rem;
 `;
 
-const CastingImage = styled.img``;
+const CastingImage = styled.img`
+  width: 100px;
+  background-color: var(--color-text);
+  height: 100%;
+  display: block;
+`;
 
 const SeasonsContainer = styled.div`
   display: flex;

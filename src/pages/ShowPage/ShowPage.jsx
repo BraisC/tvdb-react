@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
-import { missingPoster } from 'images';
+import { missingPoster, profile } from 'images';
 import utils from 'utils';
 import { ShowList, Pagination, Button } from 'components';
 import { getShowsPage } from 'api/tmdb';
@@ -118,6 +118,7 @@ const ShowPage = () => {
               </Styled.DataFooter>
             </Styled.Data>
           </Styled.ShowInfo>
+
           <Styled.CastingContainer>
             <h2>Casting</h2>
             <Styled.Casting>
@@ -125,7 +126,11 @@ const ShowPage = () => {
                 {show.cast.map((v) => (
                   <Styled.CastingItem key={v.id + v.character}>
                     <Styled.CastingImage
-                      src={`${config.url}/${config.profile.normal}${v.profile_path}`}
+                      src={
+                        v.profile_path
+                          ? `${config.url}/${config.profile.normal}${v.profile_path}`
+                          : profile
+                      }
                       alt={v.name}
                     />
                   </Styled.CastingItem>
