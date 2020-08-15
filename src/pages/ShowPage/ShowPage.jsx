@@ -82,14 +82,16 @@ const ShowPage = () => {
       <Styled.CastingContainer>
         <h2>Casting</h2>
         <Styled.Casting>
-          {credits.cast.map((v) => (
-            <Styled.CastingItem key={v.id + v.character}>
-              <Styled.CastingImage
-                src={`https://image.tmdb.org/t/p/w185${v.profile_path}`}
-                alt={v.name}
-              />
-            </Styled.CastingItem>
-          ))}
+          <Styled.CastingItemsWrapper>
+            {credits.cast.map((v) => (
+              <Styled.CastingItem key={v.id + v.character}>
+                <Styled.CastingImage
+                  src={`https://image.tmdb.org/t/p/w185${v.profile_path}`}
+                  alt={v.name}
+                />
+              </Styled.CastingItem>
+            ))}
+          </Styled.CastingItemsWrapper>
         </Styled.Casting>
       </Styled.CastingContainer>
 

@@ -68,10 +68,13 @@ const CastingContainer = styled.div`
 `;
 
 const Casting = styled.div`
+  overflow-x: hidden;
+`;
+
+const CastingItemsWrapper = styled.div`
   display: flex;
   width: 100%;
   gap: 2rem;
-  overflow-x: auto;
 `;
 
 const CastingItem = styled.div`
@@ -91,6 +94,7 @@ export const Styled = {
   ContentRating,
   Casting,
   CastingImage,
+  CastingItemsWrapper,
   CastingItem,
   CastingContainer,
 };
