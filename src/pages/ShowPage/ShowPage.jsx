@@ -83,7 +83,7 @@ const ShowPage = () => {
         <h2>Casting</h2>
         <Styled.Casting>
           {credits.cast.map((v) => (
-            <Styled.CastingItem key={v.id}>
+            <Styled.CastingItem key={v.id + v.character}>
               <Styled.CastingImage
                 src={`https://image.tmdb.org/t/p/w185${v.profile_path}`}
                 alt={v.name}
