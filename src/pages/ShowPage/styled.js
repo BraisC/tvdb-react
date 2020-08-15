@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Wrapper = styled.div`
   color: var(--color-text);
   display: flex;
   flex-direction: column;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 1.4rem;
+  margin-right: 8px;
 `;
 
 const ShowInfo = styled.div`
@@ -20,7 +26,9 @@ const Filter = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--color-transparency), 0.85);
+  background-color: var(--color-transparency-show);
+  transition: background-color 0.2s ease;
+
   z-index: 1;
 `;
 
@@ -41,24 +49,111 @@ const Data = styled.div`
   display: flex;
   align-self: stretch;
   flex-direction: column;
+  justify-content: space-between;
   width: 60%;
+  max-width: 180rem;
   z-index: 2;
   /* background-color: rgba(var(--color-transparency), 0.8); */
   padding: 6rem;
 `;
 
-const DataRating = styled.div`
-  & h3 {
+const DataHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DataHeaderLeft = styled.div`
+  & div {
+    display: flex;
+    align-items: center;
+  }
+  & h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+    margin-right: 2rem;
+  }
+
+  & p {
+    font-size: 1.2rem;
+  }
+
+  & span {
     font-size: 1.4rem;
+    padding: 3px;
+    border: 2px solid var(--color-text);
+    line-height: 1;
   }
 `;
 
-const DataStars = styled.div`
+const DataHeaderRight = styled.span`
+  font-size: 1.4rem;
+  font-weight: 500;
+`;
+
+const DataSection = styled.div`
+  & h3 {
+    font-size: 2rem;
+  }
+
+  & p {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+`;
+
+const DataSeasons = styled.h3`
+  font-size: 2rem;
+`;
+
+const DataRating = styled.div`
+  & h3 {
+    font-size: 2rem;
+  }
+`;
+
+const DataStars = styled.span`
   color: var(--color-red);
+  font-size: 1.4rem;
+  margin-right: 1rem;
 
   & span {
     margin-right: 2px;
   }
+`;
+
+const DataVotes = styled.span`
+  font-size: 1.4rem;
+`;
+
+const DataFooter = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+`;
+
+const DataFooterLeft = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const DataFooterRight = styled.div`
+  max-height: 10rem;
+  position: absolute;
+  right: 0;
+
+  & img {
+    display: block;
+    max-height: 10rem;
+    height: 100%;
+  }
+`;
+
+const DataFooterLink = styled.a`
+  text-decoration: none;
+  font-size: 1.8rem;
 `;
 
 const CastingContainer = styled.div`
@@ -86,13 +181,24 @@ const CastingImage = styled.img``;
 
 export const Styled = {
   Wrapper,
+  Icon,
   ShowInfo,
   Filter,
   Poster,
   PosterImage,
   Data,
+  DataHeader,
+  DataHeaderRight,
+  DataHeaderLeft,
+  DataSection,
+  DataSeasons,
   DataStars,
+  DataVotes,
   DataRating,
+  DataFooter,
+  DataFooterLink,
+  DataFooterLeft,
+  DataFooterRight,
   Casting,
   CastingImage,
   CastingItemsWrapper,

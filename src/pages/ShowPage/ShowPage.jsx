@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
 import { missingPoster } from 'images';
 import utils from 'utils';
-import { ShowList, Pagination, ShowListLoader } from 'components';
-import { getDetails, getCredits, getRecommendations } from 'api/tmdb';
+import { ShowList, Pagination, ShowListLoader, Button } from 'components';
+import { getShowsPage } from 'api/tmdb';
 import queryString from 'query-string';
+import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { Styled } from './styled';
 
 const ShowPage = () => {
@@ -13,30 +14,16 @@ const ShowPage = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState();
-  const [credits, setCredits] = useState();
-  const [recommendations, setRecommendations] = useState();
 
   const params = queryString.parse(location.search);
 
   useEffect(() => {
     async function getData() {
-      const res = await getDetails(id);
+      const res = await getShowsPage(params.page, id);
       if (res.error) {
         history.push('/error');
       } else {
-        setShow(res.data.data);
-      }
-      const creditsRes = await getCredits(id);
-      if (creditsRes.error) {
-        history.push('/error');
-      } else {
-        setCredits(creditsRes.data.data);
-      }
-      const recommendationsRes = await getRecommendations(params.page, id);
-      if (recommendationsRes.error) {
-        history.push('/error');
-      } else {
-        setRecommendations(recommendationsRes.data.data);
+        setShow(res.data);
       }
       setIsLoading(false);
     }
@@ -44,46 +31,88 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [history, id, params.page]);
 
-  console.log(credits);
-  console.log(recommendations);
   console.log(show);
-  console.log(isLoading);
 
   return isLoading ? (
     <div>Loading</div>
   ) : (
     <Styled.Wrapper>
       <Styled.ShowInfo
-        background={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${show.backdrop_path}`}
+        background={
+          show.backdrop && `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${show.backdrop}`
+        }
       >
         <Styled.Filter />
         <Styled.Poster>
           <Styled.PosterImage
-            src={
-              show.poster_path
-                ? `https://image.tmdb.org/t/p/w780${show.poster_path}`
-                : missingPoster
-            }
-            alt=""
+            src={show.poster ? `https://image.tmdb.org/t/p/w780${show.poster}` : missingPoster}
+            alt={show.name}
           />
         </Styled.Poster>
         <Styled.Data>
-          <h1>{utils.generateTitle(show)}</h1>
-          <span>{show.genres.map((genre) => genre.name).join(', ')}</span>
-          <span>{show.episode_run_time} min</span>
-          <p>{show.overview}</p>
-          <span>{show.status}</span>
-          <Styled.ContentRating>
+          <Styled.DataHeader>
+            <Styled.DataHeaderLeft>
+              <div>
+                <h1>{utils.generateTitle(show)}</h1>
+                <span>{show.rating}</span>
+              </div>
+              <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
+            </Styled.DataHeaderLeft>
+            <Styled.DataHeaderRight>
+              {`${show.duration} min / ${utils.getCountryName(show.country)}`}
+            </Styled.DataHeaderRight>
+          </Styled.DataHeader>
+          <Styled.DataSection>
+            <h3>Overview</h3>
+            <p>{show.overview}</p>
+          </Styled.DataSection>
+          <Styled.DataSeasons>
+            {show.seasons?.length} {show.seasons?.length > 1 ? 'Seasons' : 'Season'}
+          </Styled.DataSeasons>
+          <Styled.DataSection>
+            <h3>Created by</h3>
+            <p>{show.creator}</p>
+          </Styled.DataSection>
+          <Styled.DataSection>
+            <h3>Status</h3>
+            <p>{show.status}</p>
+          </Styled.DataSection>
+          <Styled.DataRating>
             <h3>Rating</h3>
-            <Styled.ContentStars>{utils.generateStars(show.vote_average)}</Styled.ContentStars>
-          </Styled.ContentRating>
+            <Styled.DataStars>{utils.generateStars(show.vote_average)}</Styled.DataStars>
+            <Styled.DataVotes>
+              {`${show.vote_average} with 
+              ${show.vote_count} votes`}
+            </Styled.DataVotes>
+          </Styled.DataRating>
+          <Styled.DataFooter>
+            <Styled.DataFooterLeft>
+              <Styled.DataFooterLink href={show.website}>
+                <Button>
+                  <Styled.Icon icon={faExternalLinkAlt} />
+                  Website
+                </Button>
+              </Styled.DataFooterLink>
+              <Styled.DataFooterLink as={Link} to={show.website}>
+                <Button>
+                  <Styled.Icon icon={faVideo} />
+                  Trailer
+                </Button>
+              </Styled.DataFooterLink>
+            </Styled.DataFooterLeft>
+            <Styled.DataFooterRight>
+              {show.network.logo ? (
+                <img src={`https://image.tmdb.org/t/p/w154${show.network.logo}`} alt="Network" />
+              ) : null}
+            </Styled.DataFooterRight>
+          </Styled.DataFooter>
         </Styled.Data>
       </Styled.ShowInfo>
       <Styled.CastingContainer>
         <h2>Casting</h2>
         <Styled.Casting>
           <Styled.CastingItemsWrapper>
-            {credits.cast.map((v) => (
+            {show.cast.map((v) => (
               <Styled.CastingItem key={v.id + v.character}>
                 <Styled.CastingImage
                   src={`https://image.tmdb.org/t/p/w185${v.profile_path}`}
@@ -104,12 +133,12 @@ const ShowPage = () => {
       <div>
         <h2>Recommended</h2>
         <ShowList
-          shows={recommendations.results}
-          few={recommendations.total_results < 5 ? 'few' : null}
+          shows={show.recommendations.results}
+          few={show.recommendations.total_results < 5 ? 'few' : null}
         />
         <Pagination
           currentPage={parseInt(params.page ?? '1')}
-          totalPages={recommendations.total_pages}
+          totalPages={show.recommendations.total_pages}
           size={7}
         />
       </div>
