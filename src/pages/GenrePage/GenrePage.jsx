@@ -13,6 +13,7 @@ const GenrePage = () => {
   const [shows, setShows] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const genres = useContext(GenresContext);
+  const [error, setError] = useState(false);
 
   const params = queryString.parse(location.search);
 
@@ -22,8 +23,7 @@ const GenrePage = () => {
         const genreId = genres?.filter((v) => v.name === genre).map((v) => v.id);
         const res = await getShowsGenre(params.page, genreId);
         if (res.error) {
-          history.push('/error');
-          setIsLoading(false);
+          setError(true);
         } else {
           setShows(res.data.data);
           setIsLoading(false);
@@ -35,7 +35,9 @@ const GenrePage = () => {
     return () => setIsLoading(true);
   }, [genre, history, params.page, genres]);
 
-  return (
+  return error ? (
+    'Error'
+  ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
       {isLoading ? (

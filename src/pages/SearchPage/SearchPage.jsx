@@ -11,6 +11,7 @@ const SearchPage = () => {
   const location = useLocation();
   const [shows, setShows] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const params = queryString.parse(location.search);
 
@@ -18,8 +19,7 @@ const SearchPage = () => {
     async function getData() {
       const res = await getShowsSearch(params.page, query);
       if (res.error) {
-        history.push('/error');
-        setIsLoading(false);
+        setError(true);
       } else {
         setShows(res.data.data);
         setIsLoading(false);
@@ -29,7 +29,9 @@ const SearchPage = () => {
     return () => setIsLoading(true);
   }, [query, history, params.page]);
 
-  return (
+  return error ? (
+    'Error'
+  ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
       {isLoading ? (
