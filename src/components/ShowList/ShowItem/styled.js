@@ -38,7 +38,7 @@ const PosterLoader = styled.div`
 `;
 
 const Overlay = styled.div`
-  background-color: rgba(var(--color-transparency), 0.96);
+  background-color: var(--color-transparency);
   height: 38rem;
   width: 100%;
   opacity: 0;
