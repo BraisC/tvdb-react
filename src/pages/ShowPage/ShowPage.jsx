@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
 import { missingPoster } from 'images';
 import utils from 'utils';
-import { ShowList, Pagination, ShowListLoader, Button } from 'components';
+import { ShowList, Pagination, Button } from 'components';
 import { getShowsPage } from 'api/tmdb';
 import queryString from 'query-string';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
