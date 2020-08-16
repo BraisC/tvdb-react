@@ -23,7 +23,6 @@ const Poster = styled.div`
 
 const PosterImage = styled.img`
   width: 100%;
-  height: 38rem;
   transition: opacity 1s ease;
   display: block;
 `;
@@ -38,7 +37,7 @@ const PosterLoader = styled.div`
 
 const Overlay = styled.div`
   background-color: var(--color-transparency);
-  height: 38rem;
+  height: 100%;
   width: 100%;
   opacity: 0;
   position: absolute;
