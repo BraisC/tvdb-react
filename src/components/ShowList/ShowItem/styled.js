@@ -23,6 +23,7 @@ const Poster = styled.div`
 
 const PosterImage = styled.img`
   width: 100%;
+  height: 38rem;
   transition: opacity 1s ease;
   display: block;
 `;
