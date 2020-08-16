@@ -28,25 +28,29 @@ const Filter = styled.div`
   height: 100%;
   background-color: var(--color-transparency-show);
   transition: background-color 0.2s ease;
-
   z-index: 1;
 `;
 
 const Poster = styled.div`
-  /* width: 50rem;
-  height: 75rem; */
   z-index: 2;
   background-color: var(--color-primary);
-  /* background-color: rgba(var(--color-transparency), 0.8); */
+  position: relative;
+`;
+
+const PosterLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50rem;
+  height: 75rem;
 `;
 
 const PosterImage = styled.img`
-  /* width: 100%;
-  height: 100%; */
   width: 50rem;
   height: 75rem;
   display: block;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  transition: opacity 1s ease, transform 0.2s ease;
 `;
 
 const Data = styled.div`
@@ -229,6 +233,7 @@ export const Styled = {
   ShowInfo,
   Filter,
   Poster,
+  PosterLoader,
   PosterImage,
   Data,
   DataHeader,

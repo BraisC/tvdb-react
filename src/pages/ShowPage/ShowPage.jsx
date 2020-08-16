@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
 import { missingPoster, profile } from 'images';
 import utils from 'utils';
-import { ShowList, Pagination, Button } from 'components';
+import { ShowList, Pagination, Button, Loader } from 'components';
 import { getShowsPage } from 'api/tmdb';
 import queryString from 'query-string';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
@@ -17,8 +17,10 @@ const ShowPage = () => {
   const history = useHistory();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
+  const [posterLoaded, setPosterLoaded] = useState(false);
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
+
   const config = useContext(ConfigContext);
 
   const params = queryString.parse(location.search);
@@ -36,7 +38,11 @@ const ShowPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [history, id, params.page]);
-  console.log(show?.recommendations);
+
+  const handlePosterLoad = () => {
+    setPosterLoaded(true);
+  };
+
   return error ? (
     'Error'
   ) : (
@@ -51,12 +57,20 @@ const ShowPage = () => {
             }
           >
             <Styled.Filter />
+
             <Styled.Poster>
+              <Styled.PosterLoader
+                style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
+              >
+                <Loader />
+              </Styled.PosterLoader>
               <Styled.PosterImage
+                style={{ opacity: posterLoaded ? '1' : '0' }}
                 src={
                   show.poster ? `${config?.url}/${config?.poster.big}${show.poster}` : missingPoster
                 }
                 alt={show.name}
+                onLoad={handlePosterLoad}
               />
             </Styled.Poster>
             <Styled.Data>
