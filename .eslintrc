@@ -1,5 +1,13 @@
 {
   "extends": "@braisc",
+  "rules": {
+    "react/jsx-props-no-spreading": [
+      1,
+      {
+        "exceptions": ["Slider"]
+      }
+    ]
+  },
   "settings": {
     "import/resolver": {
       "node": {

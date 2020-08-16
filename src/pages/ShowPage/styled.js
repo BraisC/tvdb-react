@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   color: var(--color-text);
@@ -165,10 +166,9 @@ const DataFooterLink = styled.a`
 `;
 
 const CastingContainer = styled.div`
+  padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  padding: 3rem 6rem;
 
   & h2 {
     font-size: 2rem;
@@ -178,25 +178,48 @@ const CastingContainer = styled.div`
   }
 `;
 
-const Casting = styled.div`
-  overflow-x: hidden;
+const CastingWrapper = styled.div`
+  margin-left: 1rem;
+  width: 100rem;
+  align-self: center;
 `;
 
-const CastingItemsWrapper = styled.div`
-  display: flex;
+const CastingItem = styled(Link)`
   width: 100%;
-  gap: 2rem;
-`;
-
-const CastingItem = styled.div`
-  flex: 0 0 10rem;
-`;
-
-const CastingImage = styled.img`
-  width: 100px;
-  background-color: var(--color-text);
+  text-decoration: none;
   height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  color: var(--color-text);
+`;
+
+const CastingItemContent = styled.div`
+  width: 16rem;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+
+  & h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  & span {
+    font-size: 1.2rem;
+  }
+`;
+
+const CastingItemInfo = styled.div`
+  background-color: var(--color-primary);
+  padding: 1rem;
+`;
+
+const CastingItemImage = styled.img`
+  width: 100%;
+  height: 16rem;
+  background-color: var(--color-text);
   display: block;
+  object-fit: cover;
 `;
 
 const SeasonsContainer = styled.div`
@@ -248,10 +271,11 @@ export const Styled = {
   DataFooterLink,
   DataFooterLeft,
   DataFooterRight,
-  Casting,
-  CastingImage,
-  CastingItemsWrapper,
+  CastingItemImage,
+  CastingItemInfo,
   CastingItem,
+  CastingItemContent,
+  CastingWrapper,
   CastingContainer,
   SeasonsContainer,
   RecommendedContainer,

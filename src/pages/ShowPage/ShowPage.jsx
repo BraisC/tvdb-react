@@ -8,9 +8,7 @@ import queryString from 'query-string';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { ConfigContext } from 'contexts/configContext';
 import { Styled } from './styled';
-
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+import { Carousel } from './Carousel';
 
 const ShowPage = () => {
   const { id } = useParams();
@@ -109,6 +107,7 @@ const ShowPage = () => {
               ${show.vote_count} votes`}
                 </Styled.DataVotes>
               </Styled.DataRating>
+
               <Styled.DataFooter>
                 <Styled.DataFooterLeft>
                   {show.website && (
@@ -140,22 +139,32 @@ const ShowPage = () => {
 
           <Styled.CastingContainer>
             <h2>Casting</h2>
-            <Styled.Casting>
-              <Styled.CastingItemsWrapper>
+            <Styled.CastingWrapper>
+              <Carousel length={show.cast.length}>
                 {show.cast.map((v) => (
-                  <Styled.CastingItem key={v.id + v.character}>
-                    <Styled.CastingImage
-                      src={
-                        v.profile_path
-                          ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
-                          : profile
-                      }
-                      alt={v.name}
-                    />
+                  <Styled.CastingItem
+                    key={v.id + v.character}
+                    to={`${process.env.PUBLIC_URL}/casting/${v.id}`}
+                    title={v.name}
+                  >
+                    <Styled.CastingItemContent>
+                      <Styled.CastingItemImage
+                        src={
+                          v.profile_path
+                            ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
+                            : profile
+                        }
+                        alt={v.name}
+                      />
+                      <Styled.CastingItemInfo>
+                        <h3>{utils.limitTextLength(v.name, 17)}</h3>
+                        <span>{utils.limitTextLength(v.character, 17)}</span>
+                      </Styled.CastingItemInfo>
+                    </Styled.CastingItemContent>
                   </Styled.CastingItem>
                 ))}
-              </Styled.CastingItemsWrapper>
-            </Styled.Casting>
+              </Carousel>
+            </Styled.CastingWrapper>
           </Styled.CastingContainer>
 
           <Styled.SeasonsContainer>
