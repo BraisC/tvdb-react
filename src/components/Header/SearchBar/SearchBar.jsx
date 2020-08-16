@@ -27,7 +27,11 @@ const SearchBar = () => {
       <Styled.SearchIcon onClick={handleSubmit}>
         <FontAwesomeIcon icon={faSearch} />
       </Styled.SearchIcon>
+      <label htmlFor="searchinput" style={{ opacity: '0', width: '0' }}>
+        Search
+      </label>
       <Styled.SearchInput
+        id="searchinput"
         onChange={handleChange}
         ref={input}
         value={value}

@@ -73,22 +73,22 @@ const ShowPage = () => {
                 </Styled.DataHeaderRight>
               </Styled.DataHeader>
               <Styled.DataSection>
-                <h3>Summary</h3>
+                <h2>Summary</h2>
                 <p>{show.overview}</p>
               </Styled.DataSection>
               <Styled.DataSeasons>
                 {show.seasons?.length} {show.seasons?.length > 1 ? 'Seasons' : 'Season'}
               </Styled.DataSeasons>
               <Styled.DataSection>
-                <h3>Created by</h3>
+                <h2>Created by</h2>
                 <p>{show.creator}</p>
               </Styled.DataSection>
               <Styled.DataSection>
-                <h3>Status</h3>
+                <h2>Status</h2>
                 <p>{show.status}</p>
               </Styled.DataSection>
               <Styled.DataRating>
-                <h3>Rating</h3>
+                <h2>Rating</h2>
                 <Styled.DataStars>{utils.generateStars(show.vote_average)}</Styled.DataStars>
                 <Styled.DataVotes>
                   {`${show.vote_average} with 
