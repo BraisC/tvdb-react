@@ -16,14 +16,14 @@ const Title = styled.span`
 `;
 
 const Poster = styled.div`
-  background-color: var(--color-primary);
   position: relative;
+
   transition: transform 0.2s ease;
 `;
 
 const PosterImage = styled.img`
   width: 100%;
-  height: 38rem;
+
   transition: opacity 1s ease;
   display: block;
 `;
@@ -53,10 +53,13 @@ const ShowItemLink = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
   overflow: hidden;
   position: relative;
+  height: 84%;
+  background-color: var(--color-primary);
 
   &:hover {
     transform: scaleY(1.2) scaleX(1.4);
