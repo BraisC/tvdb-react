@@ -10,6 +10,7 @@ export const mapShowPage = (show, credits, recommendations, certifications, vide
   seasons: show.seasons,
   creator: show.created_by[0]?.name,
   status: show.status,
+  year: show.first_air_date?.substring(0, 4),
   vote_average: show.vote_average,
   vote_count: show.vote_count,
   website: show.homepage,
