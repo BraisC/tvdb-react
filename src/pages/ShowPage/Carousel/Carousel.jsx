@@ -48,7 +48,7 @@ const Carousel = ({ children, ...props }) => {
     arrows: true,
     infinite: true,
     speed: 500,
-    slidesToShow: props.length < 5 ? props.length : 5,
+    slidesToShow: props.length,
     slidesToScroll: 1,
     accesibility: true,
     swipeToSlide: true,
@@ -56,7 +56,6 @@ const Carousel = ({ children, ...props }) => {
     prevArrow: <PrevArrow />,
     variableWidth: false,
   };
-  console.log(props.length);
 
   const settings = { ...defaults, ...props };
 

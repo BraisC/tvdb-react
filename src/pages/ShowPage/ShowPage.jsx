@@ -140,7 +140,7 @@ const ShowPage = () => {
           <Styled.CastingContainer>
             <h2>Casting</h2>
             <Styled.CastingWrapper>
-              <Carousel length={show.cast.length}>
+              <Carousel length={show.cast.length < 5 ? show.cast.length : 5}>
                 {show.cast.map((v) => (
                   <Styled.CastingItem
                     key={v.id + v.character}
@@ -148,14 +148,16 @@ const ShowPage = () => {
                     title={v.name}
                   >
                     <Styled.CastingItemContent>
-                      <Styled.CastingItemImage
-                        src={
-                          v.profile_path
-                            ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
-                            : profile
-                        }
-                        alt={v.name}
-                      />
+                      <Styled.CastingItemImageWrapper>
+                        <Styled.CastingItemImage
+                          src={
+                            v.profile_path
+                              ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
+                              : profile
+                          }
+                          alt={v.name}
+                        />
+                      </Styled.CastingItemImageWrapper>
                       <Styled.CastingItemInfo>
                         <h3>{utils.limitTextLength(v.name, 17)}</h3>
                         <span>{utils.limitTextLength(v.character, 17)}</span>
@@ -169,14 +171,51 @@ const ShowPage = () => {
 
           <Styled.SeasonsContainer>
             <h2>Seasons</h2>
-            {show.seasons.map((v) => (
-              <div key={v.id}>{v.name}</div>
-            ))}
+            <Styled.SeasonsWrapper>
+              <Carousel
+                length={show.seasons.length < 5 ? show.seasons.length : 5}
+                responsive={[
+                  {
+                    breakpoint: 1600,
+                    settings: {
+                      slidesToShow: 3,
+                    },
+                  },
+                ]}
+              >
+                {show.seasons.map((v) => (
+                  <Styled.SeasonsItem
+                    key={v.id}
+                    to={`${process.env.PUBLIC_URL}/tv/${v.id}/season/${v.season_number}`}
+                    title={v.name}
+                  >
+                    <Styled.SeasonsItemContent>
+                      <Styled.SeasonsItemImageWrapper>
+                        <Styled.SeasonsItemImage
+                          src={
+                            v.poster_path
+                              ? `${config?.url}/${config?.poster.normal}${v.poster_path}`
+                              : missingPoster
+                          }
+                          alt={v.name}
+                        />
+                      </Styled.SeasonsItemImageWrapper>
+                      <Styled.SeasonsItemInfo>
+                        <h3>{utils.limitTextLength(v.name, 17)}</h3>
+                        <span>
+                          {v.air_date.substring(0, 4)} - {v.episode_count} episodes
+                        </span>
+                        <p>{utils.limitTextLength(v.overview, 200)}</p>
+                      </Styled.SeasonsItemInfo>
+                    </Styled.SeasonsItemContent>
+                  </Styled.SeasonsItem>
+                ))}
+              </Carousel>
+            </Styled.SeasonsWrapper>
           </Styled.SeasonsContainer>
 
           <Styled.RecommendedContainer>
             <h2>Recommended</h2>
-
             {show.recommendations.results.length ? (
               <>
                 <ShowList

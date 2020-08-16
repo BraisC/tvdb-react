@@ -180,23 +180,23 @@ const CastingContainer = styled.div`
 
 const CastingWrapper = styled.div`
   margin-left: 1rem;
-  width: 100rem;
+  width: 50%;
   align-self: center;
 `;
 
 const CastingItem = styled(Link)`
-  width: 100%;
+  width: 20rem;
   text-decoration: none;
   height: 100%;
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   color: var(--color-text);
 `;
 
 const CastingItemContent = styled.div`
-  width: 16rem;
+  width: 70%;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
 
   & h3 {
@@ -209,17 +209,21 @@ const CastingItemContent = styled.div`
   }
 `;
 
-const CastingItemInfo = styled.div`
-  background-color: var(--color-primary);
-  padding: 1rem;
+const CastingItemImageWrapper = styled.div`
+  width: 100%;
 `;
 
 const CastingItemImage = styled.img`
   width: 100%;
-  height: 16rem;
+  height: 20rem;
   background-color: var(--color-text);
   display: block;
   object-fit: cover;
+`;
+
+const CastingItemInfo = styled.div`
+  background-color: var(--color-primary);
+  padding: 1rem;
 `;
 
 const SeasonsContainer = styled.div`
@@ -233,6 +237,67 @@ const SeasonsContainer = styled.div`
     text-transform: uppercase;
     font-weight: 100;
     margin-bottom: 4rem;
+  }
+`;
+
+const SeasonsWrapper = styled.div`
+  margin-left: 0 1rem;
+  width: 100%;
+  align-self: center;
+`;
+
+const SeasonsItem = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+  height: 100%;
+  display: flex !important;
+  padding: 2rem 0;
+  color: var(--color-text);
+  justify-content: center;
+  align-items: center;
+`;
+
+const SeasonsItemContent = styled.div`
+  width: 90%;
+  max-width: 50rem;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  display: flex;
+  background-color: var(--color-primary);
+
+  & h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  & span {
+    font-size: 1.2rem;
+  }
+`;
+
+const SeasonsItemImageWrapper = styled.div`
+  width: 30%;
+  padding: 1rem;
+`;
+
+const SeasonsItemImage = styled.img`
+  width: 100%;
+
+  background-color: var(--color-text);
+  display: block;
+  object-fit: cover;
+`;
+
+const SeasonsItemInfo = styled.div`
+  background-color: var(--color-primary);
+  padding: 1rem;
+  flex: 1;
+
+  & h3 {
+    font-size: 1.6rem;
+  }
+
+  & p {
+    margin-top: 1rem;
   }
 `;
 
@@ -271,6 +336,7 @@ export const Styled = {
   DataFooterLink,
   DataFooterLeft,
   DataFooterRight,
+  CastingItemImageWrapper,
   CastingItemImage,
   CastingItemInfo,
   CastingItem,
@@ -278,5 +344,11 @@ export const Styled = {
   CastingWrapper,
   CastingContainer,
   SeasonsContainer,
+  SeasonsWrapper,
+  SeasonsItem,
+  SeasonsItemInfo,
+  SeasonsItemImage,
+  SeasonsItemImageWrapper,
+  SeasonsItemContent,
   RecommendedContainer,
 };
