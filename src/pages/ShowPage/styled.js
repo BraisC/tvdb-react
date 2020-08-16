@@ -33,14 +33,18 @@ const Filter = styled.div`
 `;
 
 const Poster = styled.div`
-  width: 50rem;
+  /* width: 50rem;
+  height: 75rem; */
   z-index: 2;
-  padding: 4rem;
+  background-color: var(--color-primary);
   /* background-color: rgba(var(--color-transparency), 0.8); */
 `;
 
 const PosterImage = styled.img`
-  width: 100%;
+  /* width: 100%;
+  height: 100%; */
+  width: 50rem;
+  height: 75rem;
   display: block;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
 `;
@@ -93,7 +97,7 @@ const DataHeaderRight = styled.span`
 `;
 
 const DataSection = styled.div`
-  & h3 {
+  & h2 {
     font-size: 2rem;
   }
 
@@ -108,7 +112,7 @@ const DataSeasons = styled.h3`
 `;
 
 const DataRating = styled.div`
-  & h3 {
+  & h2 {
     font-size: 2rem;
   }
 `;
