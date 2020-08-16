@@ -36,7 +36,7 @@ const ShowPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [history, id, params.page]);
-
+  console.log(show?.recommendations);
   return error ? (
     'Error'
   ) : (
@@ -97,12 +97,14 @@ const ShowPage = () => {
               </Styled.DataRating>
               <Styled.DataFooter>
                 <Styled.DataFooterLeft>
-                  <Styled.DataFooterLink href={show.website}>
-                    <Button>
-                      <Styled.Icon icon={faExternalLinkAlt} />
-                      Website
-                    </Button>
-                  </Styled.DataFooterLink>
+                  {show.website && (
+                    <Styled.DataFooterLink href={show.website}>
+                      <Button>
+                        <Styled.Icon icon={faExternalLinkAlt} />
+                        Website
+                      </Button>
+                    </Styled.DataFooterLink>
+                  )}
                   <Styled.DataFooterLink as={Link} to={show.website}>
                     <Button>
                       <Styled.Icon icon={faVideo} />
@@ -151,15 +153,22 @@ const ShowPage = () => {
 
           <Styled.RecommendedContainer>
             <h2>Recommended</h2>
-            <ShowList
-              shows={show.recommendations.results}
-              few={show.recommendations.total_results < 5 ? 'few' : null}
-            />
-            <Pagination
-              currentPage={parseInt(params.page ?? '1')}
-              totalPages={show.recommendations.total_pages}
-              size={7}
-            />
+
+            {show.recommendations.results.length ? (
+              <>
+                <ShowList
+                  shows={show.recommendations.results}
+                  few={show.recommendations.total_results < 5 ? 'few' : null}
+                />
+                <Pagination
+                  currentPage={parseInt(params.page ?? '1')}
+                  totalPages={show.recommendations.total_pages}
+                  size={7}
+                />
+              </>
+            ) : (
+              'No recommendations for this show'
+            )}
           </Styled.RecommendedContainer>
         </>
       )}
