@@ -91,7 +91,7 @@ export async function getShowsSearch(page = 1, query) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/search/tv/`, {
+    res.data = await tmdb.get(`/search/tv`, {
       params: {
         page,
         query,
@@ -110,7 +110,7 @@ export async function getShowsGenre(page = 1, genres) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/discover/tv/`, {
+    res.data = await tmdb.get(`/discover/tv`, {
       params: {
         page,
         with_genres: genres.join(','),
