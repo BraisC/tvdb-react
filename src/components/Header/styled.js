@@ -6,7 +6,8 @@ const Header = styled.header`
   align-items: center;
   transition: background-color 0.2s ease, color 0.2s ease;
   grid-area: header;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 3;
 `;
 

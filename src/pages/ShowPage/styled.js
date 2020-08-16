@@ -223,6 +223,7 @@ const CastingItemImage = styled.img`
 
 const CastingItemInfo = styled.div`
   background-color: var(--color-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
   padding: 1rem;
 `;
 
@@ -263,6 +264,7 @@ const SeasonsItemContent = styled.div`
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
   display: flex;
   background-color: var(--color-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 
   & h3 {
     font-size: 1.4rem;
@@ -275,22 +277,20 @@ const SeasonsItemContent = styled.div`
 `;
 
 const SeasonsItemImageWrapper = styled.div`
-  width: 30%;
+  width: 17rem;
   padding: 1rem;
+  flex-shrink: 0;
 `;
 
 const SeasonsItemImage = styled.img`
   width: 100%;
-
   background-color: var(--color-text);
   display: block;
   object-fit: cover;
 `;
 
 const SeasonsItemInfo = styled.div`
-  background-color: var(--color-primary);
   padding: 1rem;
-  flex: 1;
 
   & h3 {
     font-size: 1.6rem;
