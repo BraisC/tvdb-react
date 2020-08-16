@@ -297,7 +297,7 @@ const generateStars = (valoration) => {
           <FontAwesomeIcon icon={faStar} />
         </span>
       );
-    } else if (i === full + 1 && decimal > 2 && decimal < 6) {
+    } else if (i === full + 1 && decimal > 2 && decimal <= 6) {
       result.push(
         <span key={i}>
           <FontAwesomeIcon icon={faStarHalfAlt} />
