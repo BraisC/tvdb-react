@@ -258,12 +258,7 @@ const getCountryName = (countryCode) => {
   return countryCode;
 };
 
-const generateTitle = (show) => {
-  const title = show.name;
-  const year = show.first_air_date?.substring(0, 4);
-
-  return year ? `${title} (${year})` : title;
-};
+const generateTitle = (show) => (show.year ? `${show.name} (${show.year})` : show.name);
 
 const limitTextLength = (title, limit = 18) => {
   const newTitle = [];
