@@ -18,7 +18,7 @@ const Title = styled.span`
 const Poster = styled.div`
   background-color: var(--color-primary);
   position: relative;
-  transition: opacity 1s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
 `;
 
 const PosterImage = styled.img`

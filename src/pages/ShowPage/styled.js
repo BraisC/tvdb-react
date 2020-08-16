@@ -50,7 +50,7 @@ const PosterImage = styled.img`
   height: 75rem;
   display: block;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
-  transition: opacity 1s ease, transform 0.2s ease;
+  transition: opacity 1s ease;
 `;
 
 const Data = styled.div`
