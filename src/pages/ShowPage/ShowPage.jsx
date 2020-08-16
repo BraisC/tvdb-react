@@ -9,6 +9,9 @@ import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { ConfigContext } from 'contexts/configContext';
 import { Styled } from './styled';
 
+import '../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+
 const ShowPage = () => {
   const { id } = useParams();
   const history = useHistory();
@@ -43,13 +46,15 @@ const ShowPage = () => {
       ) : (
         <>
           <Styled.ShowInfo
-            background={show.backdrop && `${config.url}/${config.backdrop.custom}${show.backdrop}`}
+            background={
+              show.backdrop && `${config?.url}/${config?.backdrop.custom}${show.backdrop}`
+            }
           >
             <Styled.Filter />
             <Styled.Poster>
               <Styled.PosterImage
                 src={
-                  show.poster ? `${config.url}/${config.poster.big}${show.poster}` : missingPoster
+                  show.poster ? `${config?.url}/${config?.poster.big}${show.poster}` : missingPoster
                 }
                 alt={show.name}
               />
@@ -108,7 +113,7 @@ const ShowPage = () => {
                 <Styled.DataFooterRight>
                   {show.network.logo ? (
                     <img
-                      src={`${config.url}/${config.logo.big}${show.network.logo}`}
+                      src={`${config?.url}/${config?.logo.big}${show.network.logo}`}
                       alt="Network"
                     />
                   ) : null}
@@ -126,7 +131,7 @@ const ShowPage = () => {
                     <Styled.CastingImage
                       src={
                         v.profile_path
-                          ? `${config.url}/${config.profile.normal}${v.profile_path}`
+                          ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
                           : profile
                       }
                       alt={v.name}
