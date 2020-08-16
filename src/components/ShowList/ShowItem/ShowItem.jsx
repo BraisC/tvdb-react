@@ -110,7 +110,6 @@ const ShowItem = ({ show }) => {
             show.poster_path ? `https://image.tmdb.org/t/p/w342${show.poster_path}` : missingPoster
           }
           alt={show.name}
-          className={show.poster_path ? null : 'missing-poster'}
         />
       </Styled.ShowItemLink>
       <Styled.Title>{utils.generateTitle(show)}</Styled.Title>

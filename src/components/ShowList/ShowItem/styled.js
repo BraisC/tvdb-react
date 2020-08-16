@@ -18,14 +18,8 @@ const Title = styled.span`
 const Poster = styled.img`
   width: 100%;
   height: 38rem;
-  object-fit: cover;
   transition: opacity 1s ease, transform 0.2s ease;
   background-color: var(--color-primary);
-
-  &.missing-poster {
-    object-fit: contain;
-    background-color: var(--color-primary);
-  }
 `;
 
 const PosterLoader = styled.div`
