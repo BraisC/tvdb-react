@@ -97,20 +97,24 @@ const ShowItem = ({ show }) => {
             </Styled.Content>
           )}
         </Styled.Overlay>
-        <Styled.PosterLoader
-          style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
-        >
-          <Loader />
-        </Styled.PosterLoader>
-        <Styled.Poster
-          style={{ opacity: posterLoaded ? '1' : '0' }}
-          loading="lazy"
-          onLoad={handlePosterLoad}
-          src={
-            show.poster_path ? `https://image.tmdb.org/t/p/w342${show.poster_path}` : missingPoster
-          }
-          alt={show.name}
-        />
+        <Styled.Poster>
+          <Styled.PosterLoader
+            style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
+          >
+            <Loader />
+          </Styled.PosterLoader>
+          <Styled.PosterImage
+            style={{ opacity: posterLoaded ? '1' : '0' }}
+            loading="lazy"
+            onLoad={handlePosterLoad}
+            src={
+              show.poster_path
+                ? `https://image.tmdb.org/t/p/w342${show.poster_path}`
+                : missingPoster
+            }
+            alt={show.name}
+          />
+        </Styled.Poster>
       </Styled.ShowItemLink>
       <Styled.Title>{utils.generateTitle(show)}</Styled.Title>
     </Styled.ShowItem>

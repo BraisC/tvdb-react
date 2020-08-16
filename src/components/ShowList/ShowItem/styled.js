@@ -15,11 +15,17 @@ const Title = styled.span`
   transition: color 0.2s ease;
 `;
 
-const Poster = styled.img`
+const Poster = styled.div`
+  background-color: var(--color-primary);
+  position: relative;
+  transition: opacity 1s ease, transform 0.2s ease;
+`;
+
+const PosterImage = styled.img`
   width: 100%;
   height: 38rem;
-  transition: opacity 1s ease, transform 0.2s ease;
-  background-color: var(--color-primary);
+  transition: opacity 1s ease;
+  display: block;
 `;
 
 const PosterLoader = styled.div`
@@ -28,7 +34,6 @@ const PosterLoader = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: var(--color-primary);
 `;
 
 const Overlay = styled.div`
@@ -134,6 +139,7 @@ export const Styled = {
   ShowItemLink,
   Title,
   Poster,
+  PosterImage,
   PosterLoader,
   Overlay,
   Content,
