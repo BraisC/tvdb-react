@@ -17,7 +17,6 @@ const Title = styled.span`
 
 const Poster = styled.div`
   position: relative;
-
   transition: transform 0.2s ease;
 `;
 
@@ -58,7 +57,7 @@ const ShowItemLink = styled(Link)`
   transition: 0.2s ease;
   overflow: hidden;
   position: relative;
-  height: 84%;
+  height: 37rem;
   background-color: var(--color-primary);
 
   &:hover {
