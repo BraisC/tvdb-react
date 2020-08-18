@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
-import { missingPoster, profile } from 'images';
-import utils from 'utils';
-import { ShowList, Pagination, Button, Loader } from 'components';
-import { getShowsPage } from 'api/tmdb';
-import queryString from 'query-string';
-import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { ConfigContext } from 'contexts/configContext';
+import { getShowsPage } from 'api/tmdb';
+import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { missingPoster, profile } from 'images';
+
+import queryString from 'query-string';
+import utils from 'utils';
+
+import { ShowList, Pagination, Button, Loader, Modal } from 'components';
 import { Styled } from './styled';
 import { Carousel } from './Carousel';
 
@@ -16,6 +18,7 @@ const ShowPage = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [posterLoaded, setPosterLoaded] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
 
@@ -26,6 +29,7 @@ const ShowPage = () => {
   useEffect(() => {
     async function getData() {
       const res = await getShowsPage(params.page, id);
+
       if (res.error) {
         setError(true);
       } else {
@@ -118,7 +122,7 @@ const ShowPage = () => {
                       </Button>
                     </Styled.DataFooterLink>
                   )}
-                  <Styled.DataFooterLink as={Link} to={show.website}>
+                  <Styled.DataFooterLink as="div">
                     <Button>
                       <Styled.Icon icon={faVideo} />
                       Trailer
@@ -203,7 +207,9 @@ const ShowPage = () => {
                       <Styled.SeasonsItemInfo>
                         <h2>{utils.limitTextLength(v.name, 17)}</h2>
                         <span>
-                          {v.air_date.substring(0, 4)} - {v.episode_count} episodes
+                          {`${v.air_date ? `${v.air_date.substring(0, 4)} - ` : ''} ${
+                            v.episode_count
+                          } episodes`}
                         </span>
                         <p>{utils.limitTextLength(v.overview, 200)}</p>
                       </Styled.SeasonsItemInfo>

@@ -1,0 +1,21 @@
+export const mapShowDetails = (show) => ({
+  name: show.name,
+  id: show.id,
+  genres: show.genres,
+  overview: show.overview,
+  seasons: show.seasons,
+  status: show.status,
+  vote_average: show.vote_average,
+  network: {
+    name: show.networks[0]?.name,
+    logo: show.networks[0]?.logo_path,
+  },
+  year: show.first_air_date?.substring(0, 4),
+  backdrop: show.backdrop_path,
+  poster: show.poster_path,
+  duration: show.episode_run_time[0],
+  country: show.origin_country,
+  creator: show.created_by[0]?.name,
+  vote_count: show.vote_count,
+  website: show.homepage,
+});

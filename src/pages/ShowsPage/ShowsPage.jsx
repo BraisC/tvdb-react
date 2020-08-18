@@ -21,7 +21,7 @@ const ShowsPage = () => {
         history.push('/error');
         setIsLoading(false);
       } else {
-        setShows(res.data.data);
+        setShows(res.data);
         setIsLoading(false);
       }
     }

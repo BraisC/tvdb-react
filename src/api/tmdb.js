@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { mapShowPage, mapConfig } from 'mappers';
+import { mapShowPage, mapConfig, mapShowList, mapShowDetails } from 'mappers';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -43,7 +43,8 @@ export async function getDetails(id) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${id}`);
+    const detailsRes = await tmdb.get(`/tv/${id}`);
+    res.data = mapShowDetails(detailsRes.data);
   } catch (err) {
     res.error = err.response;
   }
@@ -73,11 +74,13 @@ export async function getShows(page = 1, route = '/') {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${path}`, {
+    const listRes = await tmdb.get(`/tv/${path}`, {
       params: {
         page,
       },
     });
+
+    res.data = mapShowList(listRes.data);
   } catch (err) {
     res.error = err.response;
   }
@@ -91,12 +94,14 @@ export async function getShowsSearch(page = 1, query) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/search/tv`, {
+    const searchRes = await tmdb.get(`/search/tv`, {
       params: {
         page,
         query,
       },
     });
+
+    res.data = mapShowList(searchRes.data);
   } catch (err) {
     res.error = err.response;
   }
@@ -143,11 +148,13 @@ export async function getRecommendations(page = 1, id) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${id}/recommendations`, {
+    const recRes = await tmdb.get(`/tv/${id}/recommendations`, {
       params: {
         page,
       },
     });
+
+    res.data = mapShowList(recRes.data);
   } catch (err) {
     res.error = err.response;
   }
@@ -182,9 +189,9 @@ export async function getShowsPage(page = 1, id) {
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
     res.data = mapShowPage(
-      showRes.data.data,
+      showRes.data,
       creditsRes.data.data,
-      recommendationsRes.data.data,
+      recommendationsRes.data,
       certificationsRes.data.data,
       videosRes.data.data
     );

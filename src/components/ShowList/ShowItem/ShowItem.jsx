@@ -13,13 +13,14 @@ const ShowItem = ({ show }) => {
   const [logoLoaded, setLogoLoaded] = useState(false);
   const imgHeight = useRef();
   const isUnMounted = useRef(false);
+
   const handleHover = async () => {
     if (!details) {
       const res = await getDetails(show.id);
       if (res.error) {
         !isUnMounted.current && setIsLoading(false);
       } else {
-        !isUnMounted.current && setDetails(res.data.data);
+        !isUnMounted.current && setDetails(res.data);
         !isUnMounted.current && setIsLoading(false);
       }
     }
@@ -86,12 +87,12 @@ const ShowItem = ({ show }) => {
                     {utils.generateStars(details.vote_average)}
                   </Styled.ContentStars>
                 </Styled.ContentSection>
-                {details.networks[0]?.logo_path ? (
+                {details.network?.logo ? (
                   <Styled.ContentLogo
                     small={imgHeight.current > 80}
                     onLoad={handleLogoLoad}
                     logoLoaded={logoLoaded}
-                    src={`https://image.tmdb.org/t/p/w154${details.networks[0]?.logo_path}`}
+                    src={`https://image.tmdb.org/t/p/w154${details.network?.logo}`}
                     alt="Network"
                   />
                 ) : null}
@@ -109,11 +110,7 @@ const ShowItem = ({ show }) => {
             style={{ opacity: posterLoaded ? '1' : '0' }}
             loading="lazy"
             onLoad={handlePosterLoad}
-            src={
-              show.poster_path
-                ? `https://image.tmdb.org/t/p/w342${show.poster_path}`
-                : missingPoster
-            }
+            src={show.poster ? `https://image.tmdb.org/t/p/w342${show.poster}` : missingPoster}
             alt={show.name}
           />
         </Styled.Poster>

@@ -21,7 +21,7 @@ const SearchPage = () => {
       if (res.error) {
         setError(true);
       } else {
-        setShows(res.data.data);
+        setShows(res.data);
         setIsLoading(false);
       }
     }
