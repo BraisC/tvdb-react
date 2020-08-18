@@ -2,6 +2,7 @@ export const mapShowList = (data) => ({
   pages: data.total_pages,
   page: data.page,
   total_results: data.total_results,
+  total_pages: data.total_pages,
   results: data.results.map((show) => ({
     id: show.id,
     name: show.name,
