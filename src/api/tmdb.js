@@ -58,7 +58,8 @@ export async function getCertifications(id) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${id}/content_ratings`);
+    const certRes = await tmdb.get(`/tv/${id}/content_ratings`);
+    res.data = certRes.data;
   } catch (err) {
     res.error = err.response;
   }
@@ -134,7 +135,8 @@ export async function getCredits(id) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${id}/credits`);
+    const creditsRes = await tmdb.get(`/tv/${id}/credits`);
+    res.data = creditsRes.data;
   } catch (err) {
     res.error = err.response;
   }
@@ -168,7 +170,8 @@ export async function getVideos(id) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/tv/${id}/videos`);
+    const videosRes = await tmdb.get(`/tv/${id}/videos`);
+    res.data = videosRes.data;
   } catch (err) {
     res.error = err.response;
   }
@@ -190,10 +193,10 @@ export async function getShowsPage(page = 1, id) {
     const videosRes = await getVideos(id);
     res.data = mapShowPage(
       showRes.data,
-      creditsRes.data.data,
+      creditsRes.data,
       recommendationsRes.data,
-      certificationsRes.data.data,
-      videosRes.data.data
+      certificationsRes.data,
+      videosRes.data
     );
   } catch (err) {
     res.error = err.response;
