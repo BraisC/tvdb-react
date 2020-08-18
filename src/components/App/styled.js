@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     'footer';
 `;
 
-const ContentWrapper = styled.section`
+const ContentWrapper = styled.main`
   grid-area: content;
   background-color: var(--color-secondary);
   transition: background-color 0.2s ease;

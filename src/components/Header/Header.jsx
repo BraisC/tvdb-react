@@ -42,15 +42,17 @@ const Menu = () => {
   const genres = useContext(GenresContext);
 
   return (
-    <Styled.Menu>
-      {MenuOptions.map((val) =>
-        val.route ? (
-          <MenuItem key={val.name} value={val.name} route={val.route} />
-        ) : (
-          <SubMenu key={val.name} value={val.name} subvalues={genres} />
-        )
-      )}
-    </Styled.Menu>
+    <nav>
+      <Styled.Menu>
+        {MenuOptions.map((val) =>
+          val.route ? (
+            <MenuItem key={val.name} value={val.name} route={val.route} />
+          ) : (
+            <SubMenu key={val.name} value={val.name} subvalues={genres} />
+          )
+        )}
+      </Styled.Menu>
+    </nav>
   );
 };
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const ShowItem = styled(motion.div)`
+const ShowItem = styled(motion.article)`
   color: var(--color-text);
 `;
 
@@ -15,7 +15,7 @@ const Title = styled.span`
   transition: color 0.2s ease;
 `;
 
-const Poster = styled.div`
+const Poster = styled.figure`
   position: relative;
   transition: transform 0.2s ease;
 `;
@@ -74,53 +74,40 @@ const ShowItemLink = styled(Link)`
   }
 `;
 
-const Content = styled(motion.div)`
+const Content = styled(motion.section)`
   transform: scaleX(0.87);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+`;
 
-  & h2 {
+const ContentHeader = styled.section`
+  & h1 {
     font-weight: 600;
     font-size: 2rem;
   }
 `;
 
-const ContentHeader = styled.div``;
-
-const ContentSummary = styled.div`
-  & h3 {
-    font-size: 1.4rem;
-  }
-  & p {
-    font-size: 1.1rem;
-  }
-`;
-const ContentSeasons = styled.span`
+const ContentSeasons = styled.section`
   font-weight: 600;
   font-size: 1.4rem;
 `;
 
-const ContentStatus = styled.div`
-  & h3 {
+const ContentSection = styled.section`
+  & h2 {
     font-size: 1.4rem;
   }
+
   & p {
     font-size: 1.1rem;
   }
 `;
 
-const ContentFooter = styled.div`
+const ContentFooter = styled.section`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-`;
-
-const ContentRating = styled.div`
-  & h3 {
-    font-size: 1.4rem;
-  }
 `;
 
 const ContentStars = styled.div`
@@ -146,10 +133,8 @@ export const Styled = {
   Overlay,
   Content,
   ContentHeader,
-  ContentSummary,
+  ContentSection,
   ContentSeasons,
-  ContentStatus,
-  ContentRating,
   ContentFooter,
   ContentStars,
   ContentLogo,

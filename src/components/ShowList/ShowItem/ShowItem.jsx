@@ -63,27 +63,29 @@ const ShowItem = ({ show }) => {
               transition={{ duration: 1 }}
             >
               <Styled.ContentHeader>
-                <h2>{utils.limitTextLength(utils.generateTitle(details))}</h2>
+                <h1>{utils.limitTextLength(utils.generateTitle(details))}</h1>
                 <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
               </Styled.ContentHeader>
-              <Styled.ContentSummary>
-                <h3>Summary</h3>
+              <Styled.ContentSection>
+                <h2>Summary</h2>
                 <p>{utils.limitTextLength(details.overview, 200) || 'No summary'}</p>
-              </Styled.ContentSummary>
-              <Styled.ContentSeasons>
-                {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
-              </Styled.ContentSeasons>
-              <Styled.ContentStatus>
-                <h3>Status</h3>
+              </Styled.ContentSection>
+              <Styled.ContentSection>
+                <h2>
+                  {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
+                </h2>
+              </Styled.ContentSection>
+              <Styled.ContentSection>
+                <h2>Status</h2>
                 <span>{details.status}</span>
-              </Styled.ContentStatus>
+              </Styled.ContentSection>
               <Styled.ContentFooter>
-                <Styled.ContentRating>
-                  <h3>Rating</h3>
+                <Styled.ContentSection>
+                  <h2>Rating</h2>
                   <Styled.ContentStars>
                     {utils.generateStars(details.vote_average)}
                   </Styled.ContentStars>
-                </Styled.ContentRating>
+                </Styled.ContentSection>
                 {details.networks[0]?.logo_path ? (
                   <Styled.ContentLogo
                     small={imgHeight.current > 80}

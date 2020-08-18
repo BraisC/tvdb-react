@@ -138,7 +138,7 @@ const ShowPage = () => {
           </Styled.ShowInfo>
 
           <Styled.CastingContainer>
-            <h2>Casting</h2>
+            <h1>Casting</h1>
             <Styled.CastingWrapper>
               <Carousel length={show.cast.length < 5 ? show.cast.length : 5}>
                 {show.cast.map((v) => (
@@ -159,7 +159,7 @@ const ShowPage = () => {
                         />
                       </Styled.CastingItemImageWrapper>
                       <Styled.CastingItemInfo>
-                        <h3>{utils.limitTextLength(v.name, 17)}</h3>
+                        <h2>{utils.limitTextLength(v.name, 17)}</h2>
                         <span>{utils.limitTextLength(v.character, 17)}</span>
                       </Styled.CastingItemInfo>
                     </Styled.CastingItemContent>
@@ -170,7 +170,7 @@ const ShowPage = () => {
           </Styled.CastingContainer>
 
           <Styled.SeasonsContainer>
-            <h2>Seasons</h2>
+            <h1>Seasons</h1>
             <Styled.SeasonsWrapper>
               <Carousel
                 length={show.seasons.length < 5 ? show.seasons.length : 5}
@@ -201,7 +201,7 @@ const ShowPage = () => {
                         />
                       </Styled.SeasonsItemImageWrapper>
                       <Styled.SeasonsItemInfo>
-                        <h3>{utils.limitTextLength(v.name, 17)}</h3>
+                        <h2>{utils.limitTextLength(v.name, 17)}</h2>
                         <span>
                           {v.air_date.substring(0, 4)} - {v.episode_count} episodes
                         </span>
@@ -215,7 +215,7 @@ const ShowPage = () => {
           </Styled.SeasonsContainer>
 
           <Styled.RecommendedContainer>
-            <h2>Recommended</h2>
+            <h1>Recommended</h1>
             {show.recommendations.results.length ? (
               <>
                 <ShowList

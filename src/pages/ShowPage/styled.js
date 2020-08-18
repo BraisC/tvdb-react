@@ -13,7 +13,7 @@ const Icon = styled(FontAwesomeIcon)`
   margin-right: 8px;
 `;
 
-const ShowInfo = styled.div`
+const ShowInfo = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ const Filter = styled.div`
   z-index: 1;
 `;
 
-const Poster = styled.div`
+const Poster = styled.figure`
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
@@ -54,7 +54,7 @@ const PosterImage = styled.img`
   transition: opacity 1s ease;
 `;
 
-const Data = styled.div`
+const Data = styled.section`
   display: flex;
   align-self: stretch;
   flex-direction: column;
@@ -101,7 +101,7 @@ const DataHeaderRight = styled.span`
   font-weight: 500;
 `;
 
-const DataSection = styled.div`
+const DataSection = styled.section`
   & h2 {
     font-size: 2rem;
   }
@@ -112,11 +112,11 @@ const DataSection = styled.div`
   }
 `;
 
-const DataSeasons = styled.h3`
+const DataSeasons = styled.h2`
   font-size: 2rem;
 `;
 
-const DataRating = styled.div`
+const DataRating = styled.section`
   & h2 {
     font-size: 2rem;
   }
@@ -136,7 +136,7 @@ const DataVotes = styled.span`
   font-size: 1.4rem;
 `;
 
-const DataFooter = styled.div`
+const DataFooter = styled.section`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -148,7 +148,7 @@ const DataFooterLeft = styled.div`
   gap: 2rem;
 `;
 
-const DataFooterRight = styled.div`
+const DataFooterRight = styled.figure`
   max-height: 10rem;
   position: absolute;
   right: 0;
@@ -165,12 +165,12 @@ const DataFooterLink = styled.a`
   font-size: 1.8rem;
 `;
 
-const CastingContainer = styled.div`
+const CastingContainer = styled.section`
   padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
 
-  & h2 {
+  & h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 100;
@@ -198,18 +198,9 @@ const CastingItem = styled(Link)`
 const CastingItemContent = styled.div`
   width: 70%;
   box-shadow: var(--shadow);
-
-  & h3 {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-  }
-
-  & span {
-    font-size: 1.2rem;
-  }
 `;
 
-const CastingItemImageWrapper = styled.div`
+const CastingItemImageWrapper = styled.figure`
   width: 100%;
 `;
 
@@ -221,19 +212,28 @@ const CastingItemImage = styled.img`
   object-fit: cover;
 `;
 
-const CastingItemInfo = styled.div`
+const CastingItemInfo = styled.section`
   background-color: var(--color-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
   padding: 1rem;
+
+  & h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  & span {
+    font-size: 1.2rem;
+  }
 `;
 
-const SeasonsContainer = styled.div`
+const SeasonsContainer = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
   padding: 3rem 6rem;
 
-  & h2 {
+  & h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 100;
@@ -266,7 +266,7 @@ const SeasonsItemContent = styled.div`
   background-color: var(--color-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
 
-  & h3 {
+  & h2 {
     font-size: 1.4rem;
     margin-bottom: 5px;
   }
@@ -276,7 +276,7 @@ const SeasonsItemContent = styled.div`
   }
 `;
 
-const SeasonsItemImageWrapper = styled.div`
+const SeasonsItemImageWrapper = styled.figure`
   width: 17rem;
   padding: 1rem;
   flex-shrink: 0;
@@ -289,10 +289,10 @@ const SeasonsItemImage = styled.img`
   object-fit: cover;
 `;
 
-const SeasonsItemInfo = styled.div`
+const SeasonsItemInfo = styled.section`
   padding: 1rem;
 
-  & h3 {
+  & h2 {
     font-size: 1.6rem;
   }
 
@@ -301,13 +301,13 @@ const SeasonsItemInfo = styled.div`
   }
 `;
 
-const RecommendedContainer = styled.div`
+const RecommendedContainer = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
   padding: 3rem 6rem;
 
-  & h2 {
+  & h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 100;

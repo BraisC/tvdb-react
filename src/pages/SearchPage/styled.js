@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const PageTitle = styled.h2`
+const PageTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: 100;
   text-transform: uppercase;
