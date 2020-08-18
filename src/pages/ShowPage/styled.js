@@ -307,7 +307,7 @@ const RecommendedContainer = styled.section`
   max-width: 100%;
   padding: 3rem 6rem;
 
-  & h1 {
+  & > h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 100;
