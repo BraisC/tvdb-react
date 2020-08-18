@@ -8,6 +8,12 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const VideoWrapper = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+`;
+
 const Icon = styled(FontAwesomeIcon)`
   font-size: 1.4rem;
   margin-right: 8px;
@@ -317,6 +323,7 @@ const RecommendedContainer = styled.section`
 
 export const Styled = {
   Wrapper,
+  VideoWrapper,
   Icon,
   ShowInfo,
   Filter,

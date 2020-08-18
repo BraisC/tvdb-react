@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
+import { useParams, useLocation, useHistory } from 'react-router-dom';
 import { ConfigContext } from 'contexts/configContext';
 import { getShowsPage } from 'api/tmdb';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
@@ -9,8 +9,10 @@ import queryString from 'query-string';
 import utils from 'utils';
 
 import { ShowList, Pagination, Button, Loader, Modal } from 'components';
+import ModalVideo from 'react-modal-video';
 import { Styled } from './styled';
 import { Carousel } from './Carousel';
+import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 
 const ShowPage = () => {
   const { id } = useParams();
@@ -18,7 +20,7 @@ const ShowPage = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [posterLoaded, setPosterLoaded] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
 
@@ -45,6 +47,14 @@ const ShowPage = () => {
     setPosterLoaded(true);
   };
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsModalOpen(false);
+  };
+  console.log(show);
   return error ? (
     'Error'
   ) : (
@@ -53,6 +63,12 @@ const ShowPage = () => {
         'Loading'
       ) : (
         <>
+          <ModalVideo
+            channel="youtube"
+            isOpen={isModalOpen}
+            videoId={show.video}
+            onClose={hideModal}
+          />
           <Styled.ShowInfo
             background={
               show.backdrop && `${config?.url}/${config?.backdrop.custom}${show.backdrop}`
@@ -122,7 +138,7 @@ const ShowPage = () => {
                       </Button>
                     </Styled.DataFooterLink>
                   )}
-                  <Styled.DataFooterLink as="div">
+                  <Styled.DataFooterLink onClick={showModal}>
                     <Button>
                       <Styled.Icon icon={faVideo} />
                       Trailer

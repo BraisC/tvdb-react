@@ -40,4 +40,16 @@ export default createGlobalStyle`
     a {
       -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
+
+    .modal-video-close-btn{
+      width: 30px;
+      height: 30px; 
+      cursor: pointer;
+    }
+    .modal-video-close-btn::before, .modal-video-close-btn::after{
+      background-color: var(--color-red) !important;
+      height: 3px;
+     
+      cursor: pointer;
+    }
 `;
