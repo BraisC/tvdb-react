@@ -1,4 +1,5 @@
 export const mapShowPage = (show, credits, recommendations, certifications, videos) => ({
+  id: show.id,
   name: show.name,
   backdrop: show.backdrop,
   poster: show.poster,
