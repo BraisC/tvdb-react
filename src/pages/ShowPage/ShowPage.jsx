@@ -8,7 +8,7 @@ import { missingPoster, profile } from 'images';
 import queryString from 'query-string';
 import utils from 'utils';
 
-import { ShowList, Pagination, Button, Loader, Modal } from 'components';
+import { ShowList, Pagination, Button, Loader } from 'components';
 import ModalVideo from 'react-modal-video';
 import { Styled } from './styled';
 import { Carousel } from './Carousel';
@@ -54,7 +54,7 @@ const ShowPage = () => {
   const hideModal = () => {
     setIsModalOpen(false);
   };
-  console.log(show);
+
   return error ? (
     'Error'
   ) : (
@@ -168,7 +168,7 @@ const ShowPage = () => {
                 {show.cast.map((v) => (
                   <Styled.CastingItem
                     key={v.id + v.character}
-                    to={`${process.env.PUBLIC_URL}/casting/${v.id}`}
+                    to={`${process.env.PUBLIC_URL}/people/${v.id}`}
                     title={v.name}
                   >
                     <Styled.CastingItemContent>
@@ -210,7 +210,7 @@ const ShowPage = () => {
                 {show.seasons.map((v) => (
                   <Styled.SeasonsItem
                     key={v.id}
-                    to={`${process.env.PUBLIC_URL}/tv/${v.id}/season/${v.season_number}`}
+                    to={`${process.env.PUBLIC_URL}/show/${show.id}/season/${v.season_number}`}
                     title={v.name}
                   >
                     <Styled.SeasonsItemContent>

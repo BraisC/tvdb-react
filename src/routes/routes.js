@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ShowsPage, SearchPage, GenrePage, ShowPage } from 'pages';
+import { ShowsPage, SearchPage, GenrePage, ShowPage, SeasonPage, PeoplePage } from 'pages';
 
 const createRoutes = () => (
   <Switch>
@@ -15,6 +15,12 @@ const createRoutes = () => (
     </Route>
     <Route path="/show/:id" exact>
       <ShowPage />
+    </Route>
+    <Route path="/people/:id" exact>
+      <PeoplePage />
+    </Route>
+    <Route path="/show/:id/season/:number" exact>
+      <SeasonPage />
     </Route>
   </Switch>
 );
