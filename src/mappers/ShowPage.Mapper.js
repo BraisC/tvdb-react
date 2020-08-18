@@ -24,5 +24,5 @@ export const mapShowPage = (show, credits, recommendations, certifications, vide
     total_results: recommendations.total_results,
     total_pages: recommendations.total_pages,
   },
-  video: videos[0]?.key,
+  video: videos.results[0]?.key,
 });
