@@ -24,7 +24,7 @@ export default createGlobalStyle`
       --color-text: ${(props) => props.theme.text};
       --color-transparency-show: ${(props) => props.theme.transparencyShow};
 
-      --shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+      --shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
     }
     body {
       font-family: 'Montserrat', sans-serif;
