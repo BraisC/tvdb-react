@@ -63,12 +63,14 @@ const ShowPage = () => {
         'Loading'
       ) : (
         <>
-          <ModalVideo
-            channel="youtube"
-            isOpen={isModalOpen}
-            videoId={show.video}
-            onClose={hideModal}
-          />
+          {show.video && (
+            <ModalVideo
+              channel="youtube"
+              isOpen={isModalOpen}
+              videoId={show.video}
+              onClose={hideModal}
+            />
+          )}
           <Styled.ShowInfo
             background={
               show.backdrop && `${config?.url}/${config?.backdrop.custom}${show.backdrop}`
@@ -138,12 +140,14 @@ const ShowPage = () => {
                       </Button>
                     </Styled.DataFooterLink>
                   )}
-                  <Styled.DataFooterLink onClick={showModal}>
-                    <Button>
-                      <Styled.Icon icon={faVideo} />
-                      Trailer
-                    </Button>
-                  </Styled.DataFooterLink>
+                  {show.video && (
+                    <Styled.DataFooterLink onClick={showModal}>
+                      <Button>
+                        <Styled.Icon icon={faVideo} />
+                        Trailer
+                      </Button>
+                    </Styled.DataFooterLink>
+                  )}
                 </Styled.DataFooterLeft>
                 <Styled.DataFooterRight>
                   {show.network.logo ? (
