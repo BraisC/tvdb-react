@@ -13,7 +13,7 @@ export const mapShowPage = (show, credits, recommendations, certifications, vide
   year: show.year,
   vote_average: show.vote_average,
   vote_count: show.vote_count,
-  website: show.homepage,
+  website: show.website,
   network: {
     name: show.network.name,
     logo: show.network.logo,
