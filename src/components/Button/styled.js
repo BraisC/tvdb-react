@@ -7,6 +7,16 @@ const Button = styled.div`
   font-size: 1.6rem;
   display: flex;
   align-items: center;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow);
+  }
+  &:active {
+    transform: translateY(0rem);
+    box-shadow: initial;
+  }
 `;
 
 export const Styled = {
