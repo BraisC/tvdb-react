@@ -87,7 +87,9 @@ const ShowPage = () => {
               <Styled.PosterImage
                 style={{ opacity: posterLoaded ? '1' : '0' }}
                 src={
-                  show.poster ? `${config?.url}/${config?.poster.big}${show.poster}` : missingPoster
+                  show.poster
+                    ? `${config?.url}${config?.poster.normal}${show.poster}`
+                    : missingPoster
                 }
                 alt={show.name}
                 onLoad={handlePosterLoad}
@@ -176,7 +178,7 @@ const ShowPage = () => {
                         <Styled.CastingItemImage
                           src={
                             v.profile_path
-                              ? `${config?.url}/${config?.profile.normal}${v.profile_path}`
+                              ? `${config?.url}${config?.profile.normal}${v.profile_path}`
                               : profile
                           }
                           alt={v.name}
@@ -218,7 +220,7 @@ const ShowPage = () => {
                         <Styled.SeasonsItemImage
                           src={
                             v.poster_path
-                              ? `${config?.url}/${config?.poster.normal}${v.poster_path}`
+                              ? `${config?.url}${config?.poster.smaller}${v.poster_path}`
                               : missingPoster
                           }
                           alt={v.name}

@@ -8,6 +8,7 @@ export const mapConfig = (config) => ({
     custom: 'w1920_and_h800_multi_faces',
   },
   poster: {
+    smaller: 'w154',
     small: 'w342',
     normal: 'w500',
     big: 'w780',
