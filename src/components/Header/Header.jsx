@@ -42,7 +42,7 @@ const Menu = () => {
   const genres = useContext(GenresContext);
 
   return (
-    <nav>
+    <Styled.Nav>
       <Styled.Menu>
         {MenuOptions.map((val) =>
           val.route ? (
@@ -52,7 +52,7 @@ const Menu = () => {
           )
         )}
       </Styled.Menu>
-    </nav>
+    </Styled.Nav>
   );
 };
 

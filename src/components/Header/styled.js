@@ -59,6 +59,10 @@ const SubMenuWrapper = styled.li`
   }
 `;
 
+const Nav = styled.nav`
+  margin-right: auto;
+`;
+
 const Menu = styled.ul`
   padding: 0 2rem;
   display: flex;
@@ -131,6 +135,7 @@ export const Styled = {
   Header,
   Logo,
   Menu,
+  Nav,
   SearchBar,
   SearchInput,
   SearchIcon,
