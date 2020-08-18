@@ -50,7 +50,7 @@ const PosterImage = styled.img`
   width: 50rem;
   height: 75rem;
   display: block;
-  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
   transition: opacity 1s ease;
 `;
 
@@ -197,7 +197,7 @@ const CastingItem = styled(Link)`
 
 const CastingItemContent = styled.div`
   width: 70%;
-  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
 
   & h3 {
     font-size: 1.4rem;
@@ -261,7 +261,7 @@ const SeasonsItem = styled(Link)`
 const SeasonsItemContent = styled.div`
   width: 90%;
   max-width: 50rem;
-  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
   display: flex;
   background-color: var(--color-primary);
   transition: background-color 0.2s ease, color 0.2s ease;

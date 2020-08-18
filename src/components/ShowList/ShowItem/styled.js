@@ -53,7 +53,7 @@ const ShowItemLink = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
   transition: 0.2s ease;
   overflow: hidden;
   position: relative;
