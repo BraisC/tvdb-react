@@ -199,7 +199,6 @@ const CastingItemWrapper = styled.div`
 `;
 
 const CastingItem = styled(Link)`
-  width: 20rem;
   text-decoration: none;
   height: 100%;
   width: 70%;
@@ -255,19 +254,23 @@ const SeasonsWrapper = styled.div`
   align-self: center;
 `;
 
-const SeasonsItem = styled(Link)`
+const SeasonsItemWrapper = styled.div`
   width: 100%;
-  text-decoration: none;
-  height: 100%;
   display: flex !important;
   padding: 2rem 0;
-  color: var(--color-text);
   justify-content: center;
   align-items: center;
 `;
 
-const SeasonsItemContent = styled.div`
+const SeasonsItem = styled(Link)`
   width: 90%;
+  text-decoration: none;
+  height: 100%;
+
+  color: var(--color-text);
+`;
+
+const SeasonsItemContent = styled.div`
   max-width: 50rem;
   box-shadow: var(--shadow);
   display: flex;
@@ -285,13 +288,13 @@ const SeasonsItemContent = styled.div`
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
-  width: 17rem;
+  height: 22.5rem;
   padding: 1rem;
   flex-shrink: 0;
 `;
 
 const SeasonsItemImage = styled.img`
-  width: 100%;
+  height: 100%;
   background-color: var(--color-text);
   display: block;
   object-fit: cover;
@@ -354,6 +357,7 @@ export const Styled = {
   CastingContainer,
   SeasonsContainer,
   SeasonsWrapper,
+  SeasonsItemWrapper,
   SeasonsItem,
   SeasonsItemInfo,
   SeasonsItemImage,
