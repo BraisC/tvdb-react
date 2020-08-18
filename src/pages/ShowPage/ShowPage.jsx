@@ -168,12 +168,11 @@ const ShowPage = () => {
             <Styled.CastingWrapper>
               <Carousel length={show.cast.length < 5 ? show.cast.length : 5}>
                 {show.cast.map((v) => (
-                  <Styled.CastingItem
-                    key={v.id + v.character}
-                    to={`${process.env.PUBLIC_URL}/people/${v.id}`}
-                    title={v.name}
-                  >
-                    <Styled.CastingItemContent>
+                  <Styled.CastingItemWrapper key={v.id + v.character}>
+                    <Styled.CastingItem
+                      to={`${process.env.PUBLIC_URL}/people/${v.id}`}
+                      title={v.name}
+                    >
                       <Styled.CastingItemImageWrapper>
                         <Styled.CastingItemImage
                           src={
@@ -188,8 +187,8 @@ const ShowPage = () => {
                         <h2>{utils.limitTextLength(v.name, 17)}</h2>
                         <span>{utils.limitTextLength(v.character, 17)}</span>
                       </Styled.CastingItemInfo>
-                    </Styled.CastingItemContent>
-                  </Styled.CastingItem>
+                    </Styled.CastingItem>
+                  </Styled.CastingItemWrapper>
                 ))}
               </Carousel>
             </Styled.CastingWrapper>

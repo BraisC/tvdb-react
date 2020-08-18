@@ -190,29 +190,31 @@ const CastingWrapper = styled.div`
   align-self: center;
 `;
 
-const CastingItem = styled(Link)`
-  width: 20rem;
-  text-decoration: none;
-  height: 100%;
+const CastingItemWrapper = styled.div`
+  width: 100%;
   display: flex !important;
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
-  color: var(--color-text);
 `;
 
-const CastingItemContent = styled.div`
+const CastingItem = styled(Link)`
+  width: 20rem;
+  text-decoration: none;
+  height: 100%;
   width: 70%;
+  color: var(--color-text);
   box-shadow: var(--shadow);
 `;
 
 const CastingItemImageWrapper = styled.figure`
   width: 100%;
+  height: 20rem;
 `;
 
 const CastingItemImage = styled.img`
   width: 100%;
-  height: 20rem;
+  height: 100%;
   background-color: var(--color-text);
   display: block;
   object-fit: cover;
@@ -346,8 +348,8 @@ export const Styled = {
   CastingItemImageWrapper,
   CastingItemImage,
   CastingItemInfo,
+  CastingItemWrapper,
   CastingItem,
-  CastingItemContent,
   CastingWrapper,
   CastingContainer,
   SeasonsContainer,
