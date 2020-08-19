@@ -32,6 +32,7 @@ const CastingItem = styled(Link)`
   text-decoration: none;
   height: 100%;
   width: 70%;
+  max-width: 15.4rem;
   color: var(--color-text);
   box-shadow: var(--shadow);
 `;

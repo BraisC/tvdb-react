@@ -29,6 +29,7 @@ const SeasonsItemWrapper = styled.div`
 `;
 
 const SeasonsItem = styled(Link)`
+  max-width: 50rem;
   width: 90%;
   text-decoration: none;
   height: 100%;
@@ -37,7 +38,6 @@ const SeasonsItem = styled(Link)`
 `;
 
 const SeasonsItemContent = styled.div`
-  max-width: 50rem;
   box-shadow: var(--shadow);
   display: flex;
   background-color: var(--color-primary);

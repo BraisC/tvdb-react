@@ -61,8 +61,8 @@ const Casting = () => {
                       />
                     </Styled.CastingItemImageWrapper>
                     <Styled.CastingItemInfo>
-                      <h2>{utils.limitTextLength(v.name, 17)}</h2>
-                      <span>{utils.limitTextLength(v.character, 17)}</span>
+                      <h2>{utils.limitTextLength(v.name, 14)}</h2>
+                      <span>{utils.limitTextLength(v.character, 15)}</span>
                     </Styled.CastingItemInfo>
                   </Styled.CastingItem>
                 </Styled.CastingItemWrapper>
