@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ConfigContext } from 'contexts/configContext';
 
 import { missingPoster } from 'images';
@@ -11,7 +11,7 @@ import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 import { Styled } from './styled';
 
-const ShowInfo = ({ show }) => {
+const ShowInfo = ({ show, isLoading }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const config = useContext(ConfigContext);
@@ -28,7 +28,9 @@ const ShowInfo = ({ show }) => {
     setIsModalOpen(false);
   };
 
-  return (
+  return isLoading ? (
+    <div style={{ height: '900px', width: '900px' }} />
+  ) : (
     <>
       {show.video && (
         <ModalVideo

@@ -37,18 +37,12 @@ const ShowPage = () => {
   return error ? (
     'Error'
   ) : (
-    <>
-      {isLoading ? (
-        'Loading'
-      ) : (
-        <Styled.Wrapper>
-          <ShowInfo show={show} />
-          <Casting />
-          <Seasons show={show} />
-          <Recommended />
-        </Styled.Wrapper>
-      )}
-    </>
+    <Styled.Wrapper>
+      <ShowInfo show={show} isLoading={isLoading} />
+      <Casting />
+      <Seasons show={show} isLoading={isLoading} />
+      <Recommended />
+    </Styled.Wrapper>
   );
 };
 
