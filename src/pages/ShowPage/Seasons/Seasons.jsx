@@ -8,7 +8,7 @@ import { Loader } from 'components';
 import { Styled } from './styled';
 import { Carousel } from '../Carousel';
 
-const Seasons = ({ isLoading, show }) => {
+const Seasons = ({ show }) => {
   const config = useContext(ConfigContext);
   const [posterLoaded, setPosterLoaded] = useState(false);
 
@@ -16,9 +16,7 @@ const Seasons = ({ isLoading, show }) => {
     setPosterLoaded(true);
   };
 
-  return isLoading ? (
-    'Loading'
-  ) : (
+  return (
     <Styled.Seasons>
       <h1>Seasons</h1>
       <Styled.SeasonsWrapper>

@@ -34,15 +34,21 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [id]);
 
-  return isLoading ? (
+  return error ? (
     'Error'
   ) : (
-    <Styled.Wrapper>
-      <ShowInfo show={show} isLoading={isLoading} />
-      <Casting />
-      <Seasons show={show} isLoading={isLoading} />
-      <Recommended />
-    </Styled.Wrapper>
+    <>
+      {isLoading ? (
+        'Loading'
+      ) : (
+        <Styled.Wrapper>
+          <ShowInfo show={show} />
+          <Casting />
+          <Seasons show={show} />
+          <Recommended />
+        </Styled.Wrapper>
+      )}
+    </>
   );
 };
 
