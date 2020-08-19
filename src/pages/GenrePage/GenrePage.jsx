@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { ShowList, Pagination, ShowListLoader } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsGenre } from 'api/tmdb';
@@ -14,6 +14,7 @@ const GenrePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const genres = useContext(GenresContext);
   const [error, setError] = useState(false);
+  const pages = useRef(1);
 
   const params = queryString.parse(location.search);
 
@@ -25,9 +26,10 @@ const GenrePage = () => {
         if (res.error) {
           setError(true);
         } else {
-          setShows(res.data.data);
-          setIsLoading(false);
+          setShows(res.data);
+          pages.current = res.data.total_pages;
         }
+        setIsLoading(false);
       }
     }
     getData();
@@ -41,7 +43,14 @@ const GenrePage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
       {isLoading ? (
-        <ShowListLoader />
+        <>
+          <ShowListLoader />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={pages.current}
+            size={7}
+          />
+        </>
       ) : (
         <>
           <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />

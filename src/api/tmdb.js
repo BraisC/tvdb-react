@@ -117,12 +117,14 @@ export async function getShowsGenre(page = 1, genres) {
     error: null,
   };
   try {
-    res.data = await tmdb.get(`/discover/tv`, {
+    const genreRes = await tmdb.get(`/discover/tv`, {
       params: {
         page,
         with_genres: genres.join(','),
       },
     });
+
+    res.data = mapShowList(genreRes.data);
   } catch (err) {
     res.error = err.response;
   }
