@@ -29,7 +29,7 @@ const ShowInfo = ({ show, isLoading }) => {
   };
 
   return isLoading ? (
-    <div style={{ height: '900px', width: '900px' }} />
+    'Loading'
   ) : (
     <>
       {show.video && (
