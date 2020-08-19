@@ -4,7 +4,6 @@ const Appearances = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  padding: 3rem 6rem;
 
   & > h1 {
     font-size: 2rem;

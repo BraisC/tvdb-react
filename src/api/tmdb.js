@@ -221,3 +221,18 @@ export async function getAppearances(id) {
 
   return res;
 }
+
+export async function getPeopleDetails(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    const peopleRes = await tmdb.get(`/person/${id}`);
+    res.data = peopleRes.data;
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
