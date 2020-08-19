@@ -15,7 +15,6 @@ const CastingContainer = styled.section`
 `;
 
 const CastingWrapper = styled.div`
-  margin-left: 1rem;
   width: 50%;
   align-self: center;
 `;

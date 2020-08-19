@@ -8,6 +8,7 @@ import { profile } from 'images';
 
 import { Styled } from './styled';
 import { Carousel } from '../Carousel';
+import { CastingLoader } from './Loader';
 
 const Casting = () => {
   const { id } = useParams();
@@ -36,11 +37,11 @@ const Casting = () => {
     'Error'
   ) : (
     <>
-      {isLoading ? (
-        'Loading'
-      ) : (
-        <Styled.CastingContainer>
-          <h1>Casting</h1>
+      <Styled.CastingContainer>
+        <h1>Casting</h1>
+        {isLoading ? (
+          <CastingLoader />
+        ) : (
           <Styled.CastingWrapper>
             <Carousel length={casting.cast.length < 5 ? casting.cast.length : 5}>
               {casting.cast.map((v) => (
@@ -68,8 +69,8 @@ const Casting = () => {
               ))}
             </Carousel>
           </Styled.CastingWrapper>
-        </Styled.CastingContainer>
-      )}
+        )}
+      </Styled.CastingContainer>
     </>
   );
 };
