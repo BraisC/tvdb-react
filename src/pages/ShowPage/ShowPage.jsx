@@ -1,25 +1,25 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { ConfigContext } from 'contexts/configContext';
 import { getShowsPage } from 'api/tmdb';
-import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
+
 import { missingPoster, profile } from 'images';
 
 import queryString from 'query-string';
 import utils from 'utils';
 
-import { ShowList, Pagination, Button, Loader } from 'components';
+import { ShowList, Pagination } from 'components';
 import ModalVideo from 'react-modal-video';
 import { Styled } from './styled';
 import { Carousel } from './Carousel';
+import { ShowInfo } from './ShowInfo';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 
 const ShowPage = () => {
   const { id } = useParams();
-  const history = useHistory();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
-  const [posterLoaded, setPosterLoaded] = useState(false);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
@@ -41,11 +41,7 @@ const ShowPage = () => {
     }
     getData();
     return () => setIsLoading(true);
-  }, [history, id, params.page]);
-
-  const handlePosterLoad = () => {
-    setPosterLoaded(true);
-  };
+  }, [id, params.page]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -71,97 +67,8 @@ const ShowPage = () => {
               onClose={hideModal}
             />
           )}
-          <Styled.ShowInfo
-            background={
-              show.backdrop && `${config?.url}/${config?.backdrop.custom}${show.backdrop}`
-            }
-          >
-            <Styled.Filter />
 
-            <Styled.Poster>
-              <Styled.PosterLoader
-                style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
-              >
-                <Loader />
-              </Styled.PosterLoader>
-              <Styled.PosterImage
-                style={{ opacity: posterLoaded ? '1' : '0' }}
-                src={
-                  show.poster
-                    ? `${config?.url}${config?.poster.normal}${show.poster}`
-                    : missingPoster
-                }
-                alt={show.name}
-                onLoad={handlePosterLoad}
-              />
-            </Styled.Poster>
-            <Styled.Data>
-              <Styled.DataHeader>
-                <Styled.DataHeaderLeft>
-                  <div>
-                    <h1>{utils.generateTitle(show)}</h1>
-                    {show.rating && <span>{show.rating}</span>}
-                  </div>
-                  <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
-                </Styled.DataHeaderLeft>
-                <Styled.DataHeaderRight>
-                  {`${show.duration} min / ${utils.getCountryName(show.country)}`}
-                </Styled.DataHeaderRight>
-              </Styled.DataHeader>
-              <Styled.DataSection>
-                <h2>Summary</h2>
-                <p>{show.overview}</p>
-              </Styled.DataSection>
-              <Styled.DataSeasons>
-                {show.seasons?.length} {show.seasons?.length > 1 ? 'Seasons' : 'Season'}
-              </Styled.DataSeasons>
-              <Styled.DataSection>
-                <h2>Created by</h2>
-                <p>{show.creator}</p>
-              </Styled.DataSection>
-              <Styled.DataSection>
-                <h2>Status</h2>
-                <p>{show.status}</p>
-              </Styled.DataSection>
-              <Styled.DataRating>
-                <h2>Rating</h2>
-                <Styled.DataStars>{utils.generateStars(show.vote_average)}</Styled.DataStars>
-                <Styled.DataVotes>
-                  {`${show.vote_average} with 
-              ${show.vote_count} votes`}
-                </Styled.DataVotes>
-              </Styled.DataRating>
-
-              <Styled.DataFooter>
-                <Styled.DataFooterLeft>
-                  {show.website && (
-                    <Styled.DataFooterLink href={show.website}>
-                      <Button>
-                        <Styled.Icon icon={faExternalLinkAlt} />
-                        Website
-                      </Button>
-                    </Styled.DataFooterLink>
-                  )}
-                  {show.video && (
-                    <Styled.DataFooterLink onClick={showModal}>
-                      <Button>
-                        <Styled.Icon icon={faVideo} />
-                        Trailer
-                      </Button>
-                    </Styled.DataFooterLink>
-                  )}
-                </Styled.DataFooterLeft>
-                <Styled.DataFooterRight>
-                  {show.network.logo ? (
-                    <img
-                      src={`${config?.url}/${config?.logo.big}${show.network.logo}`}
-                      alt="Network"
-                    />
-                  ) : null}
-                </Styled.DataFooterRight>
-              </Styled.DataFooter>
-            </Styled.Data>
-          </Styled.ShowInfo>
+          <ShowInfo video={show.video} handleModal={showModal} />
 
           <Styled.CastingContainer>
             <h1>Casting</h1>
