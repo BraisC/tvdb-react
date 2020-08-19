@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { ConfigContext } from 'contexts/configContext';
 import { getShowsPage } from 'api/tmdb';
 
-import { missingPoster, profile } from 'images';
+import { missingPoster } from 'images';
 
 import queryString from 'query-string';
 import utils from 'utils';
@@ -13,6 +13,7 @@ import ModalVideo from 'react-modal-video';
 import { Styled } from './styled';
 import { Carousel } from './Carousel';
 import { ShowInfo } from './ShowInfo';
+import { Casting } from './Casting';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 
 const ShowPage = () => {
@@ -70,36 +71,7 @@ const ShowPage = () => {
 
           <ShowInfo video={show.video} handleModal={showModal} />
 
-          <Styled.CastingContainer>
-            <h1>Casting</h1>
-            <Styled.CastingWrapper>
-              <Carousel length={show.cast.length < 5 ? show.cast.length : 5}>
-                {show.cast.map((v) => (
-                  <Styled.CastingItemWrapper key={v.id + v.character}>
-                    <Styled.CastingItem
-                      to={`${process.env.PUBLIC_URL}/people/${v.id}`}
-                      title={v.name}
-                    >
-                      <Styled.CastingItemImageWrapper>
-                        <Styled.CastingItemImage
-                          src={
-                            v.profile_path
-                              ? `${config?.url}${config?.profile.normal}${v.profile_path}`
-                              : profile
-                          }
-                          alt={v.name}
-                        />
-                      </Styled.CastingItemImageWrapper>
-                      <Styled.CastingItemInfo>
-                        <h2>{utils.limitTextLength(v.name, 17)}</h2>
-                        <span>{utils.limitTextLength(v.character, 17)}</span>
-                      </Styled.CastingItemInfo>
-                    </Styled.CastingItem>
-                  </Styled.CastingItemWrapper>
-                ))}
-              </Carousel>
-            </Styled.CastingWrapper>
-          </Styled.CastingContainer>
+          <Casting />
 
           <Styled.SeasonsContainer>
             <h1>Seasons</h1>
