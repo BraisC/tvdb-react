@@ -6,7 +6,7 @@ const ShowList = React.memo(function ShowList({ shows, few }) {
   return (
     <Styled.ShowList className={few}>
       {shows.map((show) => (
-        <ShowItem key={show.name + show.year} show={show} />
+        <ShowItem key={show.id} show={show} />
       ))}
     </Styled.ShowList>
   );
