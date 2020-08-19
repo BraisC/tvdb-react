@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Styled } from './styled';
+import { Appearances } from './Appearances';
 
 const PeoplePage = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const PeoplePage = () => {
 
   return (
     <Styled.Wrapper>
-      <Styled.PageTitle>{id}</Styled.PageTitle>
+      <Appearances />
     </Styled.Wrapper>
   );
 };

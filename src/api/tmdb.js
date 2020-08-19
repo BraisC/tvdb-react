@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { mapShowPage, mapConfig, mapShowList, mapShowDetails } from 'mappers';
+import { mapAppearences } from 'mappers/AppearancesMapper';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -190,6 +191,30 @@ export async function getShowPage(id) {
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
     res.data = mapShowPage(showRes.data, certificationsRes.data, videosRes.data);
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
+export async function getAppearances(id) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    const appearRes = await tmdb.get(`/person/${id}/tv_credits`);
+    const arr = mapAppearences(appearRes.data).results;
+    console.log(arr);
+    const rest = arr.reduce((acc, val) => {
+      const x = acc.find((el) => el.id === val.id);
+      if (!x) {
+        return acc.concat([val]);
+      }
+      return acc;
+    }, []);
+    res.data = { results: rest };
   } catch (err) {
     res.error = err.response;
   }
