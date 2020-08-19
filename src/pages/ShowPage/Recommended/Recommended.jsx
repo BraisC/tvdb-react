@@ -61,7 +61,6 @@ const Recommended = () => {
           ) : (
             'No recommendations for this show'
           )}
-          )
         </>
       )}
     </Styled.Recommended>
