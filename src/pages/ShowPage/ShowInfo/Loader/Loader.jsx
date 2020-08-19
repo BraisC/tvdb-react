@@ -4,7 +4,6 @@ import { Styled } from './styled';
 const Loader = () => (
   <Styled.ShowInfo>
     <Styled.Poster />
-    <Styled.Data />
   </Styled.ShowInfo>
 );
 
