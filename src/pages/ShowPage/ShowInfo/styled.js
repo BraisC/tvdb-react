@@ -14,6 +14,13 @@ const ShowInfo = styled.section`
   background-size: cover;
   padding: 4rem;
   position: relative;
+  overflow: hidden;
+`;
+
+const Background = styled.img`
+  width: 100%;
+  position: absolute;
+  transition: opacity 1s ease;
 `;
 
 const Filter = styled.div`
@@ -162,6 +169,7 @@ const DataFooterLink = styled.a`
 export const Styled = {
   Icon,
   ShowInfo,
+  Background,
   Filter,
   Poster,
   PosterLoader,

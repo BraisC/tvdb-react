@@ -13,10 +13,14 @@ import { Styled } from './styled';
 import { InfoLoader } from './Loader';
 
 const ShowInfo = ({ show, isLoading }) => {
+  const [backdropLoaded, setBackdropLoaded] = useState(false);
   const [posterLoaded, setPosterLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const config = useContext(ConfigContext);
 
+  const handleBackdropLoad = () => {
+    setBackdropLoaded(true);
+  };
   const handlePosterLoad = () => {
     setPosterLoaded(true);
   };
@@ -41,9 +45,13 @@ const ShowInfo = ({ show, isLoading }) => {
           onClose={hideModal}
         />
       )}
-      <Styled.ShowInfo
-        background={show.backdrop && `${config?.url}/${config?.backdrop.custom}${show.backdrop}`}
-      >
+      <Styled.ShowInfo>
+        <Styled.Background
+          style={{ opacity: backdropLoaded ? '1' : '0' }}
+          src={show.backdrop && `${config?.url}${config?.backdrop.custom}${show.backdrop}`}
+          alt={show.name}
+          onLoad={handleBackdropLoad}
+        />
         <Styled.Filter />
 
         <Styled.Poster>
