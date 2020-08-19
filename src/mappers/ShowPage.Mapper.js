@@ -1,4 +1,4 @@
-export const mapShowPage = (show, credits, recommendations, certifications, videos) => ({
+export const mapShowPage = (show, certifications, videos) => ({
   id: show.id,
   name: show.name,
   backdrop: show.backdrop,
@@ -18,12 +18,6 @@ export const mapShowPage = (show, credits, recommendations, certifications, vide
   network: {
     name: show.network.name,
     logo: show.network.logo,
-  },
-  cast: credits.cast,
-  recommendations: {
-    results: recommendations.results,
-    total_results: recommendations.total_results,
-    total_pages: recommendations.total_pages,
   },
   video: videos.results[0]?.key,
 });

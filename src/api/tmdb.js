@@ -179,7 +179,7 @@ export async function getVideos(id) {
   return res;
 }
 
-export async function getShowsPage(page = 1, id) {
+export async function getShowPage(id) {
   const res = {
     data: null,
     error: null,
@@ -187,17 +187,9 @@ export async function getShowsPage(page = 1, id) {
 
   try {
     const showRes = await getDetails(id);
-    const creditsRes = await getCredits(id);
-    const recommendationsRes = await getRecommendations(page, id);
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
-    res.data = mapShowPage(
-      showRes.data,
-      creditsRes.data,
-      recommendationsRes.data,
-      certificationsRes.data,
-      videosRes.data
-    );
+    res.data = mapShowPage(showRes.data, certificationsRes.data, videosRes.data);
   } catch (err) {
     res.error = err.response;
   }

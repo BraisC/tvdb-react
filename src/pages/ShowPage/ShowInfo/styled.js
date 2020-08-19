@@ -37,6 +37,7 @@ const PosterLoader = styled.div`
   align-items: center;
   width: 50rem;
   height: 75rem;
+  position: absolute;
 `;
 
 const PosterImage = styled.img`
