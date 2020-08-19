@@ -19,5 +19,5 @@ export const ConfigProvider = ({ children }) => {
     getData();
   }, []);
 
-  return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+  return <ConfigContext.Provider value={error || config}>{children}</ConfigContext.Provider>;
 };
