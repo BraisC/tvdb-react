@@ -59,7 +59,7 @@ const Recommended = () => {
               />
             </>
           ) : (
-            'No recommendations for this show'
+            'No recommendations found for this show'
           )}
         </>
       )}

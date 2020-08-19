@@ -42,33 +42,39 @@ const Casting = () => {
         {isLoading ? (
           <CastingLoader />
         ) : (
-          <Styled.CastingWrapper>
-            <Carousel length={casting.cast.length < 5 ? casting.cast.length : 5}>
-              {casting.cast.map((v) => (
-                <Styled.CastingItemWrapper key={v.id + v.character}>
-                  <Styled.CastingItem
-                    to={`${process.env.PUBLIC_URL}/people/${v.id}`}
-                    title={v.name}
-                  >
-                    <Styled.CastingItemImageWrapper>
-                      <Styled.CastingItemImage
-                        src={
-                          v.profile_path
-                            ? `${config?.url}${config?.profile.normal}${v.profile_path}`
-                            : profile
-                        }
-                        alt={v.name}
-                      />
-                    </Styled.CastingItemImageWrapper>
-                    <Styled.CastingItemInfo>
-                      <h2>{utils.limitTextLength(v.name, 14)}</h2>
-                      <span>{utils.limitTextLength(v.character, 15)}</span>
-                    </Styled.CastingItemInfo>
-                  </Styled.CastingItem>
-                </Styled.CastingItemWrapper>
-              ))}
-            </Carousel>
-          </Styled.CastingWrapper>
+          <>
+            {casting.cast.length ? (
+              <Styled.CastingWrapper>
+                <Carousel length={casting.cast.length < 5 ? casting.cast.length : 5}>
+                  {casting.cast.map((v) => (
+                    <Styled.CastingItemWrapper key={v.id + v.character}>
+                      <Styled.CastingItem
+                        to={`${process.env.PUBLIC_URL}/people/${v.id}`}
+                        title={v.name}
+                      >
+                        <Styled.CastingItemImageWrapper>
+                          <Styled.CastingItemImage
+                            src={
+                              v.profile_path
+                                ? `${config?.url}${config?.profile.normal}${v.profile_path}`
+                                : profile
+                            }
+                            alt={v.name}
+                          />
+                        </Styled.CastingItemImageWrapper>
+                        <Styled.CastingItemInfo>
+                          <h2>{utils.limitTextLength(v.name, 14)}</h2>
+                          <span>{utils.limitTextLength(v.character, 15)}</span>
+                        </Styled.CastingItemInfo>
+                      </Styled.CastingItem>
+                    </Styled.CastingItemWrapper>
+                  ))}
+                </Carousel>
+              </Styled.CastingWrapper>
+            ) : (
+              'No casting found for this show'
+            )}
+          </>
         )}
       </Styled.CastingContainer>
     </>
