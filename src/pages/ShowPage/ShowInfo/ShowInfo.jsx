@@ -11,7 +11,7 @@ import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 import { Styled } from './styled';
 
-const ShowInfo = ({ video, show, isLoading }) => {
+const ShowInfo = ({ show, isLoading }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const config = useContext(ConfigContext);
