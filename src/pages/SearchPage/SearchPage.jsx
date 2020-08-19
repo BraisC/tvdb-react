@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ShowList, Pagination, ShowListLoader } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
@@ -12,6 +12,7 @@ const SearchPage = () => {
   const [shows, setShows] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const pages = useRef(1);
 
   const params = queryString.parse(location.search);
 
@@ -22,8 +23,9 @@ const SearchPage = () => {
         setError(true);
       } else {
         setShows(res.data);
-        setIsLoading(false);
+        pages.current = res.data.total_pages;
       }
+      setIsLoading(false);
     }
     getData();
     return () => setIsLoading(true);
@@ -35,7 +37,14 @@ const SearchPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
       {isLoading ? (
-        <ShowListLoader />
+        <>
+          <ShowListLoader />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={pages.current}
+            size={7}
+          />
+        </>
       ) : (
         <>
           <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ShowList, Pagination } from 'components';
 import queryString from 'query-string';
 import { useLocation, useParams } from 'react-router-dom';
 import { getRecommendations } from 'api/tmdb';
+import ShowListLoader from 'components/ShowListLoader/ShowListLoader';
 import { Styled } from './styled';
 
 const Recommended = () => {
@@ -13,7 +14,7 @@ const Recommended = () => {
   const [recommendations, setRecommendations] = useState();
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const pages = useRef(1);
   const params = queryString.parse(location.search);
 
   useEffect(() => {
@@ -24,10 +25,12 @@ const Recommended = () => {
         setError(true);
       } else {
         setRecommendations(res.data);
+        pages.current = res.data.total_pages;
       }
       setIsLoading(false);
     }
     getData();
+
     return () => setIsLoading(true);
   }, [id, params.page]);
 
@@ -36,7 +39,10 @@ const Recommended = () => {
   ) : (
     <>
       {isLoading ? (
-        'Loading'
+        <>
+          <ShowListLoader />
+          <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={2} size={7} />
+        </>
       ) : (
         <Styled.Recommended>
           <h1>Recommended</h1>
@@ -48,7 +54,7 @@ const Recommended = () => {
               />
               <Pagination
                 currentPage={parseInt(params.page ?? '1')}
-                totalPages={recommendations.total_pages}
+                totalPages={pages.current}
                 size={7}
               />
             </>

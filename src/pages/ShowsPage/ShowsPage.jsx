@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ShowList, Pagination, ShowListLoader } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
@@ -11,6 +11,8 @@ const ShowsPage = () => {
   const location = useLocation();
   const [shows, setShows] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const pages = useRef(1);
 
   const params = queryString.parse(location.search);
 
@@ -18,24 +20,30 @@ const ShowsPage = () => {
     async function getData() {
       const res = await getShows(params.page, category);
       if (res.error) {
-        history.push('/error');
-        setIsLoading(false);
+        setError(true);
       } else {
         setShows(res.data);
-        setIsLoading(false);
+        pages.current = res.data.total_pages;
       }
+      setIsLoading(false);
     }
     getData();
     return () => setIsLoading(true);
   }, [category, history, params.page]);
 
-  return (
+  return error ? (
+    'Error'
+  ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       {isLoading ? (
         <>
           <ShowListLoader />
-          <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={500} size={7} />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={pages.current}
+            size={7}
+          />
         </>
       ) : (
         <>
