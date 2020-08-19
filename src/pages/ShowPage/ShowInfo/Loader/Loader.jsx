@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styled } from './styled';
 
-const Loader = (props) => (
+const Loader = () => (
   <Styled.ShowInfo>
     <Styled.Poster />
     <Styled.Data />

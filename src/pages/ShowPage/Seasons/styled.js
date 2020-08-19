@@ -16,7 +16,6 @@ const Seasons = styled.section`
 `;
 
 const SeasonsWrapper = styled.div`
-  margin-left: 0 1rem;
   width: 100%;
   align-self: center;
 `;

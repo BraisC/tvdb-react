@@ -37,15 +37,15 @@ const Recommended = () => {
   return error ? (
     'Error'
   ) : (
-    <>
+    <Styled.Recommended>
+      <h1>Recommended</h1>
       {isLoading ? (
         <>
           <ShowListLoader />
           <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={2} size={7} />
         </>
       ) : (
-        <Styled.Recommended>
-          <h1>Recommended</h1>
+        <>
           {recommendations.results.length ? (
             <>
               <ShowList
@@ -61,9 +61,10 @@ const Recommended = () => {
           ) : (
             'No recommendations for this show'
           )}
-        </Styled.Recommended>
+          )
+        </>
       )}
-    </>
+    </Styled.Recommended>
   );
 };
 

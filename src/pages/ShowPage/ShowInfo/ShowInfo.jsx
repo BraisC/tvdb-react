@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { ConfigContext } from 'contexts/configContext';
 
 import { missingPoster } from 'images';
