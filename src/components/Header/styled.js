@@ -22,15 +22,15 @@ const Logo = styled.div`
 const SubMenu = styled.ul`
   display: grid;
   position: absolute;
-  transform: translateY(50%);
-  opacity: 0;
   background-color: var(--color-primary);
   transition: all 0.5s ease;
   grid-template-rows: repeat(8, auto);
   grid-auto-flow: column;
   padding: 1.5rem 1rem;
-  visibility: hidden;
-  pointer-events: none;
+  transform: ${(prop) => (prop.isVisible ? 'translateY(0)' : 'translateY(50%)')};
+  opacity: ${(prop) => (prop.isVisible ? '1' : '0')};
+  visibility: ${(prop) => (prop.isVisible ? 'visible' : 'hidden')};
+  pointer-events: ${(prop) => (prop.isVisible ? 'auto' : 'none')};
 
   & li a {
     padding: 0.5rem 1rem;
@@ -50,14 +50,7 @@ const SubMenuButton = styled.span`
   cursor: pointer;
 `;
 
-const SubMenuWrapper = styled.li`
-  &:hover > ${SubMenu} {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-`;
+const SubMenuWrapper = styled.li``;
 
 const Nav = styled.nav`
   margin-right: auto;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GenresContext } from 'contexts/genresContext';
 import { Styled } from './styled';
@@ -21,14 +21,27 @@ const SubMenuItem = ({ value }) => (
   </li>
 );
 
-const SubMenu = ({ value, subvalues }) => (
-  <Styled.SubMenuWrapper>
-    <Styled.SubMenuButton>{value}</Styled.SubMenuButton>
-    <Styled.SubMenu>
-      {subvalues ? subvalues?.map((s) => <SubMenuItem key={s.name} value={s.name} />) : null}
-    </Styled.SubMenu>
-  </Styled.SubMenuWrapper>
-);
+const SubMenu = ({ value, subvalues }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [delayHandler, setDelayHandler] = useState(null);
+
+  const handleMouseEnter = () => {
+    clearTimeout(delayHandler);
+    setIsVisible(true);
+  };
+  const handleMouseLeave = () => {
+    setDelayHandler(setTimeout(() => setIsVisible(false), 300));
+  };
+
+  return (
+    <Styled.SubMenuWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Styled.SubMenuButton>{value}</Styled.SubMenuButton>
+      <Styled.SubMenu isVisible={isVisible}>
+        {subvalues ? subvalues?.map((s) => <SubMenuItem key={s.name} value={s.name} />) : null}
+      </Styled.SubMenu>
+    </Styled.SubMenuWrapper>
+  );
+};
 
 const MenuItem = ({ value, route }) => (
   <li>
