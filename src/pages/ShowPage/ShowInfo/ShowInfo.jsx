@@ -10,6 +10,7 @@ import utils from 'utils';
 import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 import { Styled } from './styled';
+import { InfoLoader } from './Loader';
 
 const ShowInfo = ({ show, isLoading }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
@@ -29,7 +30,7 @@ const ShowInfo = ({ show, isLoading }) => {
   };
 
   return isLoading ? (
-    'Loading'
+    <InfoLoader />
   ) : (
     <>
       {show.video && (
