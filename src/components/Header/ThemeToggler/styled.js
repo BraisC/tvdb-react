@@ -10,6 +10,7 @@ const Wrapper = styled.label`
   cursor: pointer;
   background-color: ${(props) => (props.theme === 'dark' ? 'var(--color-red)' : '#dcdcdc')};
   transition: 0.2s ease;
+  flex-shrink: 0;
 `;
 
 const Toggler = styled.span`

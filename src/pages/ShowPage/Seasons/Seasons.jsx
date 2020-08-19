@@ -28,7 +28,7 @@ const Seasons = ({ isLoading, show }) => {
             length={show.seasons.length < 5 ? show.seasons.length : 5}
             responsive={[
               {
-                breakpoint: 1600,
+                breakpoint: 1920,
                 settings: {
                   slidesToShow: 3,
                 },
