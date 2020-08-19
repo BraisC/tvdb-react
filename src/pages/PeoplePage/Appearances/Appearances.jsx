@@ -44,7 +44,7 @@ const Appearances = () => {
             <>
               <ShowList
                 shows={appearances.results}
-                few={appearances.total_results < 5 ? 'few' : null}
+                few={appearances.results.length < 5 ? 'few' : null}
               />
             </>
           ) : (
