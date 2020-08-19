@@ -11,7 +11,7 @@ const Title = styled.span`
   width: 100%;
   text-align: center;
   margin-top: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   transition: color 0.2s ease;
 `;
 

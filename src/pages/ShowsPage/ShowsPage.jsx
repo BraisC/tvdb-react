@@ -33,7 +33,10 @@ const ShowsPage = () => {
     <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       {isLoading ? (
-        <ShowListLoader />
+        <>
+          <ShowListLoader />
+          <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={500} size={7} />
+        </>
       ) : (
         <>
           <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
