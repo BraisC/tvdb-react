@@ -34,7 +34,7 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [id]);
 
-  return error ? (
+  return isLoading ? (
     'Error'
   ) : (
     <Styled.Wrapper>
