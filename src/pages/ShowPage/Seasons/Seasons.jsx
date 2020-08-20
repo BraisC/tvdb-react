@@ -58,6 +58,7 @@ const Seasons = ({ isLoading, show }) => {
                             }
                             alt={v.name}
                             onLoad={handlePosterLoad}
+                            missingPoster={!v.poster_path}
                           />
                         </Styled.SeasonsItemImageWrapper>
                         <Styled.SeasonsItemInfo>

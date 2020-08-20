@@ -53,8 +53,6 @@ const SeasonsItemContent = styled.div`
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
-  max-width: 16.5rem;
-  height: 22.5rem;
   padding: 1rem;
   flex-shrink: 0;
 `;
@@ -69,11 +67,10 @@ const SeasonsItemImageLoader = styled.div`
 `;
 
 const SeasonsItemImage = styled.img`
-  width: 100%;
-  height: 100%;
+  height: 21rem;
+  width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
   background-color: var(--color-primary);
   display: block;
-  object-fit: cover;
 `;
 
 const SeasonsItemInfo = styled.section`
