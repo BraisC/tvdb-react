@@ -33,7 +33,6 @@ const SeasonsItem = styled(Link)`
   width: 90%;
   text-decoration: none;
   height: 100%;
-
   color: var(--color-text);
 `;
 
@@ -54,6 +53,7 @@ const SeasonsItemContent = styled.div`
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
+  max-width: 16.5rem;
   height: 22.5rem;
   padding: 1rem;
   flex-shrink: 0;
@@ -69,8 +69,9 @@ const SeasonsItemImageLoader = styled.div`
 `;
 
 const SeasonsItemImage = styled.img`
+  width: 100%;
   height: 100%;
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   display: block;
   object-fit: cover;
 `;
