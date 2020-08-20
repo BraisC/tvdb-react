@@ -40,12 +40,13 @@ const CastingItem = styled(Link)`
 const CastingItemImageWrapper = styled.figure`
   width: 100%;
   height: 20rem;
+  background-color: var(--color-primary);
 `;
 
 const CastingItemImage = styled.img`
   width: 100%;
-  height: 100%;
-  background-color: var(--color-primary);
+  height: ${(props) => (props.missingImage ? 'initial' : '100%')};
+  padding-top: ${(props) => (props.missingImage ? '13%' : '0')};
   display: block;
   object-fit: cover;
 `;

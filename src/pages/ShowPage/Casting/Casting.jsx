@@ -60,6 +60,7 @@ const Casting = ({ parentLoading }) => {
                                 : profile
                             }
                             alt={v.name}
+                            missingImage={!v.profile_path}
                           />
                         </Styled.CastingItemImageWrapper>
                         <Styled.CastingItemInfo>
