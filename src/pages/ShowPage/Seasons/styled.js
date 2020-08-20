@@ -60,6 +60,8 @@ const SeasonsItemContent = styled.div`
 const SeasonsItemImageWrapper = styled.figure`
   padding: 1rem;
   flex-shrink: 0;
+  background-color: var(--color-primary);
+  transition: background-color 0.2s ease;
 `;
 
 const SeasonsItemImageLoader = styled.div`
@@ -74,7 +76,6 @@ const SeasonsItemImageLoader = styled.div`
 const SeasonsItemImage = styled.img`
   height: 21rem;
   width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
-  background-color: var(--color-primary);
   display: block;
 `;
 

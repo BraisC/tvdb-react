@@ -46,6 +46,7 @@ const CastingItemImageWrapper = styled.figure`
   width: 100%;
   height: 20rem;
   background-color: var(--color-primary);
+  transition: background-color 0.2s ease;
 `;
 
 const CastingItemImage = styled.img`
