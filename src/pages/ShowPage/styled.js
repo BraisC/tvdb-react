@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   color: var(--color-text);
   display: flex;
   flex-direction: column;
+  transition: color 0.2s ease;
 `;
 
 const VideoWrapper = styled.div`

@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   padding: 3rem 6rem;
   display: flex;
   flex-direction: column;
+  transition: color 0.2s ease;
 `;
 
 const PageTitle = styled.h1`
@@ -12,7 +13,6 @@ const PageTitle = styled.h1`
   font-weight: 100;
   text-transform: uppercase;
   margin-bottom: 4rem;
-  transition: color 0.2s ease;
 `;
 
 export const Styled = {
