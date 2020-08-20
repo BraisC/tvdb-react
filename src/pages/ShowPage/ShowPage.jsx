@@ -41,7 +41,7 @@ const ShowPage = () => {
       <ShowInfo show={show} isLoading={isLoading} />
       <Casting parentLoading={isLoading} />
       <Seasons show={show} isLoading={isLoading} />
-      <Recommended />
+      <Recommended parentLoading={isLoading} />
     </Styled.Wrapper>
   );
 };

@@ -6,7 +6,7 @@ import { getRecommendations } from 'api/tmdb';
 import ShowListLoader from 'components/ShowListLoader/ShowListLoader';
 import { Styled } from './styled';
 
-const Recommended = () => {
+const Recommended = ({ parentLoading }) => {
   const { id } = useParams();
 
   const location = useLocation();
@@ -29,10 +29,10 @@ const Recommended = () => {
       }
       setIsLoading(false);
     }
-    getData();
+    !parentLoading && getData();
 
     return () => setIsLoading(true);
-  }, [id, params.page]);
+  }, [id, params.page, parentLoading]);
 
   return error ? (
     'Error'
