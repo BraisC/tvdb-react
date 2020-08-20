@@ -10,7 +10,7 @@ import { Styled } from './styled';
 import { Carousel } from '../Carousel';
 import { CastingLoader } from './Loader';
 
-const Casting = () => {
+const Casting = ({ parentLoading }) => {
   const { id } = useParams();
   const config = useContext(ConfigContext);
 
@@ -29,9 +29,9 @@ const Casting = () => {
       }
       setIsLoading(false);
     }
-    getData();
+    !parentLoading && getData();
     return () => setIsLoading(true);
-  }, [id]);
+  }, [id, parentLoading]);
 
   return error ? (
     'Error'

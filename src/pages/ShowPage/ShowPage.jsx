@@ -39,7 +39,7 @@ const ShowPage = () => {
   ) : (
     <Styled.Wrapper>
       <ShowInfo show={show} isLoading={isLoading} />
-      <Casting />
+      <Casting parentLoading={isLoading} />
       <Seasons show={show} isLoading={isLoading} />
       <Recommended />
     </Styled.Wrapper>
