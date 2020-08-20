@@ -12,7 +12,7 @@ const Button = styled.button`
   border: none;
 
   &:hover {
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.3rem);
     box-shadow: var(--shadow);
   }
   &:active {

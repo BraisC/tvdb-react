@@ -35,6 +35,11 @@ const CastingItem = styled(Link)`
   max-width: 15.4rem;
   color: var(--color-text);
   box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const CastingItemImageWrapper = styled.figure`

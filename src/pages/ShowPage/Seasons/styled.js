@@ -34,6 +34,11 @@ const SeasonsItem = styled(Link)`
   text-decoration: none;
   height: 100%;
   color: var(--color-text);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const SeasonsItemContent = styled.div`
