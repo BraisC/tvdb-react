@@ -93,6 +93,7 @@ const DataHeaderLeft = styled.div`
     font-size: 1.4rem;
     padding: 3px;
     border: 2px solid var(--color-text);
+    transition: border 0.2s ease;
     line-height: 1;
   }
 `;
