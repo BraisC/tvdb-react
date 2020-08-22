@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { ShowsPage, SearchPage, GenrePage, ShowPage, SeasonPage, PeoplePage } from 'pages';
 
 const createRoutes = () => (
@@ -22,6 +22,10 @@ const createRoutes = () => (
     <Route path="/show/:id/season/:number" exact>
       <SeasonPage />
     </Route>
+    <Route path="/404" exact>
+      "ustedes"
+    </Route>
+    <Redirect from="*" to="/404" />
   </Switch>
 );
 
