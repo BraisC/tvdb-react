@@ -15,8 +15,8 @@ const Wrapper = styled.label`
 
 const Toggler = styled.span`
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.3rem;
+  right: 0.3rem;
   border-radius: 1.8rem;
   height: 1.8rem;
   width: 1.8rem;
@@ -28,6 +28,10 @@ const Toggler = styled.span`
   align-items: center;
   font-size: 1.2rem;
   color: var(--color-white);
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    font-size: 1.1rem;
+  }
 `;
 
 const CheckBox = styled.input`
@@ -46,7 +50,7 @@ const CheckBox = styled.input`
 
   &:checked ~ ${Toggler} {
     background-color: var(--color-primary);
-    right: calc(100% - 3px);
+    right: calc(100% - 0.3rem);
     transform: translateX(100%); /* this helps the growing as it will adjust with the width */
   }
 `;

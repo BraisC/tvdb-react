@@ -76,17 +76,16 @@ const ShowInfo = ({ show, isLoading }) => {
         </Styled.Poster>
         <Styled.Data>
           <Styled.DataHeader>
-            <Styled.DataHeaderLeft>
-              <div>
-                <h1>{utils.generateTitle(show)}</h1>
-                {show.rating && <span>{show.rating}</span>}
-              </div>
+            <div>
+              <h1>{utils.generateTitle(show)}</h1>
+              {show.rating && <span>{show.rating}</span>}
+            </div>
+            <Styled.DataSubHeader>
               <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
-            </Styled.DataHeaderLeft>
-            <Styled.DataHeaderRight>
-              {`${show.duration} min / ${utils.getCountryName(show.country)}`}
-            </Styled.DataHeaderRight>
+              <p>{`${show.duration} min / ${utils.getCountryName(show.country)}`}</p>
+            </Styled.DataSubHeader>
           </Styled.DataHeader>
+
           <Styled.DataSection>
             <h2>Summary</h2>
             <p>{show.overview}</p>

@@ -74,11 +74,6 @@ const Data = styled.section`
 `;
 
 const DataHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const DataHeaderLeft = styled.div`
   & div {
     display: flex;
     align-items: center;
@@ -86,7 +81,7 @@ const DataHeaderLeft = styled.div`
   & h1 {
     font-size: 3rem;
     line-height: 1;
-    margin-bottom: 0.2rem;
+
     display: inline-block;
     margin-right: 2rem;
   }
@@ -102,6 +97,11 @@ const DataHeaderLeft = styled.div`
     transition: border 0.2s ease;
     line-height: 1;
   }
+`;
+
+const DataSubHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const DataHeaderRight = styled.span`
@@ -200,7 +200,7 @@ export const Styled = {
   Data,
   DataHeader,
   DataHeaderRight,
-  DataHeaderLeft,
+  DataSubHeader,
   DataSection,
   DataSeasons,
   DataStars,
