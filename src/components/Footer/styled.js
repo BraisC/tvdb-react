@@ -18,6 +18,7 @@ const Logo = styled.img`
 const Credits = styled.span`
   color: var(--color-text);
   font-size: 1.3rem;
+  transition: 0.2s ease;
 `;
 
 const Attribution = styled.div`
