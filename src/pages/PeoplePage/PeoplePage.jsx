@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getPeopleDetails } from 'api/tmdb';
 import { Styled } from './styled';
 import { Appearances } from './Appearances';
+import { PeopleInfo } from './PeopleInfo';
 
 const PeoplePage = () => {
   const { id } = useParams();
@@ -30,14 +31,7 @@ const PeoplePage = () => {
     'Error'
   ) : (
     <Styled.Wrapper>
-      {isLoading ? (
-        'Loading'
-      ) : (
-        <Styled.PeopleInfo>
-          <h1>{people.name}</h1>
-        </Styled.PeopleInfo>
-      )}
-
+      <PeopleInfo isLoading={isLoading} people={people} />
       <Appearances />
     </Styled.Wrapper>
   );
