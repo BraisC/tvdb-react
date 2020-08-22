@@ -64,6 +64,7 @@ const ShowItemLink = styled(Link)`
   background-color: var(--color-primary);
 
   &:hover {
+    z-index: 4;
     transform: scaleY(1.2) scaleX(1.4);
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
   }
