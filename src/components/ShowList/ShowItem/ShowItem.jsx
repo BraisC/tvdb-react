@@ -4,7 +4,7 @@ import { getDetails } from 'api/tmdb';
 import utils from 'utils';
 import { Loader } from 'components';
 import { Styled } from './styled';
-import { ShowItemContentLoader } from './ShowItemContentLoader';
+import { ContentLoader } from './ContentLoader';
 
 const ShowItem = ({ show }) => {
   const [details, setDetails] = useState();
@@ -56,7 +56,7 @@ const ShowItem = ({ show }) => {
       >
         <Styled.Overlay>
           {isLoading ? (
-            <ShowItemContentLoader />
+            <ContentLoader />
           ) : (
             <Styled.Content
               animate={{ opacity: 1 }}
