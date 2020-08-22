@@ -28,6 +28,7 @@ const EpisodePosterImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
+  transition: opacity 1s ease;
 `;
 
 const EpisodeInfo = styled.section`

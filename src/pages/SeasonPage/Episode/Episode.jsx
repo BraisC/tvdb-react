@@ -16,13 +16,11 @@ const Episode = ({ episode }) => {
   return (
     <Styled.EpisodeWrapper key={episode.id}>
       <Styled.EpisodePoster>
-        <Styled.EpisodePosterImageLoader
-          style={{
-            visibility: !posterLoaded ? 'visible' : 'hidden',
-          }}
-        >
-          <Loader />
-        </Styled.EpisodePosterImageLoader>
+        {!posterLoaded && (
+          <Styled.EpisodePosterImageLoader>
+            <Loader />
+          </Styled.EpisodePosterImageLoader>
+        )}
         <Styled.EpisodePosterImage
           src={
             episode?.still_path

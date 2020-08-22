@@ -45,13 +45,11 @@ const Seasons = ({ isLoading, show }) => {
                     >
                       <Styled.SeasonsItemContent>
                         <Styled.SeasonsItemImageWrapper>
-                          <Styled.SeasonsItemImageLoader
-                            style={{
-                              visibility: !posterLoaded ? 'visible' : 'hidden',
-                            }}
-                          >
-                            <Loader />
-                          </Styled.SeasonsItemImageLoader>
+                          {!posterLoaded && (
+                            <Styled.SeasonsItemImageLoader>
+                              <Loader />
+                            </Styled.SeasonsItemImageLoader>
+                          )}
 
                           <Styled.SeasonsItemImage
                             src={

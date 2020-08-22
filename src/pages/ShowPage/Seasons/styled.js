@@ -79,6 +79,7 @@ const SeasonsItemImage = styled.img`
   height: 21rem;
   width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
   display: block;
+  transition: 1s ease;
 `;
 
 const SeasonsItemInfo = styled.section`
