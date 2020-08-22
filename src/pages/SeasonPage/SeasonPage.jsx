@@ -4,10 +4,11 @@ import { getSeasonDetails } from 'api/tmdb';
 import { faChevronLeft, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { missingPoster } from 'images';
 import { ConfigContext } from 'contexts/configContext';
-import utils from 'utils';
+
 import { Error } from 'components';
 import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
+import Episode from './Episode/Episode';
 
 const SeasonPage = () => {
   const config = useContext(ConfigContext);
@@ -36,8 +37,6 @@ const SeasonPage = () => {
   const handleTop = () => {
     window.scrollTo(0, 0);
   };
-
-  console.log(season);
 
   return isLoading ? (
     'Loader'
@@ -89,33 +88,10 @@ const SeasonPage = () => {
           <Styled.Wrapper>
             <Styled.Episodes>
               {season?.episodes.map((e) => (
-                <Styled.EpisodeWrapper key={e.id}>
-                  <Styled.EpisodePoster>
-                    <Styled.EpisodePosterImage
-                      src={
-                        e?.still_path
-                          ? `${config?.url}${config?.still.normal}${e?.still_path}`
-                          : missingPoster
-                      }
-                      missingPoster={!e?.still_path}
-                    />
-                  </Styled.EpisodePoster>
-                  <Styled.EpisodeInfo>
-                    <Styled.InfoHeader>
-                      <Styled.InfoTitle>
-                        {e.episode_number} - {e.name}
-                      </Styled.InfoTitle>
-                      <Styled.InfoStars>{utils.generateStars(e.vote_average)}</Styled.InfoStars>
-                    </Styled.InfoHeader>
-                    <Styled.Info>
-                      <Styled.InfoOverview>{e.overview}</Styled.InfoOverview>
-                    </Styled.Info>
-                  </Styled.EpisodeInfo>
-                </Styled.EpisodeWrapper>
+                <Episode key={e.id} episode={e} />
               ))}
             </Styled.Episodes>
             <Styled.GoTop onClick={handleTop}>
-              {' '}
               <Styled.Icon icon={faChevronUp} />
               Go to the top
             </Styled.GoTop>
