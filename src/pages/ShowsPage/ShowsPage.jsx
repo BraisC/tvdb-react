@@ -3,6 +3,7 @@ import { ShowList, Pagination, Error } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 import queryString from 'query-string';
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 
 const ShowsPage = () => {
@@ -35,6 +36,9 @@ const ShowsPage = () => {
     <Error />
   ) : (
     <Styled.Wrapper>
+      <Helmet>
+        <title>TVDB - {category.replace(/^\w/, (c) => c.toUpperCase()) ?? 'Popular'}</title>
+      </Helmet>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       <ShowList isLoading={isLoading} shows={shows?.results} />
       <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={pages.current} size={7} />

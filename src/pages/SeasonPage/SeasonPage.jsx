@@ -6,6 +6,7 @@ import { missingPoster } from 'images';
 import { ConfigContext } from 'contexts/configContext';
 import utils from 'utils';
 import { Error } from 'components';
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 
 const SeasonPage = () => {
@@ -46,6 +47,11 @@ const SeasonPage = () => {
         <Error />
       ) : (
         <>
+          <Helmet>
+            <title>
+              TVDB - {season.show.name} {season.name}
+            </title>
+          </Helmet>
           <Styled.SeasonHeader>
             <Styled.SeasonHeaderLeft>
               <Styled.Poster>

@@ -3,6 +3,7 @@ import Loader from 'components/Loader';
 import { ConfigContext } from 'contexts/configContext';
 import { profile } from 'images';
 import utils from 'utils';
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 import { InfoLoader } from './Loader';
 
@@ -20,6 +21,9 @@ const PeopleInfo = ({ people, isLoading }) => {
     <InfoLoader />
   ) : (
     <Styled.PeopleInfo>
+      <Helmet>
+        <title>TVDB - {people.name}</title>
+      </Helmet>
       <Styled.Profile>
         {!profileLoaded && (
           <Styled.ProfileLoader>

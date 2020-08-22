@@ -4,6 +4,7 @@ import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsGenre } from 'api/tmdb';
 import queryString from 'query-string';
 import { GenresContext } from 'contexts/genresContext';
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 
 const GenrePage = () => {
@@ -41,6 +42,9 @@ const GenrePage = () => {
     <Error />
   ) : (
     <Styled.Wrapper>
+      <Helmet>
+        <title>TVDB - {genre}</title>
+      </Helmet>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
       <ShowList isLoading={isLoading} shows={shows?.results} />
       <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={pages.current} size={7} />

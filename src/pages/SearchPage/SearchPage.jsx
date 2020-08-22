@@ -3,6 +3,7 @@ import { ShowList, Pagination, Error } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
 import queryString from 'query-string';
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 
 const SearchPage = () => {
@@ -35,6 +36,9 @@ const SearchPage = () => {
     <Error />
   ) : (
     <Styled.Wrapper>
+      <Helmet>
+        <title>TVDB - Search: {query}</title>
+      </Helmet>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
       {shows?.results.length !== 0 ? (
         <>

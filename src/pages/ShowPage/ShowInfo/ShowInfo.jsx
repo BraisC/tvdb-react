@@ -9,6 +9,7 @@ import utils from 'utils';
 
 import { faExternalLinkAlt, faVideo, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
+import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 import { InfoLoader } from './Loader';
 
@@ -46,6 +47,9 @@ const ShowInfo = ({ show, isLoading }) => {
         />
       )}
       <Styled.ShowInfo>
+        <Helmet>
+          <title>TVDB - {show.name}</title>
+        </Helmet>
         <Styled.Background
           style={{ opacity: backdropLoaded ? '1' : '0' }}
           src={show.backdrop && `${config?.url}${config?.backdrop.custom}${show.backdrop}`}
