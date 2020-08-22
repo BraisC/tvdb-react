@@ -18,13 +18,15 @@ const Title = styled.span`
 const Poster = styled.figure`
   position: relative;
   transition: transform 0.2s ease;
+  height: 100%;
 `;
 
 const PosterImage = styled.img`
   width: 100%;
-
+  height: 100%;
   transition: opacity 1s ease;
   display: block;
+  object-fit: cover;
 `;
 
 const PosterLoader = styled.div`
