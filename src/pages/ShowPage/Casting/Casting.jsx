@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import utils from 'utils';
 import { profile } from 'images';
 
+import { Error } from 'components';
 import { Styled } from './styled';
 import { Carousel } from '../Carousel';
 import { CastingLoader } from './Loader';
@@ -34,7 +35,7 @@ const Casting = ({ parentLoading }) => {
   }, [id, parentLoading]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <>
       <Styled.CastingContainer>

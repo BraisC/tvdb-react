@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, Error } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsGenre } from 'api/tmdb';
 import queryString from 'query-string';
@@ -38,7 +38,7 @@ const GenrePage = () => {
   }, [genre, history, params.page, genres]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{genre}</Styled.PageTitle>

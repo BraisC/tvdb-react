@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, Error } from 'components';
 import queryString from 'query-string';
 import { useLocation, useParams } from 'react-router-dom';
 import { getRecommendations } from 'api/tmdb';
@@ -34,7 +34,7 @@ const Recommended = ({ parentLoading }) => {
   }, [id, params.page, parentLoading]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Recommended>
       <h1>Recommended</h1>

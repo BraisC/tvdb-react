@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, Error } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
 import queryString from 'query-string';
@@ -32,7 +32,7 @@ const SearchPage = () => {
   }, [query, history, params.page]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>

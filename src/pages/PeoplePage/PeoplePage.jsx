@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPeopleDetails } from 'api/tmdb';
+import { Error } from 'components';
 import { Styled } from './styled';
 import { Appearances } from './Appearances';
 import { PeopleInfo } from './PeopleInfo';
@@ -28,7 +29,7 @@ const PeoplePage = () => {
   }, [id]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Wrapper>
       <PeopleInfo isLoading={isLoading} people={people} />

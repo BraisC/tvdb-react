@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getShowPage } from 'api/tmdb';
+import { Error } from 'components';
 
 import { Styled } from './styled';
 
@@ -35,7 +36,7 @@ const ShowPage = () => {
   }, [id]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Wrapper>
       <ShowInfo show={show} isLoading={isLoading} />

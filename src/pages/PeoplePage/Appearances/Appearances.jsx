@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ShowList } from 'components';
+import { ShowList, Error } from 'components';
 
 import { useParams } from 'react-router-dom';
 import { getAppearances } from 'api/tmdb';
@@ -29,7 +29,7 @@ const Appearances = () => {
   }, [id]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Appearances>
       <h1>Appearances</h1>

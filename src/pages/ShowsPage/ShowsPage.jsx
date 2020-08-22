@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ShowList, Pagination } from 'components';
+import { ShowList, Pagination, Error } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 import queryString from 'query-string';
@@ -32,7 +32,7 @@ const ShowsPage = () => {
   }, [category, history, params.page]);
 
   return error ? (
-    'Error'
+    <Error />
   ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
