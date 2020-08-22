@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { mapShowPage, mapConfig, mapShowList, mapShowDetails } from 'mappers';
 import { mapAppearences } from 'mappers/AppearancesMapper';
+import { mapSeasonPage } from 'mappers/SeasonPageMapper';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -232,6 +233,22 @@ export async function getPeopleDetails(id) {
   try {
     const peopleRes = await tmdb.get(`/person/${id}`);
     res.data = peopleRes.data;
+  } catch (err) {
+    res.error = err.response;
+  }
+
+  return res;
+}
+
+export async function getSeasonDetails(id, number) {
+  const res = {
+    data: null,
+    error: null,
+  };
+  try {
+    const showRes = await getDetails(id);
+    const seasonRes = await tmdb.get(`/tv/${id}/season/${number}`);
+    res.data = mapSeasonPage(seasonRes.data, showRes.data);
   } catch (err) {
     res.error = err.response;
   }
