@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ShowList, Pagination, ShowListLoader } from 'components';
+import { ShowList, Pagination } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
 import queryString from 'query-string';
@@ -36,9 +36,9 @@ const SearchPage = () => {
   ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{`search: ${query}`}</Styled.PageTitle>
-      {isLoading ? (
+      {shows?.results.length !== 0 ? (
         <>
-          <ShowListLoader />
+          <ShowList isLoading={isLoading} shows={shows?.results} />
           <Pagination
             currentPage={parseInt(params.page ?? '1')}
             totalPages={pages.current}
@@ -46,14 +46,7 @@ const SearchPage = () => {
           />
         </>
       ) : (
-        <>
-          <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
-          <Pagination
-            currentPage={parseInt(params.page ?? '1')}
-            totalPages={shows.total_pages}
-            size={7}
-          />
-        </>
+        'No results found for this search'
       )}
     </Styled.Wrapper>
   );

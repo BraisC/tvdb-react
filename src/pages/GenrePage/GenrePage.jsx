@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
-import { ShowList, Pagination, ShowListLoader } from 'components';
+import { ShowList, Pagination } from 'components';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsGenre } from 'api/tmdb';
 import queryString from 'query-string';
@@ -42,25 +42,8 @@ const GenrePage = () => {
   ) : (
     <Styled.Wrapper>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
-      {isLoading ? (
-        <>
-          <ShowListLoader />
-          <Pagination
-            currentPage={parseInt(params.page ?? '1')}
-            totalPages={pages.current}
-            size={7}
-          />
-        </>
-      ) : (
-        <>
-          <ShowList shows={shows.results} few={shows.total_results < 5 ? 'few' : null} />
-          <Pagination
-            currentPage={parseInt(params.page ?? '1')}
-            totalPages={shows.total_pages}
-            size={7}
-          />
-        </>
-      )}
+      <ShowList isLoading={isLoading} shows={shows?.results} />
+      <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={pages.current} size={7} />
     </Styled.Wrapper>
   );
 };

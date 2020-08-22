@@ -3,7 +3,7 @@ import { ShowList, Pagination } from 'components';
 import queryString from 'query-string';
 import { useLocation, useParams } from 'react-router-dom';
 import { getRecommendations } from 'api/tmdb';
-import ShowListLoader from 'components/ShowListLoader/ShowListLoader';
+import ShowListLoader from 'components/ShowList/ShowListLoader/ShowListLoader';
 import { Styled } from './styled';
 
 const Recommended = ({ parentLoading }) => {
@@ -39,29 +39,21 @@ const Recommended = ({ parentLoading }) => {
   ) : (
     <Styled.Recommended>
       <h1>Recommended</h1>
-      {isLoading ? (
+      {recommendations?.results.length !== 0 ? (
         <>
-          <ShowListLoader />
-          <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={2} size={7} />
+          <ShowList
+            isLoading={isLoading}
+            shows={recommendations?.results}
+            few={recommendations?.total_results < 5 ? 'few' : null}
+          />
+          <Pagination
+            currentPage={parseInt(params.page ?? '1')}
+            totalPages={pages.current}
+            size={7}
+          />
         </>
       ) : (
-        <>
-          {recommendations.results.length ? (
-            <>
-              <ShowList
-                shows={recommendations.results}
-                few={recommendations.total_results < 5 ? 'few' : null}
-              />
-              <Pagination
-                currentPage={parseInt(params.page ?? '1')}
-                totalPages={pages.current}
-                size={7}
-              />
-            </>
-          ) : (
-            'No recommendations found for this show'
-          )}
-        </>
+        'No recommendations found for this show'
       )}
     </Styled.Recommended>
   );

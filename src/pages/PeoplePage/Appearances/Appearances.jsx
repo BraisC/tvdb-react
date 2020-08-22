@@ -3,7 +3,6 @@ import { ShowList } from 'components';
 
 import { useParams } from 'react-router-dom';
 import { getAppearances } from 'api/tmdb';
-import ShowListLoader from 'components/ShowListLoader/ShowListLoader';
 import { Styled } from './styled';
 
 const Appearances = () => {
@@ -34,24 +33,7 @@ const Appearances = () => {
   ) : (
     <Styled.Appearances>
       <h1>Appearances</h1>
-      {isLoading ? (
-        <>
-          <ShowListLoader />
-        </>
-      ) : (
-        <>
-          {appearances.results.length ? (
-            <>
-              <ShowList
-                shows={appearances.results}
-                few={appearances.results.length < 5 ? 'few' : null}
-              />
-            </>
-          ) : (
-            'No appearances found for this show'
-          )}
-        </>
-      )}
+      <ShowList isLoading={isLoading} shows={appearances?.results} />
     </Styled.Appearances>
   );
 };

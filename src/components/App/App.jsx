@@ -8,9 +8,12 @@ import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { GenresProvider } from 'contexts/genresContext';
 import { ConfigProvider } from 'contexts/configContext';
+import queryString from 'query-string';
 import { Styled } from './styled';
 
-function ScrollToTop({ history }) {
+function ScrollToTop({ history, location }) {
+  const params = queryString.parse(location.pathname);
+  console.log(params);
   useEffect(() => {
     const unlisten = history.listen(() => {
       window.scrollTo(0, 0);
@@ -30,7 +33,6 @@ function App() {
 
   return (
     <Router>
-      <Scroll />
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
         <ConfigProvider>
           <GenresProvider>
