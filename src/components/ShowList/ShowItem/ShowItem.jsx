@@ -111,6 +111,7 @@ const ShowItem = ({ show }) => {
             loading="lazy"
             onLoad={handlePosterLoad}
             src={show.poster ? `https://image.tmdb.org/t/p/w342${show.poster}` : missingPoster}
+            missingPoster={!show.poster}
             alt={show.name}
           />
         </Styled.Poster>

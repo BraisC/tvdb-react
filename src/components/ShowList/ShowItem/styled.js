@@ -26,7 +26,7 @@ const PosterImage = styled.img`
   height: 100%;
   transition: opacity 1s ease;
   display: block;
-  object-fit: cover;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
 `;
 
 const PosterLoader = styled.div`
