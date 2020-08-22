@@ -25,6 +25,21 @@ export default createGlobalStyle`
       --color-transparency-show: ${(props) => props.theme.transparencyShow};
 
       --shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
+
+      @media ${(props) => props.theme.mediaQueries.tabLand} {
+          font-size: 56.25%;
+      }
+      @media ${(props) => props.theme.mediaQueries.tab} {
+          font-size: 50%;
+      }
+      @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+          font-size: 45%;
+      }
+      @media ${(props) => props.theme.mediaQueries.bigDesktop} {
+          font-size: 75%;
+      }
+
+
     }
     body {
       font-family: 'Montserrat', sans-serif;
