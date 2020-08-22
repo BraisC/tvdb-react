@@ -2,9 +2,9 @@ import React from 'react';
 import { Styled } from './styled';
 import { ShowItemLoader } from './ShowItemLoader';
 
-const ShowListLoader = () => {
+const Loader = () => {
   const items = [...Array(20).keys()];
-  console.log('Loader');
+
   return (
     <Styled.ShowListLoader>
       {items.map((show, i) => (
@@ -14,4 +14,4 @@ const ShowListLoader = () => {
   );
 };
 
-export default ShowListLoader;
+export default Loader;

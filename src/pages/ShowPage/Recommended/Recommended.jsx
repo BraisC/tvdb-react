@@ -3,7 +3,6 @@ import { ShowList, Pagination } from 'components';
 import queryString from 'query-string';
 import { useLocation, useParams } from 'react-router-dom';
 import { getRecommendations } from 'api/tmdb';
-import ShowListLoader from 'components/ShowList/ShowListLoader/ShowListLoader';
 import { Styled } from './styled';
 
 const Recommended = ({ parentLoading }) => {

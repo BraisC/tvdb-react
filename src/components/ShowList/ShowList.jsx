@@ -1,11 +1,11 @@
 import React from 'react';
 import { ShowItem } from './ShowItem';
 import { Styled } from './styled';
-import ShowListLoader from './ShowListLoader';
+import Loader from './Loader';
 
 const ShowList = React.memo(function ShowList({ shows, isLoading }) {
   return isLoading ? (
-    <ShowListLoader />
+    <Loader />
   ) : (
     <Styled.ShowList className={shows.length < 6 ? 'few' : null}>
       {shows.map((show) => (
