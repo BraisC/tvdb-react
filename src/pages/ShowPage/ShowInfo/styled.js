@@ -19,6 +19,8 @@ const ShowInfo = styled.section`
 
 const Background = styled.img`
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
   transition: opacity 1s ease;
 `;
