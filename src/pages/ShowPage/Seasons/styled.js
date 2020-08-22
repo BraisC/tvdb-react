@@ -58,10 +58,11 @@ const SeasonsItemContent = styled.div`
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
-  padding: 1rem;
+  margin: 1rem;
   flex-shrink: 0;
   background-color: var(--color-primary);
   transition: background-color 0.2s ease;
+  position: relative;
 `;
 
 const SeasonsItemImageLoader = styled.div`

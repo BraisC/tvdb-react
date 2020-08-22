@@ -32,7 +32,7 @@ const Seasons = ({ isLoading, show }) => {
                   {
                     breakpoint: 1920,
                     settings: {
-                      slidesToShow: 3,
+                      slidesToShow: show.seasons.length < 3 ? show.seasons.length : 3,
                     },
                   },
                 ]}
