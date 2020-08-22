@@ -7,7 +7,7 @@ import ModalVideo from 'react-modal-video';
 
 import utils from 'utils';
 
-import { faExternalLinkAlt, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt, faVideo, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Styled } from './styled';
 import { InfoLoader } from './Loader';
@@ -87,8 +87,9 @@ const ShowInfo = ({ show, isLoading }) => {
             <h2>Summary</h2>
             <p>{show.overview}</p>
           </Styled.DataSection>
-          <Styled.DataSeasons>
+          <Styled.DataSeasons to={`${process.env.PUBLIC_URL}/show/${show.id}/season/1`}>
             {show.seasons?.length} {show.seasons?.length > 1 ? 'Seasons' : 'Season'}
+            <Styled.Icon icon={faChevronRight} />
           </Styled.DataSeasons>
           <Styled.DataSection>
             <h2>Created by</h2>

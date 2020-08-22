@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Icon = styled(FontAwesomeIcon)`
   font-size: 1.4rem;
@@ -119,8 +120,24 @@ const DataSection = styled.section`
   }
 `;
 
-const DataSeasons = styled.h2`
+const DataSeasons = styled(Link)`
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
   font-size: 2rem;
+  transition: color 0.2s ease;
+  line-height: 1;
+
+  & ${Icon} {
+    color: var(--color-red);
+    margin-left: 1rem;
+    transition: 0.2s ease;
+    line-height: 1;
+  }
+
+  &:hover ${Icon} {
+    transform: translateX(1rem);
+  }
 `;
 
 const DataRating = styled.section`
