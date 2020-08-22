@@ -4,3 +4,4 @@ export { default as GenrePage } from './GenrePage';
 export { default as ShowPage } from './ShowPage';
 export { default as SeasonPage } from './SeasonPage';
 export { default as PeoplePage } from './PeoplePage';
+export { default as NotFound } from './NotFound';

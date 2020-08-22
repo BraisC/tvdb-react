@@ -1,6 +1,14 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { ShowsPage, SearchPage, GenrePage, ShowPage, SeasonPage, PeoplePage } from 'pages';
+import {
+  ShowsPage,
+  SearchPage,
+  GenrePage,
+  ShowPage,
+  SeasonPage,
+  PeoplePage,
+  NotFound,
+} from 'pages';
 
 const createRoutes = () => (
   <Switch>
@@ -23,7 +31,7 @@ const createRoutes = () => (
       <SeasonPage />
     </Route>
     <Route path="/404" exact>
-      "ustedes"
+      <NotFound />
     </Route>
     <Redirect from="*" to="/404" />
   </Switch>
