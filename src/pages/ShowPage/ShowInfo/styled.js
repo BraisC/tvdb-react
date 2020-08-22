@@ -33,6 +33,8 @@ const Filter = styled.div`
 `;
 
 const Poster = styled.figure`
+  width: 50rem;
+  height: 75rem;
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
@@ -42,17 +44,18 @@ const PosterLoader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50rem;
-  height: 75rem;
+  width: 100%;
+  height: 100%;
   position: absolute;
 `;
 
 const PosterImage = styled.img`
-  width: 50rem;
-  height: 75rem;
+  width: 100%;
+  height: 100%;
   display: block;
   box-shadow: var(--shadow);
   transition: opacity 1s ease;
+  object-fit: cover;
 `;
 
 const Data = styled.section`

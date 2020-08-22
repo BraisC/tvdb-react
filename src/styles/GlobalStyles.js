@@ -16,7 +16,7 @@ export default createGlobalStyle`
     html {
       font-size: 62.5%; 
       box-sizing: border-box;
-      --color-red: #FF6363;
+      --color-red: #ff5959;
       --color-primary: ${(props) => props.theme.primary};
       --color-secondary: ${(props) => props.theme.secondary};
       --color-transparency: ${(props) => props.theme.transparency};
