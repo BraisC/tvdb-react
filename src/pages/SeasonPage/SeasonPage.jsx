@@ -34,7 +34,6 @@ const SeasonPage = () => {
   const handleChange = (event) => {
     history.push(`/show/${id}/season/${event.target.value}`);
   };
-
   const handleTop = () => {
     window.scrollTo(0, 0);
   };

@@ -16,6 +16,7 @@ const GenrePage = () => {
   const genres = useContext(GenresContext);
   const [error, setError] = useState(false);
   const pages = useRef(1);
+  const prevLocation = useRef(location.pathname);
 
   const params = queryString.parse(location.search);
 
@@ -37,6 +38,11 @@ const GenrePage = () => {
 
     return () => setIsLoading(true);
   }, [genre, history, params.page, genres]);
+
+  useEffect(() => {
+    if (prevLocation !== location.pathname) window.scrollTo(0, 0);
+    prevLocation.current = location.pathname;
+  }, [location.pathname]);
 
   return error ? (
     <Error />

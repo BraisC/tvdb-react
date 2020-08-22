@@ -14,6 +14,7 @@ const ShowsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const pages = useRef(1);
+  const prevLocation = useRef(location.pathname);
 
   const params = queryString.parse(location.search);
 
@@ -31,6 +32,11 @@ const ShowsPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [category, history, params.page]);
+
+  useEffect(() => {
+    if (prevLocation !== location.pathname) window.scrollTo(0, 0);
+    prevLocation.current = location.pathname;
+  }, [location.pathname]);
 
   return error ? (
     <Error />

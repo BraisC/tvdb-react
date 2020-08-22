@@ -35,6 +35,10 @@ const ShowPage = () => {
     return () => setIsLoading(true);
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return error ? (
     <Error />
   ) : (
