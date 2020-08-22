@@ -42,7 +42,7 @@ const Data = styled.section`
   width: 40%;
   max-width: 60rem;
   z-index: 2;
-  padding: 6rem;
+  padding: 3rem 6rem;
 `;
 
 const DataHeader = styled.div`

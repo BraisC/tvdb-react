@@ -4,6 +4,7 @@ import { ConfigContext } from 'contexts/configContext';
 import { profile } from 'images';
 import utils from 'utils';
 import { Styled } from './styled';
+import { InfoLoader } from './Loader';
 
 const PeopleInfo = ({ people, isLoading }) => {
   const config = useContext(ConfigContext);
@@ -16,7 +17,7 @@ const PeopleInfo = ({ people, isLoading }) => {
   console.log(people);
 
   return isLoading ? (
-    'Loading'
+    <InfoLoader />
   ) : (
     <Styled.PeopleInfo>
       <Styled.Profile>
