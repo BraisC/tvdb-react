@@ -71,7 +71,7 @@ const Menu = styled.ul`
     font-size: 1.8rem;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     transition: 0.2s ease;
 
     &:hover {

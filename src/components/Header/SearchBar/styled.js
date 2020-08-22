@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SearchBar = styled.form`
-  width: 40rem;
+  width: 30rem;
   margin-right: auto;
   display: flex;
   align-items: center;
