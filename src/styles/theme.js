@@ -1,9 +1,9 @@
 const mediaQueries = {
-  phoneSmall: `only screen and (max-width: 25em)`,
-  phone: `only screen and (max-width: 37.5em)`,
-  tab: `only screen and (max-width: 56.25em)`,
-  tabLand: `only screen and (max-width: 75.5em)`,
-  bigDesktop: `only screen and (min-width: 125em)`,
+  phoneSmall: `only screen and (max-width: 25em)`, //400px
+  phone: `only screen and (max-width: 37.5em)`, //600px
+  tab: `only screen and (max-width: 56.25em)`, //900px
+  tabLand: `only screen and (max-width: 75em)`, //1200px
+  bigDesktop: `only screen and (min-width: 125em)`, //2000px
 };
 
 export const lightTheme = {

@@ -32,9 +32,6 @@ export default createGlobalStyle`
       @media ${(props) => props.theme.mediaQueries.tab} {
           font-size: 50%;
       }
-      @media ${(props) => props.theme.mediaQueries.phoneSmall} {
-          font-size: 45%;
-      }
       @media ${(props) => props.theme.mediaQueries.bigDesktop} {
           font-size: 75%;
       }
