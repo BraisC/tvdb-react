@@ -35,6 +35,7 @@ const PosterLoader = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  position: absolute;
 `;
 
 const Overlay = styled.div`

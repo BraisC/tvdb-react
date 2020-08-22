@@ -34,6 +34,7 @@ const ShowItem = ({ show }) => {
   };
 
   const handlePosterLoad = () => {
+    console.log('holi');
     !isUnMounted.current && setPosterLoaded(true);
   };
 
@@ -101,11 +102,11 @@ const ShowItem = ({ show }) => {
           )}
         </Styled.Overlay>
         <Styled.Poster>
-          <Styled.PosterLoader
-            style={{ visibility: !posterLoaded ? 'visible' : 'hidden', position: 'absolute' }}
-          >
-            <Loader />
-          </Styled.PosterLoader>
+          {!posterLoaded && (
+            <Styled.PosterLoader>
+              <Loader />
+            </Styled.PosterLoader>
+          )}
           <Styled.PosterImage
             style={{ opacity: posterLoaded ? '1' : '0' }}
             loading="lazy"
