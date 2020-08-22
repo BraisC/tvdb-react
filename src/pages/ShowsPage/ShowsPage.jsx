@@ -37,7 +37,7 @@ const ShowsPage = () => {
   ) : (
     <Styled.Wrapper>
       <Helmet>
-        <title>TVDB - {category.replace(/^\w/, (c) => c.toUpperCase()) ?? 'Popular'}</title>
+        <title>TVDB - {category?.replace(/^\w/, (c) => c.toUpperCase()) ?? 'Popular'}</title>
       </Helmet>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       <ShowList isLoading={isLoading} shows={shows?.results} />

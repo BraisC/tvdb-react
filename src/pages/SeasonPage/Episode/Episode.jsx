@@ -16,13 +16,13 @@ const Episode = ({ episode }) => {
   return (
     <Styled.EpisodeWrapper key={episode.id}>
       <Styled.EpisodePoster>
-        <Styled.SeasonsItemImageLoader
+        <Styled.EpisodePosterImageLoader
           style={{
             visibility: !posterLoaded ? 'visible' : 'hidden',
           }}
         >
           <Loader />
-        </Styled.SeasonsItemImageLoader>
+        </Styled.EpisodePosterImageLoader>
         <Styled.EpisodePosterImage
           src={
             episode?.still_path

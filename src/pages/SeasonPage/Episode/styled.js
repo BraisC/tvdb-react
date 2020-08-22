@@ -11,6 +11,16 @@ const EpisodePoster = styled.picture`
   width: 20rem;
   height: 12rem;
   flex-shrink: 0;
+  position: relative;
+`;
+
+const EpisodePosterImageLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 `;
 
 const EpisodePosterImage = styled.img`
@@ -61,6 +71,7 @@ export const Styled = {
   EpisodeWrapper,
   EpisodePoster,
   EpisodePosterImage,
+  EpisodePosterImageLoader,
   EpisodeInfo,
   InfoHeader,
   InfoStars,
