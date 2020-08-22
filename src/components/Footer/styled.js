@@ -19,12 +19,24 @@ const Credits = styled.span`
   color: var(--color-text);
   font-size: 1.3rem;
   transition: 0.2s ease;
+
+  & a {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: var(--color-red);
+    }
+  }
 `;
 
-const Attribution = styled.div`
+const Attribution = styled.a`
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
+  color: var(--color-text);
 `;
 
 export const Styled = {
