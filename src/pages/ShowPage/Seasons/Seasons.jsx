@@ -45,11 +45,14 @@ const Seasons = ({ isLoading, show }) => {
                     >
                       <Styled.SeasonsItemContent>
                         <Styled.SeasonsItemImageWrapper>
-                          {!posterLoaded && (
-                            <Styled.SeasonsItemImageLoader>
-                              <Loader />
-                            </Styled.SeasonsItemImageLoader>
-                          )}
+                          <Styled.SeasonsItemImageLoader
+                            style={{
+                              visibility: !posterLoaded ? 'visible' : 'hidden',
+                            }}
+                          >
+                            <Loader />
+                          </Styled.SeasonsItemImageLoader>
+
                           <Styled.SeasonsItemImage
                             src={
                               v.poster_path
@@ -59,6 +62,7 @@ const Seasons = ({ isLoading, show }) => {
                             alt={v.name}
                             onLoad={handlePosterLoad}
                             missingPoster={!v.poster_path}
+                            style={{ opacity: posterLoaded ? '1' : '0' }}
                           />
                         </Styled.SeasonsItemImageWrapper>
                         <Styled.SeasonsItemInfo>

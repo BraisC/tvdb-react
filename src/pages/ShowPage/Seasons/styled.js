@@ -75,6 +75,7 @@ const SeasonsItemImageLoader = styled.div`
 `;
 
 const SeasonsItemImage = styled.img`
+  opacity: 0;
   height: 21rem;
   width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
   display: block;
