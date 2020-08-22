@@ -12,5 +12,5 @@ export const mapSeasonPage = (season, show) => ({
   poster: season.poster_path,
   episodes: season.episodes,
   overview: season.overview,
-  number: season.number,
+  number: season.season_number,
 });
