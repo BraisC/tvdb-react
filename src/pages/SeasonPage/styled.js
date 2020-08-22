@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SeasonHeader = styled.div`
   padding: 2rem 4rem;
-
   background-color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 0.2s ease;
 `;
 
 const SeasonHeaderLeft = styled.div`
@@ -27,11 +27,13 @@ const TitleWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2rem;
   padding: 1rem;
+  transition: 0.2s ease;
 `;
 
 const Poster = styled.picture`
   width: 8rem;
   height: 12rem;
+  flex-shrink: 0;
 `;
 
 const PosterImage = styled.img`
@@ -52,6 +54,7 @@ const BackLink = styled(Link)`
   text-decoration: none;
   color: var(--color-text);
   font-size: 1.6rem;
+  transition: 0.2s ease;
 
   &:hover ${Icon} {
     transform: translateX(-1rem);
@@ -87,7 +90,95 @@ const Select = styled.select`
   border: none;
   color: var(--color-text);
   background-color: var(--color-secondary);
+  transition: 0.2s ease;
+
   appearance: none;
+`;
+
+const Wrapper = styled.div`
+  color: var(--color-text);
+  padding: 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  transition: color 0.2s ease;
+  align-items: center;
+`;
+
+const Episodes = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+const EpisodeWrapper = styled.article`
+  display: flex;
+  padding: 1rem;
+  background-color: var(--color-primary);
+  transition: 0.2s ease;
+`;
+
+const EpisodePoster = styled.picture`
+  width: 20rem;
+  height: 12rem;
+  flex-shrink: 0;
+`;
+
+const EpisodePosterImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
+`;
+
+const EpisodeInfo = styled.section`
+  width: 100%;
+  padding: 0 2rem;
+`;
+
+const InfoHeader = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+const InfoTitle = styled.h1`
+  font-size: 1.8rem;
+  line-height: 1;
+`;
+
+const InfoStars = styled.div`
+  color: var(--color-red);
+  line-height: 1;
+  margin-left: auto;
+
+  & span {
+    margin-right: 2px;
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+`;
+
+const InfoOverview = styled.p`
+  font-size: 1.4rem;
+`;
+
+const GoTop = styled.button`
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  border: none;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover ${Icon} {
+    transform: translateY(-0.5rem);
+  }
 `;
 
 export const Styled = {
@@ -102,4 +193,16 @@ export const Styled = {
   SeasonHeaderRight,
   Select,
   SelectWrapper,
+  Wrapper,
+  Episodes,
+  EpisodeWrapper,
+  EpisodePoster,
+  EpisodePosterImage,
+  EpisodeInfo,
+  InfoHeader,
+  InfoStars,
+  InfoTitle,
+  Info,
+  InfoOverview,
+  GoTop,
 };
