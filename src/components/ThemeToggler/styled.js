@@ -2,15 +2,19 @@ import styled from 'styled-components';
 
 const Wrapper = styled.label`
   display: flex;
-  margin-right: 5rem;
   height: 2.4rem;
   width: 5.1rem;
   position: relative;
   border-radius: 34px;
   cursor: pointer;
-  background-color: ${(props) => (props.theme === 'dark' ? 'var(--color-red)' : '#dcdcdc')};
+  background-color: ${(props) => (props.themeColor === 'dark' ? 'var(--color-red)' : '#dcdcdc')};
   transition: 0.2s ease;
   flex-shrink: 0;
+  margin-right: 5rem;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-right: 0;
+  }
 `;
 
 const Toggler = styled.span`
