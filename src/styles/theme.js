@@ -1,5 +1,5 @@
 const mediaQueries = {
-  phoneSmall: `only screen and (max-width: 25em)`, //400px
+  phoneSmall: `only screen and (max-width: 25.9375em)`, //400px
   phone: `only screen and (max-width: 37.5em)`, //600px
   tab: `only screen and (max-width: 56.25em)`, //900px
   tabLand: `only screen and (max-width: 75em)`, //1200px

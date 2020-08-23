@@ -24,7 +24,7 @@ const Episode = ({ episode }) => {
         <Styled.EpisodePosterImage
           src={
             episode?.still_path
-              ? `${config?.url}${config?.still.normal}${episode?.still_path}`
+              ? `${config?.url}${config?.still.big}${episode?.still_path}`
               : missingPoster
           }
           missingPoster={!episode?.still_path}

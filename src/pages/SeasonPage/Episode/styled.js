@@ -5,6 +5,10 @@ const EpisodeWrapper = styled.article`
   padding: 1rem;
   background-color: var(--color-primary);
   transition: 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    flex-direction: column;
+  }
 `;
 
 const EpisodePoster = styled.picture`
@@ -12,6 +16,15 @@ const EpisodePoster = styled.picture`
   height: 12rem;
   flex-shrink: 0;
   position: relative;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: auto;
+  }
 `;
 
 const EpisodePosterImageLoader = styled.div`
@@ -29,11 +42,22 @@ const EpisodePosterImage = styled.img`
   height: 100%;
   object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
   transition: opacity 1s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: auto;
+  }
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    width: 100%;
+  }
 `;
 
 const EpisodeInfo = styled.section`
   width: 100%;
   padding: 0 2rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 0rem;
+  }
 `;
 
 const InfoHeader = styled.div`

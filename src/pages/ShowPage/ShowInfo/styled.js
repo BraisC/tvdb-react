@@ -22,7 +22,7 @@ const ShowInfo = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
-    padding: 3rem 1rem;
+    padding: 3rem 0rem;
   }
 `;
 

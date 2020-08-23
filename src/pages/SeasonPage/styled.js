@@ -9,6 +9,10 @@ const SeasonHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 1rem;
+  }
 `;
 
 const SeasonHeaderLeft = styled.div`
@@ -22,6 +26,10 @@ const TitleWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -34,6 +42,10 @@ const Poster = styled.picture`
   width: 8rem;
   height: 12rem;
   flex-shrink: 0;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    display: none;
+  }
 `;
 
 const PosterImage = styled.img`
@@ -97,11 +109,15 @@ const Select = styled.select`
 
 const Wrapper = styled.div`
   color: var(--color-text);
-  padding: 3rem 6rem;
+  padding: 3rem 3rem;
   display: flex;
   flex-direction: column;
   transition: color 0.2s ease;
   align-items: center;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const Episodes = styled.section`

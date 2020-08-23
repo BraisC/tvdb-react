@@ -64,9 +64,9 @@ const SeasonsItemContent = styled.div`
     font-size: 1.2rem;
   }
 
-  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+/*   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
     height: 21rem;
-  }
+  } */
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
@@ -76,9 +76,9 @@ const SeasonsItemImageWrapper = styled.figure`
   transition: background-color 0.2s ease;
   position: relative;
 
-  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+/*   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
     display: none;
-  }
+  } */
 `;
 
 const SeasonsItemImageLoader = styled.div`
