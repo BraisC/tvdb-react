@@ -12,6 +12,10 @@ const CastingContainer = styled.section`
     font-weight: 100;
     margin-bottom: 4rem;
   }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const CastingWrapper = styled.div`

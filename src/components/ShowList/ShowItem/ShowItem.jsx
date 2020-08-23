@@ -18,7 +18,7 @@ const ShowItem = ({ show }) => {
 
   useEffect(() => {
     const changeMobile = () => {
-      window.matchMedia('(max-width: 31.25em)').matches ? setIsMobile(true) : setIsMobile(false);
+      window.matchMedia('(max-width: 37.5em)').matches ? setIsMobile(true) : setIsMobile(false);
     };
     changeMobile();
     window.addEventListener('resize', changeMobile);

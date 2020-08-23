@@ -7,6 +7,14 @@ const PeopleInfo = styled.section`
   padding: 4rem;
   position: relative;
   overflow: hidden;
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    flex-direction: column;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    padding: 3rem 1rem;
+  }
 `;
 
 const Profile = styled.figure`
@@ -16,6 +24,16 @@ const Profile = styled.figure`
   background-color: var(--color-primary);
   position: relative;
   flex-shrink: 0;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    width: 20rem;
+    height: 30rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 15rem;
+    height: 22.5rem;
+  }
 `;
 
 const ProfileLoader = styled.div`
@@ -44,6 +62,18 @@ const Data = styled.section`
   max-width: 60rem;
   z-index: 2;
   padding: 3rem 6rem;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    padding: 3rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    width: 100%;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem;
+  }
 `;
 
 const DataHeader = styled.div`

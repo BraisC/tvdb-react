@@ -42,7 +42,7 @@ const Seasons = ({ isLoading, show }) => {
                     },
                   },
                   {
-                    breakpoint: 750,
+                    breakpoint: 700,
                     settings: {
                       slidesToShow: 1,
                     },

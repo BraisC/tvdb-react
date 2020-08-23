@@ -22,7 +22,7 @@ const ShowInfo = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
-    padding: 1rem;
+    padding: 3rem 1rem;
   }
 `;
 
@@ -56,8 +56,8 @@ const Poster = styled.figure`
   }
 
   @media ${(props) => props.theme.mediaQueries.phone} {
-    width: 50%;
-    height: auto;
+    width: 25rem;
+    height: 37.5rem;
   }
 `;
 
@@ -88,9 +88,10 @@ const Data = styled.section`
   max-width: 180rem;
   z-index: 2;
   /* background-color: rgba(var(--color-transparency), 0.8); */
-  padding: 6rem;
+  padding: 3rem 6rem;
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
+    align-self: auto;
     padding: 3rem;
   }
 
