@@ -5,6 +5,11 @@ const SearchBar = styled.form`
   margin-right: auto;
   display: flex;
   align-items: center;
+
+  @media ${(props) => props.theme.mediaQueries.larger} {
+    flex: 1;
+    margin-left: 3rem;
+  }
 `;
 
 const SearchInput = styled.input`

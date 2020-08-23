@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import createRoutes from 'routes';
-import { Header, Footer } from 'components';
+import { Header, Footer, MobileHeader } from 'components';
 import GlobalStyles from 'styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/theme';
@@ -33,7 +33,7 @@ function App() {
           <GenresProvider>
             <GlobalStyles />
             <Styled.Wrapper>
-              {isMobile ? 'holi' : <Header />}
+              {isMobile ? <MobileHeader /> : <Header />}
               <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
               <Footer />
             </Styled.Wrapper>
