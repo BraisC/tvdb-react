@@ -14,6 +14,7 @@ const Wrapper = styled.label`
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
     margin-right: 0;
+    margin-top: auto;
   }
 `;
 
