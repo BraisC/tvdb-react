@@ -15,6 +15,7 @@ const Profile = styled.figure`
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
+  flex-shrink: 0;
 `;
 
 const ProfileLoader = styled.div`

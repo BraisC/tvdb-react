@@ -127,6 +127,7 @@ const DataSeasons = styled(Link)`
   font-size: 2rem;
   transition: color 0.2s ease;
   line-height: 1;
+  align-self: flex-start;
 
   & ${Icon} {
     color: var(--color-red);
