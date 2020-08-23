@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GenresContext } from 'contexts/genresContext';
+import { SearchBar, ThemeToggler } from 'components';
 import { Styled } from './styled';
-import { SearchBar } from './SearchBar';
-import { ThemeToggler } from './ThemeToggler';
 
 const MenuOptions = [
   { name: 'popular', route: '/' },

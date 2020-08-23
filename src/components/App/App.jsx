@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import createRoutes from 'routes';
 import { Header, Footer } from 'components';
@@ -13,6 +13,18 @@ import { Styled } from './styled';
 
 function App() {
   const context = useContext(MyThemeContext);
+  const [isMobile, setIsMobile] = useState();
+
+  useEffect(() => {
+    const changeMobile = () => {
+      window.matchMedia('(max-width: 75em)').matches ? setIsMobile(true) : setIsMobile(false);
+    };
+    changeMobile();
+    window.addEventListener('resize', changeMobile);
+    return () => window.removeEventListener('resize', changeMobile);
+  }, []);
+
+  console.log(isMobile);
 
   return (
     <Router>
@@ -21,7 +33,7 @@ function App() {
           <GenresProvider>
             <GlobalStyles />
             <Styled.Wrapper>
-              <Header />
+              {isMobile ? 'holi' : <Header />}
               <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
               <Footer />
             </Styled.Wrapper>

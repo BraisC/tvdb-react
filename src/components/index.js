@@ -6,3 +6,5 @@ export { default as Pagination } from './Pagination';
 export { default as Loader } from './Loader';
 export { default as Button } from './Button';
 export { default as Error } from './Error';
+export { default as SearchBar } from './SearchBar';
+export { default as ThemeToggler } from './ThemeToggler';
