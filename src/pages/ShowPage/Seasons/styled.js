@@ -38,6 +38,10 @@ const SeasonsItem = styled(Link)`
 
   &:hover {
     transform: scale(1.05);
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      transform: none;
+    }
   }
 `;
 

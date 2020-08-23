@@ -14,8 +14,19 @@ const ShowItem = ({ show }) => {
   const imgHeight = useRef();
   const isUnMounted = useRef(false);
 
+  const [isMobile, setIsMobile] = useState();
+
+  useEffect(() => {
+    const changeMobile = () => {
+      window.matchMedia('(max-width: 31.25em)').matches ? setIsMobile(true) : setIsMobile(false);
+    };
+    changeMobile();
+    window.addEventListener('resize', changeMobile);
+    return () => window.removeEventListener('resize', changeMobile);
+  }, []);
+
   const handleHover = async () => {
-    if (!details) {
+    if (!details && !isMobile) {
       const res = await getDetails(show.id);
       if (res.error) {
         !isUnMounted.current && setIsLoading(false);
@@ -44,6 +55,8 @@ const ShowItem = ({ show }) => {
     []
   );
 
+  console.log(isMobile);
+
   return (
     <Styled.ShowItem onMouseEnter={handleHover}>
       <Styled.ShowItemLink
@@ -53,53 +66,57 @@ const ShowItem = ({ show }) => {
             details,
           },
         }}
+        $isMobile={isMobile}
       >
-        <Styled.Overlay>
-          {isLoading ? (
-            <ContentLoader />
-          ) : (
-            <Styled.Content
-              animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-            >
-              <Styled.ContentHeader>
-                <h1>{utils.limitTextLength(utils.generateTitle(details))}</h1>
-                <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
-              </Styled.ContentHeader>
-              <Styled.ContentSection>
-                <h2>Summary</h2>
-                <p>{utils.limitTextLength(details.overview, 200) || 'No summary'}</p>
-              </Styled.ContentSection>
-              <Styled.ContentSection>
-                <h2>
-                  {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
-                </h2>
-              </Styled.ContentSection>
-              <Styled.ContentSection>
-                <h2>Status</h2>
-                <span>{details.status}</span>
-              </Styled.ContentSection>
-              <Styled.ContentFooter>
+        {!isMobile && (
+          <Styled.Overlay>
+            {isLoading ? (
+              <ContentLoader />
+            ) : (
+              <Styled.Content
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Styled.ContentHeader>
+                  <h1>{utils.limitTextLength(utils.generateTitle(details))}</h1>
+                  <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
+                </Styled.ContentHeader>
                 <Styled.ContentSection>
-                  <h2>Rating</h2>
-                  <Styled.ContentStars>
-                    {utils.generateStars(details.vote_average)}
-                  </Styled.ContentStars>
+                  <h2>Summary</h2>
+                  <p>{utils.limitTextLength(details.overview, 200) || 'No summary'}</p>
                 </Styled.ContentSection>
-                {details.network?.logo ? (
-                  <Styled.ContentLogo
-                    small={imgHeight.current > 80}
-                    onLoad={handleLogoLoad}
-                    logoLoaded={logoLoaded}
-                    src={`https://image.tmdb.org/t/p/w154${details.network?.logo}`}
-                    alt="Network"
-                  />
-                ) : null}
-              </Styled.ContentFooter>
-            </Styled.Content>
-          )}
-        </Styled.Overlay>
+                <Styled.ContentSection>
+                  <h2>
+                    {details.seasons?.length} {details.seasons?.length > 1 ? 'Seasons' : 'Season'}
+                  </h2>
+                </Styled.ContentSection>
+                <Styled.ContentSection>
+                  <h2>Status</h2>
+                  <span>{details.status}</span>
+                </Styled.ContentSection>
+                <Styled.ContentFooter>
+                  <Styled.ContentSection>
+                    <h2>Rating</h2>
+                    <Styled.ContentStars>
+                      {utils.generateStars(details.vote_average)}
+                    </Styled.ContentStars>
+                  </Styled.ContentSection>
+                  {details.network?.logo ? (
+                    <Styled.ContentLogo
+                      small={imgHeight.current > 80}
+                      onLoad={handleLogoLoad}
+                      logoLoaded={logoLoaded}
+                      src={`https://image.tmdb.org/t/p/w154${details.network?.logo}`}
+                      alt="Network"
+                    />
+                  ) : null}
+                </Styled.ContentFooter>
+              </Styled.Content>
+            )}
+          </Styled.Overlay>
+        )}
+
         <Styled.Poster>
           {!posterLoaded && (
             <Styled.PosterLoader>

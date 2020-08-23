@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   transition: color 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const PageTitle = styled.h1`

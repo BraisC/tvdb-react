@@ -4,7 +4,11 @@ const Recommended = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  padding: 3rem 6rem;
+  padding: 3rem 3rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 
   & > h1 {
     font-size: 2rem;

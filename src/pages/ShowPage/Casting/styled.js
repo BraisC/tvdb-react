@@ -37,8 +37,16 @@ const CastingItem = styled(Link)`
   box-shadow: var(--shadow);
   transition: all 0.2s ease;
 
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    width: 80%;
+  }
+
   &:hover {
     transform: scale(1.05);
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      transform: none;
+    }
   }
 `;
 
@@ -47,6 +55,10 @@ const CastingItemImageWrapper = styled.figure`
   height: 20rem;
   background-color: var(--color-primary);
   transition: background-color 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: 17rem;
+  }
 `;
 
 const CastingItemImage = styled.img`

@@ -24,8 +24,6 @@ function App() {
     return () => window.removeEventListener('resize', changeMobile);
   }, []);
 
-  console.log(isMobile);
-
   return (
     <Router>
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>

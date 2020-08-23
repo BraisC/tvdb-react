@@ -11,6 +11,10 @@ const ShowList = styled.div`
     grid-template-columns: repeat(auto-fit, 18rem);
   }
 
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    grid-template-columns: repeat(auto-fit, 15rem);
+  }
+
   &.few {
     justify-content: start;
   }
