@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SideBar = styled.div`
-  padding: 6rem 5rem;
+  padding: 6rem 5rem 0 5rem;
   flex-direction: column;
   background: var(--color-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -18,7 +18,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
+  min-height: 100%;
 `;
 
 const Logo = styled.div`

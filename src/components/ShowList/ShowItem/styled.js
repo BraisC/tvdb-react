@@ -63,6 +63,10 @@ const ShowItemLink = styled(Link)`
   height: 37rem;
   background-color: var(--color-primary);
 
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    height: 28rem;
+  }
+
   &:hover {
     z-index: 4;
     transform: scaleY(1.2) scaleX(1.4);
