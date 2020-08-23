@@ -35,6 +35,18 @@ const Seasons = ({ isLoading, show }) => {
                       slidesToShow: show.seasons.length < 3 ? show.seasons.length : 3,
                     },
                   },
+                  {
+                    breakpoint: 1200,
+                    settings: {
+                      slidesToShow: show.seasons.length < 2 ? show.seasons.length : 2,
+                    },
+                  },
+                  {
+                    breakpoint: 750,
+                    settings: {
+                      slidesToShow: 1,
+                    },
+                  },
                 ]}
               >
                 {show.seasons.map((v) => (
