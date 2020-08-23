@@ -16,6 +16,14 @@ const ShowInfo = styled.section`
   padding: 4rem;
   position: relative;
   overflow: hidden;
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    flex-direction: column;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    padding: 1rem;
+  }
 `;
 
 const Background = styled.img`
@@ -45,6 +53,11 @@ const Poster = styled.figure`
   @media ${(props) => props.theme.mediaQueries.tabLand} {
     width: 44rem;
     height: 66rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 50%;
+    height: auto;
   }
 `;
 
@@ -76,6 +89,18 @@ const Data = styled.section`
   z-index: 2;
   /* background-color: rgba(var(--color-transparency), 0.8); */
   padding: 6rem;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    padding: 3rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    width: 100%;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem;
+  }
 `;
 
 const DataHeader = styled.div`
@@ -102,11 +127,19 @@ const DataHeader = styled.div`
     transition: border 0.2s ease;
     line-height: 1;
   }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
+  }
 `;
 
 const DataSubHeader = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-top: 1rem;
+  }
 `;
 
 const DataHeaderRight = styled.span`
@@ -122,6 +155,10 @@ const DataSection = styled.section`
   & p {
     font-size: 1.6rem;
     line-height: 1.4;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -144,11 +181,19 @@ const DataSeasons = styled(Link)`
   &:hover ${Icon} {
     transform: translateX(1rem);
   }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
+  }
 `;
 
 const DataRating = styled.section`
   & h2 {
     font-size: 2rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -171,16 +216,29 @@ const DataFooter = styled.section`
   align-items: flex-end;
   justify-content: space-between;
   position: relative;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    flex-wrap: wrap;
+  }
 `;
 
 const DataFooterLeft = styled.div`
   display: flex;
   gap: 2rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const DataFooterRight = styled.figure`
   position: absolute;
   right: 0;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    display: none;
+  }
 
   & img {
     max-height: 10rem;
