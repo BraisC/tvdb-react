@@ -11,6 +11,7 @@ const MobileHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 5;
+  height: 100%;
 `;
 
 const MobileLogo = styled.div`
@@ -34,7 +35,7 @@ const Hamburger = styled.div`
 `;
 
 const HamburgerLine = styled.span`
-  display: inline-block;
+  display: block;
   width: 100%;
   height: 3px;
   background-color: var(--color-text);
