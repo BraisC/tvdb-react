@@ -41,6 +41,11 @@ const Poster = styled.figure`
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    width: 44rem;
+    height: 66rem;
+  }
 `;
 
 const PosterLoader = styled.div`
@@ -174,14 +179,17 @@ const DataFooterLeft = styled.div`
 `;
 
 const DataFooterRight = styled.figure`
-  max-height: 10rem;
   position: absolute;
   right: 0;
 
   & img {
-    display: block;
     max-height: 10rem;
+    display: block;
     height: 100%;
+
+    @media ${(props) => props.theme.mediaQueries.tabLand} {
+      max-height: 4rem;
+    }
   }
 `;
 
