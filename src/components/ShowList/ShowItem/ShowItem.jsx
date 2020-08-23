@@ -34,7 +34,6 @@ const ShowItem = ({ show }) => {
   };
 
   const handlePosterLoad = () => {
-    console.log('holi');
     !isUnMounted.current && setPosterLoaded(true);
   };
 
