@@ -69,12 +69,14 @@ const InfoHeader = styled.div`
 const InfoTitle = styled.h1`
   font-size: 1.8rem;
   line-height: 1;
+  margin-right: 1rem;
 `;
 
 const InfoStars = styled.div`
   color: var(--color-red);
   line-height: 1;
   margin-left: auto;
+  white-space: nowrap;
 
   & span {
     margin-right: 2px;
