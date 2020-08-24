@@ -24,6 +24,7 @@ const EpisodePoster = styled.picture`
   }
   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
     height: ${(props) => (props.missingPoster ? '12rem' : 'auto')};
+    min-height: 16rem;
   }
 `;
 
