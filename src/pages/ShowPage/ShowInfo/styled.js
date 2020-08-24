@@ -26,12 +26,21 @@ const ShowInfo = styled.section`
   }
 `;
 
-const Background = styled.img`
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
+const BackgroundImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
   transition: opacity 1s ease;
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    object-position: 80% 50%;
+  }
 `;
 
 const Filter = styled.div`
@@ -277,6 +286,7 @@ export const Styled = {
   Icon,
   ShowInfo,
   Background,
+  BackgroundImage,
   Filter,
   Poster,
   PosterLoader,

@@ -67,12 +67,14 @@ const ShowInfo = ({ show, isLoading }) => {
         <Helmet>
           <title>TVDB - {show.name}</title>
         </Helmet>
-        <Styled.Background
-          style={{ opacity: backdropLoaded ? '1' : '0' }}
-          src={show.backdrop && `${config?.url}${config?.backdrop.custom}${show.backdrop}`}
-          alt={show.name}
-          onLoad={handleBackdropLoad}
-        />
+        <Styled.Background>
+          <Styled.BackgroundImage
+            style={{ opacity: backdropLoaded ? '1' : '0' }}
+            src={show.backdrop && `${config?.url}${config?.backdrop.custom}${show.backdrop}`}
+            alt={show.name}
+            onLoad={handleBackdropLoad}
+          />
+        </Styled.Background>
         <Styled.Filter />
 
         <Styled.Poster>
