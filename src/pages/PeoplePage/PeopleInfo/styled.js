@@ -23,7 +23,6 @@ const Profile = styled.figure`
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
-  flex-shrink: 0;
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
     width: 20rem;
@@ -58,8 +57,8 @@ const Data = styled.section`
   display: flex;
   align-self: stretch;
   flex-direction: column;
-  width: 40%;
-  max-width: 60rem;
+  width: 70%;
+  max-width: 100rem;
   z-index: 2;
   padding: 3rem 6rem;
 
@@ -101,7 +100,7 @@ const DataSection = styled.section`
   }
 
   & p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.4;
   }
 `;
