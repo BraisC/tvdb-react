@@ -6,7 +6,7 @@ const SearchBar = styled.form`
   display: flex;
   align-items: center;
 
-  @media ${(props) => props.theme.mediaQueries.larger} {
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
     flex: 1;
     margin-left: 3rem;
   }
@@ -21,6 +21,7 @@ const SearchInput = styled.input`
   transition: background-color 0.2s ease, color 0.2s ease;
   padding-left: 5rem;
   font-family: Montserrat;
+  font-weight: 500;
 
   &:focus::placeholder {
     opacity: 0;
@@ -30,10 +31,14 @@ const SearchInput = styled.input`
   }
 
   &::placeholder {
-    opacity: 35%;
+    opacity: 40%;
     text-transform: uppercase;
     font-family: Montserrat;
     transition: 0.2s ease;
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      opacity: 80%;
+    }
   }
 `;
 

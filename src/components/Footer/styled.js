@@ -22,7 +22,7 @@ const Credits = styled.span`
 
   & a {
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
     transition: 0.2s ease;
 
     &:hover {

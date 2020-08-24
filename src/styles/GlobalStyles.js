@@ -38,7 +38,7 @@ export default createGlobalStyle`
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.6;
     }
 
