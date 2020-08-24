@@ -60,6 +60,7 @@ const Menu = styled.ul`
   padding: 0 2rem;
   display: flex;
   margin-right: auto;
+  font-weight: 400;
 
   & li {
     list-style: none;
