@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const CastingContainer = styled.section`
-  padding: 3rem 6rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
 
@@ -14,13 +14,13 @@ const CastingContainer = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQueries.phone} {
-    padding: 2rem 2rem;
+    padding: 2rem;
   }
 `;
 
 const CastingWrapper = styled.div`
   max-width: 110rem;
-  width: 100%;
+  width: 95%;
   align-self: center;
 
   &:focus {

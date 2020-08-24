@@ -4,7 +4,7 @@ const Appearances = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  padding: 3rem 6rem;
+  padding: 3rem;
 
   & > h1 {
     font-size: 2rem;
@@ -14,7 +14,7 @@ const Appearances = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQueries.phone} {
-    padding: 2rem 2rem;
+    padding: 2rem;
   }
 `;
 

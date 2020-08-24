@@ -82,7 +82,7 @@ const Seasons = ({ isLoading, show }) => {
                               v.episode_count
                             } episodes`}
                           </span>
-                          <p>{utils.limitTextLength(v.overview, 200)}</p>
+                          <p>{utils.limitTextLength(v.overview, 100)}</p>
                         </Styled.SeasonsItemInfo>
                       </Styled.SeasonsItemContent>
                     </Styled.SeasonsItem>

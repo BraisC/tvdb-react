@@ -14,13 +14,13 @@ const Wrapper = styled.div`
   display: flex;
   padding: 3rem;
   flex-grow: 1;
+
   @media ${(props) => props.theme.mediaQueries.phone} {
     padding: 2rem;
   }
 `;
 
 const Items = styled.div`
-  padding: 3rem;
   width: 100%;
   background-color: var(--color-primary);
 `;
