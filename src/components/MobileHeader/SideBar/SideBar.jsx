@@ -12,20 +12,19 @@ const MenuOptions = [
   { name: 'genre' },
 ];
 
-const SubMenuItem = ({ value }) => (
+const SubMenuItem = ({ value, closeMenu }) => (
   <li>
-    <NavLink to={`${process.env.PUBLIC_URL}/genre/${value}`} exact>
+    <NavLink onClick={closeMenu} to={`${process.env.PUBLIC_URL}/genre/${value}`} exact>
       <span>{`${value}`}</span>
     </NavLink>
   </li>
 );
 
-const SubMenu = ({ value, subvalues }) => {
+const SubMenu = ({ value, subvalues, closeMenu }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = () => {
     setIsVisible((v) => !v);
-    console.log(isVisible);
   };
 
   return (
@@ -33,22 +32,30 @@ const SubMenu = ({ value, subvalues }) => {
       <Styled.SubMenuButton onClick={handleClick}>{value}</Styled.SubMenuButton>
       <Styled.SubMenuWrapper isVisible={isVisible}>
         <Styled.SubMenu>
-          {subvalues ? subvalues?.map((s) => <SubMenuItem key={s.name} value={s.name} />) : null}
+          {subvalues
+            ? subvalues?.map((s) => (
+                <SubMenuItem closeMenu={closeMenu} key={s.name} value={s.name} />
+              ))
+            : null}
         </Styled.SubMenu>
       </Styled.SubMenuWrapper>
     </li>
   );
 };
 
-const MenuItem = ({ value, route }) => (
+const MenuItem = ({ value, route, closeMenu }) => (
   <li>
-    <NavLink to={`${process.env.PUBLIC_URL}/shows/${route}`.replace('shows//', '')} exact>
+    <NavLink
+      onClick={closeMenu}
+      to={`${process.env.PUBLIC_URL}/shows/${route}`.replace('shows//', '')}
+      exact
+    >
       <span>{`${value}`}</span>
     </NavLink>
   </li>
 );
 
-const SideBar = () => {
+const SideBar = ({ closeMenu }) => {
   const genres = useContext(GenresContext);
 
   return (
@@ -59,9 +66,9 @@ const SideBar = () => {
           <Styled.Menu>
             {MenuOptions.map((val) =>
               val.route ? (
-                <MenuItem key={val.name} value={val.name} route={val.route} />
+                <MenuItem closeMenu={closeMenu} key={val.name} value={val.name} route={val.route} />
               ) : (
-                <SubMenu key={val.name} value={val.name} subvalues={genres} />
+                <SubMenu closeMenu={closeMenu} key={val.name} value={val.name} subvalues={genres} />
               )
             )}
           </Styled.Menu>

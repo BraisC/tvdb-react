@@ -10,16 +10,8 @@ const MobileHeader = styled.header`
   grid-area: header;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 10;
   height: 100%;
-`;
-
-const MobileLogo = styled.div`
-  background-color: #ff5959;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 0.8rem 3rem;
 `;
 
 const Hamburger = styled.div`
@@ -32,6 +24,7 @@ const Hamburger = styled.div`
   flex-direction: column;
   justify-content: space-around;
   cursor: pointer;
+  transition: all 0.2s ease;
 `;
 
 const HamburgerLine = styled.span`
@@ -41,9 +34,18 @@ const HamburgerLine = styled.span`
   background-color: var(--color-text);
 `;
 
+const Overlay = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 6;
+  background-color: var(--color-transparency-show);
+  transition: all 0.2s ease;
+`;
+
 export const Styled = {
-  MobileLogo,
   MobileHeader,
   Hamburger,
   HamburgerLine,
+  Overlay,
 };

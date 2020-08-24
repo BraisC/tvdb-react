@@ -20,7 +20,12 @@ const MobileHeader = () => {
           <Styled.HamburgerLine />
         </Styled.Hamburger>
       </Styled.MobileHeader>
-      {isMenuOpen && <SideBar />}
+      {isMenuOpen && (
+        <>
+          <SideBar closeMenu={handleClick} />
+          <Styled.Overlay onClick={handleClick} />
+        </>
+      )}
     </>
   );
 };

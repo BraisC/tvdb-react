@@ -14,7 +14,7 @@ const ShowItem = ({ show }) => {
   const imgHeight = useRef();
   const isUnMounted = useRef(false);
 
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const changeMobile = () => {
@@ -54,8 +54,6 @@ const ShowItem = ({ show }) => {
     },
     []
   );
-
-  console.log(isMobile);
 
   return (
     <Styled.ShowItem onMouseEnter={handleHover}>

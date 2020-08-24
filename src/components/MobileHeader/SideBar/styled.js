@@ -10,7 +10,7 @@ const SideBar = styled.div`
   height: 100%;
   right: 0;
   top: 0;
-  z-index: 4;
+  z-index: 8;
   overflow: auto scroll;
 `;
 
@@ -23,10 +23,11 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.div`
-  color: white;
+  color: var(--color-text);
   font-size: 3rem;
   font-weight: bold;
   padding: 1.3rem 5rem;
+  transition: all 0.2s ease;
 `;
 
 const SubMenuWrapper = styled.div`
