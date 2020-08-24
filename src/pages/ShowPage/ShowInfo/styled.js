@@ -69,8 +69,8 @@ const Poster = styled.figure`
     height: 37.5rem;
   }
   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
-    width: 20rem;
-    height: 30rem;
+    width: 18rem;
+    height: 27rem;
   }
 `;
 

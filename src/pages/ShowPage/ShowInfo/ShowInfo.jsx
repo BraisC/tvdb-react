@@ -86,6 +86,20 @@ const ShowInfo = ({ show, isLoading }) => {
 
           <Styled.PosterImage
             style={{ opacity: posterLoaded ? '1' : '0' }}
+            srcSet={`
+             ${
+               show.poster ? `${config?.url}${config?.poster.smaller}${show.poster}` : missingPoster
+             } 154w,
+            
+            ${
+              show.poster ? `${config?.url}${config?.poster.small}${show.poster}` : missingPoster
+            } 342w,
+            ${
+              show.poster ? `${config?.url}${config?.poster.normal}${show.poster}` : missingPoster
+            } 500w 
+            `}
+            sizes="(min-width: 416px) and (max-width: 600px) 300px, (max-width: 415px) 144px,
+            340px"
             src={
               show.poster ? `${config?.url}${config?.poster.normal}${show.poster}` : missingPoster
             }
