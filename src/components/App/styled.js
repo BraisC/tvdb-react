@@ -17,7 +17,14 @@ const ContentWrapper = styled.main`
   transition: background-color 0.2s ease;
 `;
 
+const Loader = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-secondary);
+`;
+
 export const Styled = {
   Wrapper,
   ContentWrapper,
+  Loader,
 };

@@ -7,13 +7,14 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { GenresProvider } from 'contexts/genresContext';
-import { ConfigProvider } from 'contexts/configContext';
+import { ConfigContext } from 'contexts/configContext';
 
 import { Styled } from './styled';
 
 function App() {
   const context = useContext(MyThemeContext);
-  const [isMobile, setIsMobile] = useState(true);
+  const config = useContext(ConfigContext);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const changeMobile = () => {
@@ -24,19 +25,23 @@ function App() {
     return () => window.removeEventListener('resize', changeMobile);
   }, []);
 
+  console.log(config);
+
   return (
     <Router>
       <ThemeProvider theme={context.theme === 'dark' ? darkTheme : lightTheme}>
-        <ConfigProvider>
+        <GlobalStyles />
+        {config.isLoading ? (
+          <Styled.Loader />
+        ) : (
           <GenresProvider>
-            <GlobalStyles />
             <Styled.Wrapper>
               {isMobile ? <MobileHeader /> : <Header />}
               <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
               <Footer />
             </Styled.Wrapper>
           </GenresProvider>
-        </ConfigProvider>
+        )}
       </ThemeProvider>
     </Router>
   );

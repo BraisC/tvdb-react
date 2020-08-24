@@ -6,6 +6,7 @@ export const ConfigContext = React.createContext([]);
 export const ConfigProvider = ({ children }) => {
   const [config, setConfig] = useState();
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
@@ -15,9 +16,12 @@ export const ConfigProvider = ({ children }) => {
       } else {
         setConfig(res.data);
       }
+      setIsLoading(false);
     }
     getData();
   }, []);
 
-  return <ConfigContext.Provider value={error || config}>{children}</ConfigContext.Provider>;
+  const data = { ...config, isLoading };
+
+  return <ConfigContext.Provider value={error || data}>{children}</ConfigContext.Provider>;
 };
