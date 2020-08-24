@@ -17,6 +17,7 @@ const SeasonPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const history = useHistory();
+
   useEffect(() => {
     async function getData() {
       const res = await getSeasonDetails(id, number);
