@@ -119,6 +119,10 @@ const DataHeader = styled.div`
 
     display: inline-block;
     margin-right: 2rem;
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      margin-right: 1rem;
+    }
   }
 
   & p {
@@ -131,6 +135,7 @@ const DataHeader = styled.div`
     border: 2px solid var(--color-text);
     transition: border 0.2s ease;
     line-height: 1;
+    white-space: nowrap;
   }
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
