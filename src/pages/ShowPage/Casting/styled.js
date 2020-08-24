@@ -22,6 +22,10 @@ const CastingWrapper = styled.div`
   max-width: 110rem;
   width: 100%;
   align-self: center;
+
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 const CastingItemWrapper = styled.div`
@@ -30,6 +34,10 @@ const CastingItemWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const CastingItem = styled(Link)`

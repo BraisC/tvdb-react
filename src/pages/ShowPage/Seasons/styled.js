@@ -30,6 +30,10 @@ const SeasonsItemWrapper = styled.div`
   padding: 2rem 0;
   justify-content: center;
   align-items: center;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const SeasonsItem = styled(Link)`
