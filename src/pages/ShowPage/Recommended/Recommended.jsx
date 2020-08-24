@@ -22,7 +22,7 @@ const Recommended = ({ parentLoading }) => {
       const res = await getRecommendations(params.page, id);
 
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setRecommendations(res.data);
         pages.current = res.data.total_pages;
@@ -43,7 +43,7 @@ const Recommended = ({ parentLoading }) => {
   };
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Recommended>
       <Element name="scroll-to-element">

@@ -23,7 +23,7 @@ const ShowsPage = () => {
     async function getData() {
       const res = await getShows(params.page, category);
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setShows(res.data);
         pages.current = res.data.total_pages;
@@ -46,7 +46,7 @@ const ShowsPage = () => {
   };
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Wrapper>
       <Helmet>

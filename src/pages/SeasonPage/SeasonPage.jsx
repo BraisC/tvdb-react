@@ -21,7 +21,7 @@ const SeasonPage = () => {
     async function getData() {
       const res = await getSeasonDetails(id, number);
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setSeason(res.data);
       }
@@ -43,7 +43,7 @@ const SeasonPage = () => {
   ) : (
     <>
       {error ? (
-        <Error />
+        <Error message={error} />
       ) : (
         <>
           <Helmet>

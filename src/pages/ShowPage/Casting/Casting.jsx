@@ -24,7 +24,7 @@ const Casting = ({ parentLoading }) => {
       const res = await getCredits(id);
 
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setCasting(res.data);
       }
@@ -35,7 +35,7 @@ const Casting = ({ parentLoading }) => {
   }, [id, parentLoading]);
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <>
       <Styled.CastingContainer>

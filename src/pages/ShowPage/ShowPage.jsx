@@ -26,7 +26,7 @@ const ShowPage = () => {
     async function getData() {
       const res = await getShowPage(id);
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setShow(res.data);
       }
@@ -42,7 +42,7 @@ const ShowPage = () => {
   }, [location.pathname]);
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Wrapper>
       <ShowInfo show={show} isLoading={isLoading} />

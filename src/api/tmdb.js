@@ -19,7 +19,7 @@ export async function getConfig() {
     const configRes = await tmdb.get(`/configuration`);
     res.data = mapConfig(configRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -33,7 +33,7 @@ export async function getGenres() {
   try {
     res.data = await tmdb.get(`/genre/tv/list`);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -48,7 +48,7 @@ export async function getDetails(id) {
     const detailsRes = await tmdb.get(`/tv/${id}`);
     res.data = mapShowDetails(detailsRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -63,7 +63,7 @@ export async function getCertifications(id) {
     const certRes = await tmdb.get(`/tv/${id}/content_ratings`);
     res.data = certRes.data;
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -85,7 +85,7 @@ export async function getShows(page = 1, route = '/') {
 
     res.data = mapShowList(listRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -106,7 +106,7 @@ export async function getShowsSearch(page = 1, query) {
 
     res.data = mapShowList(searchRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -127,7 +127,7 @@ export async function getShowsGenre(page = 1, genres) {
 
     res.data = mapShowList(genreRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -142,7 +142,7 @@ export async function getCredits(id) {
     const creditsRes = await tmdb.get(`/tv/${id}/credits`);
     res.data = creditsRes.data;
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -162,7 +162,7 @@ export async function getRecommendations(page = 1, id) {
 
     res.data = mapShowList(recRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -177,7 +177,7 @@ export async function getVideos(id) {
     const videosRes = await tmdb.get(`/tv/${id}/videos`);
     res.data = videosRes.data;
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -190,7 +190,7 @@ export async function getShowPage(id) {
   };
 
   try {
-    const showRes = await getDetails(1);
+    const showRes = await getDetails(id);
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
     res.data = mapShowPage(showRes.data, certificationsRes.data, videosRes.data);
@@ -218,7 +218,7 @@ export async function getAppearances(id) {
     }, []);
     res.data = { results: rest };
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -233,7 +233,7 @@ export async function getPeopleDetails(id) {
     const peopleRes = await tmdb.get(`/person/${id}`);
     res.data = peopleRes.data;
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -249,7 +249,7 @@ export async function getSeasonDetails(id, number) {
     const seasonRes = await tmdb.get(`/tv/${id}/season/${number}`);
     res.data = mapSeasonPage(seasonRes.data, showRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;

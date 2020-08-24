@@ -27,7 +27,7 @@ const GenrePage = () => {
         const genreId = genres?.filter((v) => v.name === genre).map((v) => v.id);
         const res = await getShowsGenre(params.page, genreId);
         if (res.error) {
-          setError(true);
+          setError(res.error);
         } else {
           setShows(res.data);
           pages.current = res.data.total_pages;
@@ -52,7 +52,7 @@ const GenrePage = () => {
   };
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Wrapper>
       <Helmet>

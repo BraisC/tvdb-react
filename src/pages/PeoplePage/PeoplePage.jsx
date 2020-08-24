@@ -21,7 +21,7 @@ const PeoplePage = () => {
       const res = await getPeopleDetails(id);
 
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setPeople(res.data);
       }
@@ -37,7 +37,7 @@ const PeoplePage = () => {
   }, [location.pathname]);
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Wrapper>
       <PeopleInfo isLoading={isLoading} people={people} />

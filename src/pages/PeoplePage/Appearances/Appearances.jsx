@@ -17,7 +17,7 @@ const Appearances = () => {
       const res = await getAppearances(id);
 
       if (res.error) {
-        setError(true);
+        setError(res.error);
       } else {
         setAppearances(res.data);
       }
@@ -29,7 +29,7 @@ const Appearances = () => {
   }, [id]);
 
   return error ? (
-    <Error />
+    <Error message={error} />
   ) : (
     <Styled.Appearances>
       <h1>Appearances</h1>

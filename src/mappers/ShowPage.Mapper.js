@@ -1,5 +1,5 @@
 export const mapShowPage = (show, certifications, videos) => {
-  if (!show || !certifications || !videos) throw new Error('Error parsing');
+  if (!show || !certifications || !videos) throw new Error('Error getting show info');
   const res = {
     id: show.id,
     name: show.name,
