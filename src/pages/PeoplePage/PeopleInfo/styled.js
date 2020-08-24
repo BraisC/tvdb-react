@@ -89,7 +89,7 @@ const DataHeader = styled.div`
   }
 
   & p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -100,7 +100,7 @@ const DataSection = styled.section`
   }
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
   }
 `;

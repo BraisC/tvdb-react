@@ -13,6 +13,10 @@ const Title = styled.span`
   margin-top: 1rem;
   font-size: 1.4rem;
   transition: color 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    font-size: 1.6rem;
+  }
 `;
 
 const Poster = styled.figure`
