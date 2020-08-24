@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const SideBar = styled.div`
   padding: 6rem 5rem 0 5rem;
   flex-direction: column;
-  background: var(--color-primary);
+  background: var(--color-secondary);
   transition: background-color 0.2s ease, color 0.2s ease;
   position: fixed;
   width: 300px;
@@ -43,7 +43,6 @@ const SubMenu = styled.ul`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  background-color: var(--color-primary);
   transition: all 0.5s ease;
 
   & li a {
