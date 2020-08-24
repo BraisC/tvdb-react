@@ -8,7 +8,7 @@ export const mapShowPage = (show, certifications, videos) => {
     rating: certifications.results.filter((v) => v.iso_3166_1 === 'US')[0]?.rating,
     genres: show.genres,
     duration: show.duration,
-    country: show.country,
+    country: show.country[0],
     overview: show.overview,
     seasons: show.seasons,
     creator: show.creator,

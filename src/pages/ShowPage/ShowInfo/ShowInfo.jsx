@@ -43,6 +43,14 @@ const ShowInfo = ({ show, isLoading }) => {
     [show]
   );
 
+  const renderDurationCountry = (duration, country) => {
+    let res = '';
+    duration && (res += `${duration} min`);
+    country && (res += ` / ${utils.getCountryName(country)}`);
+
+    return res;
+  };
+
   return isLoading ? (
     <InfoLoader />
   ) : (
@@ -89,24 +97,30 @@ const ShowInfo = ({ show, isLoading }) => {
               <h1>{utils.generateTitle(show)}</h1>
               {show.rating && <span>{show.rating}</span>}
             </div>
-            <Styled.DataSubHeader>
-              <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
-              <p>{`${show.duration} min / ${utils.getCountryName(show.country)}`}</p>
-            </Styled.DataSubHeader>
+            {(show.genres.length || show.duration || show.country) && (
+              <Styled.DataSubHeader>
+                <p>{show.genres.map((genre) => genre.name).join(', ')}</p>
+                <p>{renderDurationCountry(show.duration, show.country)}</p>
+              </Styled.DataSubHeader>
+            )}
           </Styled.DataHeader>
+          {show.overview && (
+            <Styled.DataSection>
+              <h2>Summary</h2>
+              <p>{show.overview}</p>
+            </Styled.DataSection>
+          )}
 
-          <Styled.DataSection>
-            <h2>Summary</h2>
-            <p>{show.overview}</p>
-          </Styled.DataSection>
           <Styled.DataSeasons to={`${process.env.PUBLIC_URL}/show/${show.id}/season/1`}>
             {show.seasons?.length} {show.seasons?.length > 1 ? 'Seasons' : 'Season'}
             <Styled.Icon icon={faChevronRight} />
           </Styled.DataSeasons>
-          <Styled.DataSection>
-            <h2>Created by</h2>
-            <p>{show.creator}</p>
-          </Styled.DataSection>
+          {show.creator && (
+            <Styled.DataSection>
+              <h2>Created by</h2>
+              <p>{show.creator}</p>
+            </Styled.DataSection>
+          )}
           <Styled.DataSection>
             <h2>Status</h2>
             <p>{show.status}</p>
