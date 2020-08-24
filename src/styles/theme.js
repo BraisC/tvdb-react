@@ -12,7 +12,7 @@ export const lightTheme = {
   text: '#213038',
   white: '#F4F4F4',
   transparency: 'rgba(244, 244, 244, 0.9)',
-  transparencyShow: 'rgba(244, 244, 244, 0.85)',
+  transparencyShow: 'rgba(244, 244, 244, 0.9)',
   mediaQueries,
 };
 

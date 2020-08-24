@@ -31,6 +31,17 @@ const PeopleInfo = ({ people, isLoading }) => {
 
         <Styled.ProfileImage
           style={{ opacity: profileLoaded ? '1' : '0' }}
+          srcSet={`${
+            people.profile_path
+              ? `${config?.url}${config?.profile.normal}${people.profile_path}`
+              : profile
+          } 185w,
+          ${
+            people.profile_path
+              ? `${config?.url}${config?.profile.big}${people.profile_path}`
+              : profile
+          } 421w `}
+          sizes=" (max-width: 1200px) 180px, 421px"
           src={
             people.profile_path
               ? `${config?.url}${config?.profile.big}${people.profile_path}`

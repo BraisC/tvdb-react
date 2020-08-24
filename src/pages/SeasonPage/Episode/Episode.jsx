@@ -22,6 +22,16 @@ const Episode = ({ episode }) => {
           </Styled.EpisodePosterImageLoader>
         )}
         <Styled.EpisodePosterImage
+          srcSet={`${
+            episode?.still_path
+              ? `${config?.url}${config?.still.normal}${episode?.still_path}`
+              : missingPoster
+          } 185w,${
+            episode?.still_path
+              ? `${config?.url}${config?.still.big}${episode?.still_path}`
+              : missingPoster
+          } 320w `}
+          sizes="(min-width: 416px) and (max-width: 1200px) 180px, (max-width: 415px) 360px, 340px"
           src={
             episode?.still_path
               ? `${config?.url}${config?.still.big}${episode?.still_path}`
