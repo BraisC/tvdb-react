@@ -40,7 +40,10 @@ export default createGlobalStyle`
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      
+    }
+
+    .noscroll{
+      overflow: hidden;
     }
     form,
     input,

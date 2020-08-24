@@ -8,6 +8,8 @@ const MobileHeader = () => {
 
   const handleClick = () => {
     setIsMenuOpen((v) => !v);
+    // I suppose this is fine as it is not React-created DOM
+    document.querySelector('body').classList.toggle('noscroll');
   };
 
   return (
