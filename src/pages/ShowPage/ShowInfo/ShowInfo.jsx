@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ConfigContext } from 'contexts/configContext';
 
 import { missingPoster } from 'images';
@@ -10,6 +10,7 @@ import utils from 'utils';
 import { faExternalLinkAlt, faVideo, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Helmet } from 'react-helmet';
+
 import { Styled } from './styled';
 import { InfoLoader } from './Loader';
 
@@ -33,6 +34,8 @@ const ShowInfo = ({ show, isLoading }) => {
   const hideModal = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => () => setPosterLoaded(false), [show]);
 
   return isLoading ? (
     <InfoLoader />
