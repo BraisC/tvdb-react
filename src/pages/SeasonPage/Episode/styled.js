@@ -23,7 +23,7 @@ const EpisodePoster = styled.picture`
     margin-bottom: 2rem;
   }
   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
-    height: auto;
+    height: ${(props) => (props.missingPoster ? '12rem' : 'auto')};
   }
 `;
 
@@ -47,7 +47,7 @@ const EpisodePosterImage = styled.img`
     width: auto;
   }
   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
-    width: 100%;
+    width: ${(props) => (props.missingPoster ? 'auto' : '100%')};
   }
 `;
 

@@ -15,7 +15,7 @@ const Episode = ({ episode }) => {
 
   return (
     <Styled.EpisodeWrapper key={episode.id}>
-      <Styled.EpisodePoster>
+      <Styled.EpisodePoster missingPoster={!episode?.still_path}>
         {!posterLoaded && (
           <Styled.EpisodePosterImageLoader>
             <Loader />
