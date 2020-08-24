@@ -35,7 +35,13 @@ const ShowInfo = ({ show, isLoading }) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => () => setPosterLoaded(false), [show]);
+  useEffect(
+    () => () => {
+      setPosterLoaded(false);
+      setBackdropLoaded(false);
+    },
+    [show]
+  );
 
   return isLoading ? (
     <InfoLoader />
