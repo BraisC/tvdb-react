@@ -9,15 +9,16 @@ const Recommended = styled.section`
   @media ${(props) => props.theme.mediaQueries.phone} {
     padding: 2rem 2rem;
   }
+`;
 
-  & > h1 {
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 100;
-    margin-bottom: 4rem;
-  }
+const Title = styled.h1`
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin-bottom: 4rem;
 `;
 
 export const Styled = {
   Recommended,
+  Title,
 };

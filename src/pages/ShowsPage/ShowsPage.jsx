@@ -4,6 +4,7 @@ import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShows } from 'api/tmdb';
 import queryString from 'query-string';
 import { Helmet } from 'react-helmet';
+import { animateScroll as scroll } from 'react-scroll';
 import { Styled } from './styled';
 
 const ShowsPage = () => {
@@ -38,6 +39,12 @@ const ShowsPage = () => {
     prevLocation.current = location.pathname;
   }, [location.pathname]);
 
+  const scrollHandler = () => {
+    scroll.scrollToTop({
+      smooth: true,
+    });
+  };
+
   return error ? (
     <Error />
   ) : (
@@ -47,7 +54,13 @@ const ShowsPage = () => {
       </Helmet>
       <Styled.PageTitle>{category ?? 'popular'}</Styled.PageTitle>
       <ShowList isLoading={isLoading} shows={shows?.results} />
-      <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={pages.current} size={7} />
+      <Pagination
+        scrollHandler={scrollHandler}
+        willScroll
+        currentPage={parseInt(params.page ?? '1')}
+        totalPages={pages.current}
+        size={7}
+      />
     </Styled.Wrapper>
   );
 };

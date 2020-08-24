@@ -5,6 +5,7 @@ import { getShowsGenre } from 'api/tmdb';
 import queryString from 'query-string';
 import { GenresContext } from 'contexts/genresContext';
 import { Helmet } from 'react-helmet';
+import { animateScroll as scroll } from 'react-scroll';
 import { Styled } from './styled';
 
 const GenrePage = () => {
@@ -44,6 +45,12 @@ const GenrePage = () => {
     prevLocation.current = location.pathname;
   }, [location.pathname]);
 
+  const scrollHandler = () => {
+    scroll.scrollToTop({
+      smooth: true,
+    });
+  };
+
   return error ? (
     <Error />
   ) : (
@@ -53,7 +60,13 @@ const GenrePage = () => {
       </Helmet>
       <Styled.PageTitle>{genre}</Styled.PageTitle>
       <ShowList isLoading={isLoading} shows={shows?.results} />
-      <Pagination currentPage={parseInt(params.page ?? '1')} totalPages={pages.current} size={7} />
+      <Pagination
+        scrollHandler={scrollHandler}
+        willScroll
+        currentPage={parseInt(params.page ?? '1')}
+        totalPages={pages.current}
+        size={7}
+      />
     </Styled.Wrapper>
   );
 };

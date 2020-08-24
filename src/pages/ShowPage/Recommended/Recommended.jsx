@@ -3,6 +3,7 @@ import { ShowList, Pagination, Error } from 'components';
 import queryString from 'query-string';
 import { useLocation, useParams } from 'react-router-dom';
 import { getRecommendations } from 'api/tmdb';
+import { scroller, Element } from 'react-scroll';
 import { Styled } from './styled';
 
 const Recommended = ({ parentLoading }) => {
@@ -33,11 +34,21 @@ const Recommended = ({ parentLoading }) => {
     return () => setIsLoading(true);
   }, [id, params.page, parentLoading]);
 
+  const scrollHandler = () => {
+    scroller.scrollTo('scroll-to-element', {
+      duration: 1500,
+      smooth: 'easeInOutQuart',
+      offset: -50,
+    });
+  };
+
   return error ? (
     <Error />
   ) : (
     <Styled.Recommended>
-      <h1>Recommended</h1>
+      <Element name="scroll-to-element">
+        <Styled.Title>Recommended</Styled.Title>
+      </Element>
       {recommendations?.results.length !== 0 ? (
         <>
           <ShowList
@@ -46,6 +57,8 @@ const Recommended = ({ parentLoading }) => {
             few={recommendations?.total_results < 5 ? 'few' : null}
           />
           <Pagination
+            scrollHandler={scrollHandler}
+            willScroll
             currentPage={parseInt(params.page ?? '1')}
             totalPages={pages.current}
             size={7}

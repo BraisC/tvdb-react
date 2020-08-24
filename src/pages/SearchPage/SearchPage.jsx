@@ -4,6 +4,7 @@ import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getShowsSearch } from 'api/tmdb';
 import queryString from 'query-string';
 import { Helmet } from 'react-helmet';
+import { animateScroll as scroll } from 'react-scroll';
 import { Styled } from './styled';
 
 const SearchPage = () => {
@@ -38,6 +39,12 @@ const SearchPage = () => {
     prevLocation.current = location.pathname;
   }, [location.pathname]);
 
+  const scrollHandler = () => {
+    scroll.scrollToTop({
+      smooth: true,
+    });
+  };
+
   return error ? (
     <Error />
   ) : (
@@ -50,6 +57,8 @@ const SearchPage = () => {
         <>
           <ShowList isLoading={isLoading} shows={shows?.results} />
           <Pagination
+            scrollHandler={scrollHandler}
+            willScroll
             currentPage={parseInt(params.page ?? '1')}
             totalPages={pages.current}
             size={7}
