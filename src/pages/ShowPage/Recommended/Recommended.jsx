@@ -6,7 +6,7 @@ import { getRecommendations } from 'api/tmdb';
 import { scroller, Element } from 'react-scroll';
 import { Styled } from './styled';
 
-const Recommended = ({ parentLoading }) => {
+const Recommended = () => {
   const { id } = useParams();
 
   const location = useLocation();
@@ -20,7 +20,6 @@ const Recommended = ({ parentLoading }) => {
   useEffect(() => {
     async function getData() {
       const res = await getRecommendations(params.page, id);
-
       if (res.error) {
         setError(res.error);
       } else {
@@ -29,10 +28,10 @@ const Recommended = ({ parentLoading }) => {
       }
       setIsLoading(false);
     }
-    !parentLoading && getData();
+    getData();
 
     return () => setIsLoading(true);
-  }, [id, params.page, parentLoading]);
+  }, [id, params.page]);
 
   const scrollHandler = () => {
     scroller.scrollTo('scroll-to-element', {
