@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const SideBar = styled.div`
+const SideBar = styled(motion.div)`
   padding: 6rem 5rem 0 5rem;
   flex-direction: column;
   background: var(--color-secondary);

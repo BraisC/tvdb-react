@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const MobileHeader = styled.header`
   padding: 0.5rem 0;
@@ -34,7 +35,7 @@ const HamburgerLine = styled.span`
   background-color: var(--color-text);
 `;
 
-const Overlay = styled.div`
+const Overlay = styled(motion.div)`
   width: 100%;
   height: 100vh;
   position: fixed;

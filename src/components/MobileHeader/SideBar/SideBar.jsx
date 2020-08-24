@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GenresContext } from 'contexts/genresContext';
 import { ThemeToggler } from 'components';
+
 import { Styled } from './styled';
 
 const MenuOptions = [
@@ -58,8 +59,13 @@ const MenuItem = ({ value, route, closeMenu }) => (
 const SideBar = ({ closeMenu }) => {
   const genres = useContext(GenresContext);
 
+  const variants = {
+    close: { x: '100%' },
+    open: { x: '0' },
+  };
+
   return (
-    <Styled.SideBar>
+    <Styled.SideBar initial="close" animate="open" exit="close" variants={variants}>
       <Styled.Wrapper>
         <Styled.Logo>TVDB</Styled.Logo>
         <Styled.Nav>

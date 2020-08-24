@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SearchBar } from 'components';
+import { AnimatePresence } from 'framer-motion';
 import { Styled } from './styled';
 import { SideBar } from './SideBar';
 
@@ -22,12 +23,18 @@ const MobileHeader = () => {
           <Styled.HamburgerLine />
         </Styled.Hamburger>
       </Styled.MobileHeader>
-      {isMenuOpen && (
-        <>
-          <SideBar closeMenu={handleClick} />
-          <Styled.Overlay onClick={handleClick} />
-        </>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && <SideBar key="sidebar" closeMenu={handleClick} />}{' '}
+        {isMenuOpen && (
+          <Styled.Overlay
+            key="overlay"
+            initial={{ opacity: '0' }}
+            animate={{ opacity: '1' }}
+            exit={{ opacity: '0' }}
+            onClick={handleClick}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
