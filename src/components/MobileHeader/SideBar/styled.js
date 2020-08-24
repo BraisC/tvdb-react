@@ -12,6 +12,7 @@ const SideBar = styled.div`
   top: 0;
   z-index: 8;
   overflow: auto scroll;
+  box-shadow: -12px 2px 29px -8px rgba(0, 0, 0, 0.35);
 `;
 
 const Wrapper = styled.div`

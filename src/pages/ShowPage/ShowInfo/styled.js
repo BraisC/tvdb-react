@@ -22,7 +22,7 @@ const ShowInfo = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
-    padding: 3rem 0rem;
+    padding: 3rem;
   }
 `;
 
@@ -92,11 +92,11 @@ const Data = styled.section`
   max-width: 180rem;
   z-index: 2;
   /* background-color: rgba(var(--color-transparency), 0.8); */
-  padding: 3rem 6rem;
+  padding: 3rem 0rem 3rem 6rem;
 
   @media ${(props) => props.theme.mediaQueries.tabLand} {
     align-self: auto;
-    padding: 3rem;
+    padding: 3rem 0rem 3rem 3rem;
   }
 
   @media ${(props) => props.theme.mediaQueries.tab} {
