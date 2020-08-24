@@ -15,8 +15,6 @@ const PeopleInfo = ({ people, isLoading }) => {
     setProfileLoaded(true);
   };
 
-  console.log(people);
-
   return isLoading ? (
     <InfoLoader />
   ) : (

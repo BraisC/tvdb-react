@@ -25,7 +25,6 @@ const ShowPage = () => {
   useEffect(() => {
     async function getData() {
       const res = await getShowPage(id);
-
       if (res.error) {
         setError(true);
       } else {

@@ -190,12 +190,12 @@ export async function getShowPage(id) {
   };
 
   try {
-    const showRes = await getDetails(id);
+    const showRes = await getDetails(1);
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
     res.data = mapShowPage(showRes.data, certificationsRes.data, videosRes.data);
   } catch (err) {
-    res.error = err.response;
+    res.error = err.message;
   }
 
   return res;
@@ -209,7 +209,6 @@ export async function getAppearances(id) {
   try {
     const appearRes = await tmdb.get(`/person/${id}/tv_credits`);
     const arr = mapAppearences(appearRes.data).results;
-    console.log(arr);
     const rest = arr.reduce((acc, val) => {
       const x = acc.find((el) => el.id === val.id);
       if (!x) {
