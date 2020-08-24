@@ -13,7 +13,7 @@ import { Styled } from './styled';
 
 function App() {
   const context = useContext(MyThemeContext);
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const changeMobile = () => {
