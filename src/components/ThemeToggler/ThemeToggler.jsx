@@ -13,7 +13,7 @@ const ThemeToggler = () => {
     themeContext.themeToggler();
   };
   return (
-    <Styled.Wrapper theme={themeContext.theme}>
+    <Styled.Wrapper themeColor={themeContext.theme}>
       <Styled.CheckBox
         type="checkbox"
         checked={themeContext.theme === 'dark'}

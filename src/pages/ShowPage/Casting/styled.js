@@ -12,12 +12,20 @@ const CastingContainer = styled.section`
     font-weight: 100;
     margin-bottom: 4rem;
   }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const CastingWrapper = styled.div`
   max-width: 110rem;
   width: 100%;
   align-self: center;
+
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 const CastingItemWrapper = styled.div`
@@ -26,6 +34,10 @@ const CastingItemWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const CastingItem = styled(Link)`
@@ -37,8 +49,16 @@ const CastingItem = styled(Link)`
   box-shadow: var(--shadow);
   transition: all 0.2s ease;
 
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    width: 80%;
+  }
+
   &:hover {
     transform: scale(1.05);
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      transform: none;
+    }
   }
 `;
 
@@ -47,6 +67,10 @@ const CastingItemImageWrapper = styled.figure`
   height: 20rem;
   background-color: var(--color-primary);
   transition: background-color 0.2s ease;
+
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: 17rem;
+  }
 `;
 
 const CastingItemImage = styled.img`

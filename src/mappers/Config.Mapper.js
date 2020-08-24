@@ -29,7 +29,7 @@ export const mapConfig = (config) => ({
   still: {
     small: 'w92',
     normal: 'w185',
-    big: 'h300',
+    big: 'w320_and_h180_bestv2',
     original: 'original',
   },
 });

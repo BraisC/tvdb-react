@@ -1,35 +1,28 @@
-import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, withRouter } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import createRoutes from 'routes';
-import { Header, Footer } from 'components';
+import { Header, Footer, MobileHeader } from 'components';
 import GlobalStyles from 'styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/theme';
 import { MyThemeContext } from 'contexts/myThemeContext';
 import { GenresProvider } from 'contexts/genresContext';
 import { ConfigProvider } from 'contexts/configContext';
-import queryString from 'query-string';
+
 import { Styled } from './styled';
-
-function ScrollToTop({ history, location }) {
-  const params = queryString.parse(location.pathname);
-  console.log(params);
-  useEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
-    };
-  }, [history]);
-
-  return null;
-}
-
-const Scroll = withRouter(ScrollToTop);
 
 function App() {
   const context = useContext(MyThemeContext);
+  const [isMobile, setIsMobile] = useState();
+
+  useEffect(() => {
+    const changeMobile = () => {
+      window.matchMedia('(max-width: 75em)').matches ? setIsMobile(true) : setIsMobile(false);
+    };
+    changeMobile();
+    window.addEventListener('resize', changeMobile);
+    return () => window.removeEventListener('resize', changeMobile);
+  }, []);
 
   return (
     <Router>
@@ -38,7 +31,7 @@ function App() {
           <GenresProvider>
             <GlobalStyles />
             <Styled.Wrapper>
-              <Header />
+              {isMobile ? <MobileHeader /> : <Header />}
               <Styled.ContentWrapper>{createRoutes()}</Styled.ContentWrapper>
               <Footer />
             </Styled.Wrapper>

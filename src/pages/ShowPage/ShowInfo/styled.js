@@ -16,6 +16,14 @@ const ShowInfo = styled.section`
   padding: 4rem;
   position: relative;
   overflow: hidden;
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    flex-direction: column;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    padding: 3rem;
+  }
 `;
 
 const Background = styled.img`
@@ -41,6 +49,20 @@ const Poster = styled.figure`
   z-index: 2;
   background-color: var(--color-primary);
   position: relative;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    width: 44rem;
+    height: 66rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 25rem;
+    height: 37.5rem;
+  }
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    width: 20rem;
+    height: 30rem;
+  }
 `;
 
 const PosterLoader = styled.div`
@@ -70,15 +92,23 @@ const Data = styled.section`
   max-width: 180rem;
   z-index: 2;
   /* background-color: rgba(var(--color-transparency), 0.8); */
-  padding: 6rem;
+  padding: 3rem 0rem 3rem 6rem;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    align-self: auto;
+    padding: 3rem 0rem 3rem 3rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tab} {
+    width: 100%;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem;
+  }
 `;
 
 const DataHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const DataHeaderLeft = styled.div`
   & div {
     display: flex;
     align-items: center;
@@ -86,7 +116,7 @@ const DataHeaderLeft = styled.div`
   & h1 {
     font-size: 3rem;
     line-height: 1;
-    margin-bottom: 0.2rem;
+
     display: inline-block;
     margin-right: 2rem;
   }
@@ -101,6 +131,19 @@ const DataHeaderLeft = styled.div`
     border: 2px solid var(--color-text);
     transition: border 0.2s ease;
     line-height: 1;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
+  }
+`;
+
+const DataSubHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-top: 1rem;
   }
 `;
 
@@ -118,6 +161,10 @@ const DataSection = styled.section`
     font-size: 1.6rem;
     line-height: 1.4;
   }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
+  }
 `;
 
 const DataSeasons = styled(Link)`
@@ -127,6 +174,7 @@ const DataSeasons = styled(Link)`
   font-size: 2rem;
   transition: color 0.2s ease;
   line-height: 1;
+  align-self: flex-start;
 
   & ${Icon} {
     color: var(--color-red);
@@ -138,11 +186,19 @@ const DataSeasons = styled(Link)`
   &:hover ${Icon} {
     transform: translateX(1rem);
   }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
+  }
 `;
 
 const DataRating = styled.section`
   & h2 {
     font-size: 2rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -165,22 +221,38 @@ const DataFooter = styled.section`
   align-items: flex-end;
   justify-content: space-between;
   position: relative;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    flex-wrap: wrap;
+  }
 `;
 
 const DataFooterLeft = styled.div`
   display: flex;
   gap: 2rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const DataFooterRight = styled.figure`
-  max-height: 10rem;
   position: absolute;
   right: 0;
 
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    display: none;
+  }
+
   & img {
-    display: block;
     max-height: 10rem;
+    display: block;
     height: 100%;
+
+    @media ${(props) => props.theme.mediaQueries.tabLand} {
+      max-height: 4rem;
+    }
   }
 `;
 
@@ -200,7 +272,7 @@ export const Styled = {
   Data,
   DataHeader,
   DataHeaderRight,
-  DataHeaderLeft,
+  DataSubHeader,
   DataSection,
   DataSeasons,
   DataStars,

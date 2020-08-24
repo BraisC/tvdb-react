@@ -13,6 +13,10 @@ const Seasons = styled.section`
     font-weight: 100;
     margin-bottom: 4rem;
   }
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const SeasonsWrapper = styled.div`
@@ -26,6 +30,10 @@ const SeasonsItemWrapper = styled.div`
   padding: 2rem 0;
   justify-content: center;
   align-items: center;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const SeasonsItem = styled(Link)`
@@ -38,6 +46,10 @@ const SeasonsItem = styled(Link)`
 
   &:hover {
     transform: scale(1.05);
+
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      transform: none;
+    }
   }
 `;
 
@@ -55,14 +67,22 @@ const SeasonsItemContent = styled.div`
   & span {
     font-size: 1.2rem;
   }
+
+/*   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: 21rem;
+  } */
 `;
 
 const SeasonsItemImageWrapper = styled.figure`
   margin: 1rem;
-  flex-shrink: 0;
+  height: 21rem;
   background-color: var(--color-primary);
   transition: background-color 0.2s ease;
   position: relative;
+
+/*   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    display: none;
+  } */
 `;
 
 const SeasonsItemImageLoader = styled.div`
@@ -76,10 +96,12 @@ const SeasonsItemImageLoader = styled.div`
 
 const SeasonsItemImage = styled.img`
   opacity: 0;
-  height: 21rem;
+  width: 100%;
+  height: 100%;
   width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
   display: block;
   transition: 1s ease;
+  object-fit: cover;
 `;
 
 const SeasonsItemInfo = styled.section`
@@ -90,7 +112,12 @@ const SeasonsItemInfo = styled.section`
   }
 
   & p {
+    font-size: 1.2rem;
     margin-top: 1rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    width: 100%;
   }
 `;
 

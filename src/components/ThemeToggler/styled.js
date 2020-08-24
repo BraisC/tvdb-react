@@ -2,21 +2,26 @@ import styled from 'styled-components';
 
 const Wrapper = styled.label`
   display: flex;
-  margin-right: 5rem;
   height: 2.4rem;
   width: 5.1rem;
   position: relative;
   border-radius: 34px;
   cursor: pointer;
-  background-color: ${(props) => (props.theme === 'dark' ? 'var(--color-red)' : '#dcdcdc')};
+  background-color: ${(props) => (props.themeColor === 'dark' ? 'var(--color-red)' : '#dcdcdc')};
   transition: 0.2s ease;
   flex-shrink: 0;
+  margin-right: 5rem;
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    margin-right: 0;
+    margin-top: auto;
+  }
 `;
 
 const Toggler = styled.span`
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.3rem;
+  right: 0.3rem;
   border-radius: 1.8rem;
   height: 1.8rem;
   width: 1.8rem;
@@ -28,6 +33,10 @@ const Toggler = styled.span`
   align-items: center;
   font-size: 1.2rem;
   color: var(--color-white);
+
+  @media ${(props) => props.theme.mediaQueries.tabLand} {
+    font-size: 1.1rem;
+  }
 `;
 
 const CheckBox = styled.input`
@@ -46,7 +55,7 @@ const CheckBox = styled.input`
 
   &:checked ~ ${Toggler} {
     background-color: var(--color-primary);
-    right: calc(100% - 3px);
+    right: calc(100% - 0.3rem);
     transform: translateX(100%); /* this helps the growing as it will adjust with the width */
   }
 `;

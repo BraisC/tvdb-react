@@ -63,13 +63,23 @@ const ShowItemLink = styled(Link)`
   height: 37rem;
   background-color: var(--color-primary);
 
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    height: 28rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: 23rem;
+  }
+
   &:hover {
-    transform: scaleY(1.2) scaleX(1.4);
-    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    transform: ${(props) => (props.$isMobile ? 'none' : 'scaleY(1.2) scaleX(1.4)')};
+    box-shadow: ${(props) =>
+      props.$isMobile ? 'var(--shadow)' : '6px 6px 20px rgba(0, 0, 0, 0.3)'};
   }
 
   &:hover ${Poster} {
-    transform: scaleY(1.2);
+    transform: ${(props) => (props.$isMobile ? 'none' : 'scaleY(1.2)')};
   }
 
   &:hover ${Overlay} {

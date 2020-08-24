@@ -51,7 +51,7 @@ const createPaginationButtons = (currentPage, totalPages) => {
   return rangeWithDots;
 };
 
-const Pagination = ({ currentPage, totalPages, size }) => {
+const Pagination = ({ currentPage, totalPages, size, willScroll, scrollHandler }) => {
   const paginationButtons = createPaginationButtons(currentPage, totalPages, size);
 
   if (totalPages <= 1) return null;
@@ -62,9 +62,9 @@ const Pagination = ({ currentPage, totalPages, size }) => {
         if (val === '...') {
           return <div key={val + index}>...</div>;
         }
-
         return (
           <Styled.Button
+            onClick={willScroll && scrollHandler}
             key={val + index}
             to={`${process.env.PUBLIC_URL}?page=${val}`}
             className={currentPage === val ? 'active' : null}

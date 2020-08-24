@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 const SearchBar = styled.form`
-  width: 40rem;
+  width: 30rem;
   margin-right: auto;
   display: flex;
   align-items: center;
+
+  @media ${(props) => props.theme.mediaQueries.larger} {
+    flex: 1;
+    margin-left: 3rem;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -19,6 +24,9 @@ const SearchInput = styled.input`
 
   &:focus::placeholder {
     opacity: 0;
+  }
+  &:focus {
+    outline: none;
   }
 
   &::placeholder {

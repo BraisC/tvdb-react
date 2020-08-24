@@ -46,7 +46,29 @@ const Casting = ({ parentLoading }) => {
           <>
             {casting.cast.length ? (
               <Styled.CastingWrapper>
-                <Carousel length={casting.cast.length < 5 ? casting.cast.length : 5}>
+                <Carousel
+                  length={casting.cast.length < 5 ? casting.cast.length : 5}
+                  responsive={[
+                    {
+                      breakpoint: 1200,
+                      settings: {
+                        slidesToShow: casting.cast.length < 4 ? casting.cast.length : 4,
+                      },
+                    },
+                    {
+                      breakpoint: 750,
+                      settings: {
+                        slidesToShow: casting.cast.length < 3 ? casting.cast.length : 3,
+                      },
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: casting.cast.length < 2 ? casting.cast.length : 2,
+                      },
+                    },
+                  ]}
+                >
                   {casting.cast.map((v) => (
                     <Styled.CastingItemWrapper key={v.id + v.character}>
                       <Styled.CastingItem

@@ -2,9 +2,17 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const ShowItemLoader = styled(motion.div)`
-  height: 38rem;
+  height: 37rem;
   background-color: var(--color-primary);
   margin-bottom: 2.4rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    height: 28rem;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.phoneSmall} {
+    height: 23rem;
+  }
 `;
 
 export const Styled = {

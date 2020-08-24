@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 
 import { getShowPage } from 'api/tmdb';
 import { Error } from 'components';
@@ -16,9 +16,11 @@ const ShowPage = () => {
   const { id } = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
 
   const [show, setShow] = useState();
   const [error, setError] = useState(false);
+  const prevLocation = useRef(location.pathname);
 
   useEffect(() => {
     async function getData() {
@@ -36,8 +38,9 @@ const ShowPage = () => {
   }, [id]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (prevLocation !== location.pathname) window.scrollTo(0, 0);
+    prevLocation.current = location.pathname;
+  }, [location.pathname]);
 
   return error ? (
     <Error />

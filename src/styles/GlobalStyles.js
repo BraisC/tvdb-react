@@ -25,6 +25,16 @@ export default createGlobalStyle`
       --color-transparency-show: ${(props) => props.theme.transparencyShow};
 
       --shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
+
+      @media ${(props) => props.theme.mediaQueries.tabLand} {
+          font-size: 56.25%;
+      }
+      @media ${(props) => props.theme.mediaQueries.tab} {
+          font-size: 50%;
+      }
+    
+
+
     }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -39,6 +49,10 @@ export default createGlobalStyle`
     select,
     a {
       -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    .modal-video:focus{
+      outline: none;
     }
 
     .modal-video-close-btn{
