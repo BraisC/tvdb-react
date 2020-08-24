@@ -7,7 +7,7 @@ const ShowList = React.memo(function ShowList({ shows, isLoading }) {
   return isLoading ? (
     <ListLoader />
   ) : (
-    <Styled.ShowList className={shows.length < 6 ? 'few' : null}>
+    <Styled.ShowList>
       {shows.map((show) => (
         <ShowItem key={show.id} show={show} />
       ))}

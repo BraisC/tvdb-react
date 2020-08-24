@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ShowList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 25rem);
+  grid-template-columns: repeat(auto-fill, 25rem);
   justify-content: space-evenly;
   gap: 4rem 2rem;
   padding: 0 2rem; /* so shadows dont get cut */
@@ -13,10 +13,6 @@ const ShowList = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
     grid-template-columns: repeat(auto-fit, 15rem);
-  }
-
-  &.few {
-    justify-content: start;
   }
 `;
 

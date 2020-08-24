@@ -51,11 +51,7 @@ const Recommended = ({ parentLoading }) => {
       </Element>
       {recommendations?.results.length !== 0 ? (
         <>
-          <ShowList
-            isLoading={isLoading}
-            shows={recommendations?.results}
-            few={recommendations?.total_results < 5 ? 'few' : null}
-          />
+          <ShowList isLoading={isLoading} shows={recommendations?.results} />
           <Pagination
             scrollHandler={scrollHandler}
             willScroll
