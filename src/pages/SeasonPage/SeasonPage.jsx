@@ -9,6 +9,7 @@ import { Error } from 'components';
 import { Helmet } from 'react-helmet';
 import { Styled } from './styled';
 import Episode from './Episode/Episode';
+import { SeasonsLoader } from './Loader';
 
 const SeasonPage = () => {
   const config = useContext(ConfigContext);
@@ -40,7 +41,7 @@ const SeasonPage = () => {
   };
 
   return isLoading ? (
-    'Loader'
+    <SeasonsLoader />
   ) : (
     <>
       {error ? (

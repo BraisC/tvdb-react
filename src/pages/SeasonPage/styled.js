@@ -9,11 +9,11 @@ const SeasonHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.2s ease;
-  min-height: 18rem;
+  height: 18rem;
 
   @media ${(props) => props.theme.mediaQueries.phone} {
     padding: 1rem;
-    min-height: 12rem;
+    height: 13rem;
   }
 `;
 

@@ -15,6 +15,8 @@ const ContentWrapper = styled.main`
   grid-area: content;
   background-color: var(--color-secondary);
   transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Loader = styled.div`
