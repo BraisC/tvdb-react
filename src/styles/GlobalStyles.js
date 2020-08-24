@@ -12,6 +12,7 @@ export default createGlobalStyle`
       box-sizing: inherit;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent; /* Avoid blue square on tapping */
     }
     html {
       font-size: 62.5%; 
