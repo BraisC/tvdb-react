@@ -147,6 +147,13 @@ const DataSubHeader = styled.div`
   display: flex;
   justify-content: space-between;
 
+  & p:nth-child(1) {
+    margin-right: 1rem;
+  }
+  & p:nth-child(2) {
+    white-space: nowrap;
+  }
+
   @media ${(props) => props.theme.mediaQueries.tabLand} {
     margin-top: 1rem;
   }
