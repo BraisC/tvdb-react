@@ -25,6 +25,9 @@ const SearchInput = styled.input`
   &:focus::placeholder {
     opacity: 0;
   }
+  &:focus {
+    outline: none;
+  }
 
   &::placeholder {
     opacity: 35%;

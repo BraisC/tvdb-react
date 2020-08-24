@@ -51,6 +51,10 @@ export default createGlobalStyle`
       -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
 
+    .modal-video:focus{
+      outline: none;
+    }
+
     .modal-video-close-btn{
       width: 30px;
       height: 30px; 
