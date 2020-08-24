@@ -1,12 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
 import utils from 'utils';
 import { Loader } from 'components';
+import { ConfigContext } from 'contexts/configContext';
 import { Styled } from './styled';
 import { ContentLoader } from './ContentLoader';
 
 const ShowItem = ({ show }) => {
+  const config = useContext(ConfigContext);
+
   const [details, setDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [posterLoaded, setPosterLoaded] = useState(false);
@@ -105,7 +108,7 @@ const ShowItem = ({ show }) => {
                       small={imgHeight.current > 80}
                       onLoad={handleLogoLoad}
                       logoLoaded={logoLoaded}
-                      src={`https://image.tmdb.org/t/p/w154${details.network?.logo}`}
+                      src={`${config?.url}${config?.logo.big}${details.network?.logo}`}
                       alt="Network"
                     />
                   ) : null}
@@ -125,7 +128,21 @@ const ShowItem = ({ show }) => {
             style={{ opacity: posterLoaded ? '1' : '0' }}
             loading="lazy"
             onLoad={handlePosterLoad}
-            src={show.poster ? `https://image.tmdb.org/t/p/w342${show.poster}` : missingPoster}
+            srcSet={`
+            ${
+              show.poster ? `${config?.url}${config?.poster.small}${show.poster}` : missingPoster
+            } 340w, 
+            ${
+              show.poster ? `${config?.url}${config?.poster.smaller}${show.poster}` : missingPoster
+            } 150w,
+            `}
+            sizes="(max-width: 600px) 150px,
+            340px"
+            src={
+              show.poster
+                ? `${config?.url}${config?.poster.small}${show.poster}${show.poster}`
+                : missingPoster
+            }
             missingPoster={!show.poster}
             alt={show.name}
           />
