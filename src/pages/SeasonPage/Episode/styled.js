@@ -5,6 +5,11 @@ const EpisodeWrapper = styled.article`
   padding: 1rem;
   background-color: var(--color-primary);
   transition: 0.2s ease;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media ${(props) => props.theme.mediaQueries.phone} {
     flex-direction: column;

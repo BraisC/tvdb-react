@@ -157,7 +157,6 @@ const PosterImage = styled.img`
 const Episodes = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   width: 100%;
   padding: 0 2rem;
 `;

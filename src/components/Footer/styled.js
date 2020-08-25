@@ -8,11 +8,11 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
 `;
 
 const Logo = styled.img`
   width: 15rem;
+  margin-left: 0.5rem;
 `;
 
 const Credits = styled.span`
@@ -34,9 +34,9 @@ const Credits = styled.span`
 const Attribution = styled.a`
   display: flex;
   align-items: center;
-  gap: 5px;
   text-decoration: none;
   color: var(--color-text);
+  margin-top: 1rem;
 `;
 
 export const Styled = {

@@ -250,7 +250,6 @@ const DataFooter = styled.section`
 
 const DataFooterLeft = styled.div`
   display: flex;
-  gap: 2rem;
 
   @media ${(props) => props.theme.mediaQueries.phone} {
     width: 100%;
@@ -280,6 +279,10 @@ const DataFooterRight = styled.figure`
 const DataFooterLink = styled.a`
   text-decoration: none;
   font-size: 1.8rem;
+
+  &:last-child {
+    margin-left: 2rem;
+  }
 `;
 
 export const Styled = {

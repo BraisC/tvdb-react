@@ -5,6 +5,7 @@ const ShowList = styled.div`
   grid-template-columns: repeat(auto-fill, 25rem);
   justify-content: space-evenly;
   gap: 4rem 2rem;
+  grid-gap: 4rem 2rem;
   padding: 0 2rem; /* so shadows dont get cut */
 
   @media ${(props) => props.theme.mediaQueries.phone} {
