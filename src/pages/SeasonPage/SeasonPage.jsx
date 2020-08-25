@@ -39,7 +39,7 @@ const SeasonPage = () => {
   const handleTop = () => {
     window.scrollTo(0, 0);
   };
-
+  console.log(season);
   return isLoading ? (
     <SeasonsLoader />
   ) : (
@@ -55,19 +55,8 @@ const SeasonPage = () => {
           </Helmet>
           <Styled.SeasonHeader>
             <Styled.SeasonHeaderLeft>
-              <Styled.Poster>
-                <Styled.PosterImage
-                  src={
-                    season?.poster
-                      ? `${config?.url}${config?.poster.normal}${season?.poster}`
-                      : missingPoster
-                  }
-                  alt={season?.name}
-                  missingPoster={!season?.poster}
-                />
-              </Styled.Poster>
               <Styled.TitleWrapper>
-                <Styled.Title>{season?.name}</Styled.Title>
+                <Styled.PageTitle>{season?.name}</Styled.PageTitle>
                 <Styled.BackLink to={`/show/${id}`}>
                   <Styled.Icon icon={faChevronLeft} />
                   Go Back to Show
@@ -75,7 +64,7 @@ const SeasonPage = () => {
               </Styled.TitleWrapper>
             </Styled.SeasonHeaderLeft>
             <Styled.SeasonHeaderRight>
-              <Styled.Title as="span">Select another season</Styled.Title>
+              <Styled.PageTitle as="span">Select another season</Styled.PageTitle>
               <Styled.SelectWrapper>
                 <Styled.Select onChange={handleChange} name="seasons" id="seasons">
                   {season?.show.seasons.map((s) => (
@@ -89,6 +78,24 @@ const SeasonPage = () => {
             </Styled.SeasonHeaderRight>
           </Styled.SeasonHeader>
           <Styled.Wrapper>
+            <Styled.Overview>
+              <Styled.Poster>
+                <Styled.PosterImage
+                  src={
+                    season?.poster
+                      ? `${config?.url}${config?.poster.smaller}${season?.poster}`
+                      : missingPoster
+                  }
+                  alt={season?.name}
+                  missingPoster={!season?.poster}
+                />
+              </Styled.Poster>
+              <div>
+                <h2>Season Overview</h2>
+                <p>{season?.overview}</p>
+              </div>
+            </Styled.Overview>
+            <Styled.Title>Episodes</Styled.Title>
             <Styled.Episodes>
               {season?.episodes.map((e) => (
                 <Episode key={e.id} episode={e} />

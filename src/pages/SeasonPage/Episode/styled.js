@@ -68,7 +68,7 @@ const InfoHeader = styled.div`
 `;
 
 const InfoTitle = styled.h1`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1;
   margin-right: 1rem;
 `;

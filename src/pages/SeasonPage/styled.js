@@ -27,22 +27,20 @@ const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
 
   @media ${(props) => props.theme.mediaQueries.phone} {
     padding: 0;
   }
 `;
 
-const Title = styled.h1`
+const PageTitle = styled.h1`
   font-size: 2rem;
   padding: 1rem;
   transition: 0.2s ease;
 `;
 
 const Poster = styled.picture`
-  width: 8rem;
-  height: 12rem;
+  height: 18rem;
   flex-shrink: 0;
 
   @media ${(props) => props.theme.mediaQueries.phone} {
@@ -115,10 +113,37 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   transition: color 0.2s ease;
-  align-items: center;
 
   @media ${(props) => props.theme.mediaQueries.phone} {
     padding: 2rem 2rem;
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+`;
+
+const Overview = styled.div`
+  display: flex;
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 1rem;
+
+  & div {
+    padding: 0 2rem;
+  }
+
+  & h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
+  }
+
+  & p {
+    font-size: 1.4rem;
   }
 `;
 
@@ -127,6 +152,7 @@ const Episodes = styled.section`
   flex-direction: column;
   gap: 2rem;
   width: 100%;
+  padding: 0 2rem;
 `;
 
 const GoTop = styled.button`
@@ -152,11 +178,13 @@ export const Styled = {
   Poster,
   PosterImage,
   TitleWrapper,
-  Title,
+  PageTitle,
   SeasonHeaderRight,
   Select,
   SelectWrapper,
   Wrapper,
+  Overview,
+  Title,
   Episodes,
   GoTop,
 };
