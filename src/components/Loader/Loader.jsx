@@ -2,14 +2,9 @@ import React from 'react';
 import { Styled } from './styled';
 
 const loadingContainerVariants = {
-  start: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
   end: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -24,7 +19,7 @@ const loadingCircleVariants = {
 };
 
 const loadingCircleTransition = {
-  duration: 0.4,
+  duration: 0.3,
   yoyo: Infinity,
   ease: 'easeInOut',
 };

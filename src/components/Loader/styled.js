@@ -5,14 +5,17 @@ const Container = styled(motion.div)`
   width: 6rem;
   height: 3rem;
   display: flex;
-  justify-content: space-around;
-  gap: 2px;
+
+  & span:nth-child(2),
+  & span:nth-child(3) {
+    margin-left: 1px;
+  }
 `;
 
 const Circle = styled(motion.span)`
   display: block;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: var(--color-text);
   border-radius: 50%;
 `;
