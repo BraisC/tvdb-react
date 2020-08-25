@@ -18,8 +18,9 @@ const sidebarVariants = {
   close: {
     x: '100%',
     /*  transition: {
-        when: 'afterChildren',
-      }, */
+      when: 'afterChildren',
+      staggerChildren: 0.1,
+    }, */
   },
   open: {
     x: '0',
