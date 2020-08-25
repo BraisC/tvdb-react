@@ -33,8 +33,8 @@ const sidebarVariants = {
 };
 // These variants execute when the father (sidebar) changes its animation state
 const itemVariants = {
-  close: { x: '140px', transition: { duration: 0.5 } },
-  open: { x: '0', transition: { duration: 0.3 } },
+  close: { x: '140px', transition: { duration: 0 } },
+  open: { x: '0', transition: { duration: 0.1 } },
 };
 
 const SubMenuItem = ({ value, closeMenu }) => (
