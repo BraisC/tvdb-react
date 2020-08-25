@@ -53,7 +53,7 @@ const Poster = styled.picture`
 const PosterImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
 `;
 
 const Icon = styled(FontAwesomeIcon)`

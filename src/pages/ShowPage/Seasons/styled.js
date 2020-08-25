@@ -101,7 +101,7 @@ const SeasonsItemImage = styled.img`
   width: ${(props) => (props.missingPoster ? '16rem' : 'initial')};
   display: block;
   transition: 1s ease;
-  object-fit: cover;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
 `;
 
 const SeasonsItemInfo = styled.section`

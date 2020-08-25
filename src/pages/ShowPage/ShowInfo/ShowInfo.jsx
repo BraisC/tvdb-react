@@ -105,6 +105,7 @@ const ShowInfo = ({ show, isLoading }) => {
             }
             alt={show.name}
             onLoad={handlePosterLoad}
+            missingPoster={!show.poster}
           />
         </Styled.Poster>
         <Styled.Data>

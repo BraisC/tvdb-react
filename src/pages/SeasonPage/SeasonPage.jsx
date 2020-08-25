@@ -63,6 +63,7 @@ const SeasonPage = () => {
                       : missingPoster
                   }
                   alt={season?.name}
+                  missingPoster={!season?.poster}
                 />
               </Styled.Poster>
               <Styled.TitleWrapper>

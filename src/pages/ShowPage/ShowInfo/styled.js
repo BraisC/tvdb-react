@@ -89,7 +89,7 @@ const PosterImage = styled.img`
   display: block;
   box-shadow: var(--shadow);
   transition: opacity 1s ease;
-  object-fit: cover;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
 `;
 
 const Data = styled.section`
