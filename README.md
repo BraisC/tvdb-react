@@ -14,19 +14,18 @@ Completely made using just hooks and the new context API
  * [styled-components](https://styled-components.com/)
  * [Framer Motion](https://www.framer.com/motion/)
 
-### If you want to run this project locally in your computer follow this steps:
+### If you want to run this project locally in your computer follow this steps (you need Node installed):
 
 * ##### Get an API Key on [TheMovieDB](https://www.themoviedb.org/documentation/api)
 
-
 * ##### Clone or download the repo
 
-* ##### From the root project folder
+* ##### From the root project folder execute this command
 ```shell
 npm install
 ```
 
-* ##### Create a .env.local file like this
+* ##### Create an .env.local file like this
 ```shell
 REACT_APP_API = (put your marvel api key here without quotes)
 ```
