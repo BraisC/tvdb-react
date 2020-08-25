@@ -78,23 +78,26 @@ const SeasonPage = () => {
             </Styled.SeasonHeaderRight>
           </Styled.SeasonHeader>
           <Styled.Wrapper>
-            <Styled.Overview>
-              <Styled.Poster>
-                <Styled.PosterImage
-                  src={
-                    season?.poster
-                      ? `${config?.url}${config?.poster.smaller}${season?.poster}`
-                      : missingPoster
-                  }
-                  alt={season?.name}
-                  missingPoster={!season?.poster}
-                />
-              </Styled.Poster>
-              <div>
-                <h2>Season Overview</h2>
-                <p>{season?.overview}</p>
-              </div>
-            </Styled.Overview>
+            {season?.overview && (
+              <Styled.Overview>
+                <Styled.Poster>
+                  <Styled.PosterImage
+                    src={
+                      season?.poster
+                        ? `${config?.url}${config?.poster.smaller}${season?.poster}`
+                        : missingPoster
+                    }
+                    alt={season?.name}
+                    missingPoster={!season?.poster}
+                  />
+                </Styled.Poster>
+                <div>
+                  <h2>Season Overview</h2>
+                  <p>{season?.overview}</p>
+                </div>
+              </Styled.Overview>
+            )}
+
             <Styled.Title>Episodes</Styled.Title>
             <Styled.Episodes>
               {season?.episodes.map((e) => (

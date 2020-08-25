@@ -39,21 +39,6 @@ const PageTitle = styled.h1`
   transition: 0.2s ease;
 `;
 
-const Poster = styled.picture`
-  height: 18rem;
-  flex-shrink: 0;
-
-  @media ${(props) => props.theme.mediaQueries.phone} {
-    display: none;
-  }
-`;
-
-const PosterImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
-`;
-
 const Icon = styled(FontAwesomeIcon)`
   font-size: 1.4rem;
   margin-right: 1rem;
@@ -123,7 +108,7 @@ const Title = styled.h1`
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 100;
-  margin-top: 4rem;
+
   margin-bottom: 4rem;
 `;
 
@@ -132,6 +117,12 @@ const Overview = styled.div`
   width: 100%;
   background-color: var(--color-primary);
   padding: 1rem;
+  margin-bottom: 4rem;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    flex-direction: column;
+    align-items: center;
+  }
 
   & div {
     padding: 0 2rem;
@@ -145,6 +136,22 @@ const Overview = styled.div`
   & p {
     font-size: 1.4rem;
   }
+`;
+
+const Poster = styled.picture`
+  height: 18rem;
+  width: 12rem;
+  flex-shrink: 0;
+
+  @media ${(props) => props.theme.mediaQueries.phone} {
+    margin-bottom: 1rem;
+  }
+`;
+
+const PosterImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: ${(props) => (props.missingPoster ? 'initial' : 'cover')};
 `;
 
 const Episodes = styled.section`
