@@ -99,7 +99,7 @@ const ShowInfo = ({ show, isLoading }) => {
             } 500w 
             `}
             sizes="(min-width: 416px) and (max-width: 600px) 300px, (max-width: 415px) 144px,
-            340px"
+            500px"
             src={
               show.poster ? `${config?.url}${config?.poster.normal}${show.poster}` : missingPoster
             }
