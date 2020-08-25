@@ -15,7 +15,7 @@ const MobileHeader = styled.header`
   height: 100%;
 `;
 
-const Hamburger = styled.div`
+const Hamburger = styled(motion.div)`
   width: 9rem;
   height: 100%;
   padding: 0.6rem 3rem;
@@ -28,7 +28,7 @@ const Hamburger = styled.div`
   transition: all 0.2s ease;
 `;
 
-const HamburgerLine = styled.span`
+const HamburgerLine = styled(motion.span)`
   display: block;
   width: 100%;
   height: 3px;

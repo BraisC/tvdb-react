@@ -13,14 +13,40 @@ const MobileHeader = () => {
     document.querySelector('body').classList.toggle('noscroll');
   };
 
+  const firstLine = {
+    closed: {
+      rotate: 0,
+      marginTop: 0,
+      backgroundColor: 'var(--color-text)',
+    },
+    open: { rotate: 45, marginTop: '1px', backgroundColor: 'var(--color-red)' },
+  };
+  const secondLine = {
+    closed: { opacity: 1 },
+    open: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+  const thirdLine = {
+    closed: { rotate: 0, backgroundColor: 'var(--color-text)' },
+    open: { rotate: -45, backgroundColor: 'var(--color-red)' },
+  };
+
   return (
     <>
       <Styled.MobileHeader>
         <SearchBar />
-        <Styled.Hamburger onClick={handleClick}>
-          <Styled.HamburgerLine />
-          <Styled.HamburgerLine />
-          <Styled.HamburgerLine />
+        <Styled.Hamburger
+          initial={false}
+          animate={isMenuOpen ? 'open' : 'closed'}
+          onClick={handleClick}
+        >
+          <Styled.HamburgerLine style={{ originX: '0.3rem' }} variants={firstLine} />
+          <Styled.HamburgerLine variants={secondLine} />
+          <Styled.HamburgerLine style={{ originX: '0.3rem' }} variants={thirdLine} />
         </Styled.Hamburger>
       </Styled.MobileHeader>
       <AnimatePresence>

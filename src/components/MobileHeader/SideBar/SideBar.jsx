@@ -59,13 +59,13 @@ const MenuItem = ({ value, route, closeMenu }) => (
 const SideBar = ({ closeMenu }) => {
   const genres = useContext(GenresContext);
 
-  const variants = {
+  const sidebarVariants = {
     close: { x: '100%' },
     open: { x: '0' },
   };
 
   return (
-    <Styled.SideBar initial="close" animate="open" exit="close" variants={variants}>
+    <Styled.SideBar initial="close" animate="open" exit="close" variants={sidebarVariants}>
       <Styled.Wrapper>
         <Styled.Logo>TVDB</Styled.Logo>
         <Styled.Nav>
