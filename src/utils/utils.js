@@ -1,4 +1,4 @@
-import isoCountries from './isoCountries';
+import { isoCountries } from './isoCountries';
 
 const getCountryName = (countryCode) => {
   if (isoCountries[countryCode]) {
