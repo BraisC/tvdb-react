@@ -6,7 +6,7 @@ Completely made using just hooks and the new context API
 
 ![Screenshot](https://raw.githubusercontent.com/BraisC/tvdb-react/master/thumbnail.png)
 
-## [Link](https://react-tv.braiscao.dev/) to see it live
+### [Link](https://react-tv.braiscao.dev/) to see it live
 
 ### Libraries and techs used:
  * [React](https://reactjs.org/) (Obviously)
