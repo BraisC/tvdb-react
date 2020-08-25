@@ -39,7 +39,7 @@ const SeasonPage = () => {
   const handleTop = () => {
     window.scrollTo(0, 0);
   };
-  console.log(season);
+
   return isLoading ? (
     <SeasonsLoader />
   ) : (
