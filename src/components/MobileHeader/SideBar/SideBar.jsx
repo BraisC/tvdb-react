@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { GenresContext } from 'contexts/genresContext';
 import { ThemeToggler } from 'components';
 
+import { motion } from 'framer-motion';
 import { Styled } from './styled';
 
 const MenuOptions = [
@@ -12,6 +13,28 @@ const MenuOptions = [
   { name: 'today', route: 'airing today' },
   { name: 'genre' },
 ];
+
+const sidebarVariants = {
+  close: {
+    x: '100%',
+    /*  transition: {
+        when: 'afterChildren',
+      }, */
+  },
+  open: {
+    x: '0',
+    transition: {
+      // when: 'beforeChildren',
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+    },
+  },
+};
+// These variants execute when the father (sidebar) changes its animation state
+const itemVariants = {
+  close: { x: '140px', transition: { duration: 0.5 } },
+  open: { x: '0', transition: { duration: 0.5 } },
+};
 
 const SubMenuItem = ({ value, closeMenu }) => (
   <li>
@@ -29,7 +52,7 @@ const SubMenu = ({ value, subvalues, closeMenu }) => {
   };
 
   return (
-    <li>
+    <motion.li key={value} variants={itemVariants}>
       <Styled.SubMenuButton onClick={handleClick}>{value}</Styled.SubMenuButton>
       <Styled.SubMenuWrapper isVisible={isVisible}>
         <Styled.SubMenu>
@@ -40,12 +63,12 @@ const SubMenu = ({ value, subvalues, closeMenu }) => {
             : null}
         </Styled.SubMenu>
       </Styled.SubMenuWrapper>
-    </li>
+    </motion.li>
   );
 };
 
 const MenuItem = ({ value, route, closeMenu }) => (
-  <li>
+  <motion.li key={value} variants={itemVariants}>
     <NavLink
       onClick={closeMenu}
       to={`${process.env.PUBLIC_URL}/shows/${route}`.replace('shows//', '')}
@@ -53,16 +76,11 @@ const MenuItem = ({ value, route, closeMenu }) => (
     >
       <span>{`${value}`}</span>
     </NavLink>
-  </li>
+  </motion.li>
 );
 
 const SideBar = ({ closeMenu }) => {
   const genres = useContext(GenresContext);
-
-  const sidebarVariants = {
-    close: { x: '100%' },
-    open: { x: '0' },
-  };
 
   return (
     <Styled.SideBar initial="close" animate="open" exit="close" variants={sidebarVariants}>
