@@ -96,7 +96,7 @@ const Casting = ({ parentLoading }) => {
                 </Carousel>
               </Styled.CastingWrapper>
             ) : (
-              'No casting found for this show'
+              <Styled.NoResult>No casting found for this show</Styled.NoResult>
             )}
           </>
         )}

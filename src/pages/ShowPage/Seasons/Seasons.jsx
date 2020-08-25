@@ -91,7 +91,7 @@ const Seasons = ({ isLoading, show }) => {
               </Carousel>
             </Styled.SeasonsWrapper>
           ) : (
-            'No seasons found for this show'
+            <Styled.NoResult>No seasons found for this show</Styled.NoResult>
           )}
         </>
       )}

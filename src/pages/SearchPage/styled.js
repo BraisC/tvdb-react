@@ -19,7 +19,13 @@ const PageTitle = styled.h1`
   margin-bottom: 4rem;
 `;
 
+const NoResult = styled.p`
+  font-size: 1.4rem;
+  text-align: center;
+`;
+
 export const Styled = {
   Wrapper,
   PageTitle,
+  NoResult,
 };

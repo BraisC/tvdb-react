@@ -96,6 +96,11 @@ const CastingItemInfo = styled.section`
   }
 `;
 
+const NoResult = styled.p`
+  font-size: 1.4rem;
+  text-align: center;
+`;
+
 export const Styled = {
   CastingItemImageWrapper,
   CastingItemImage,
@@ -104,4 +109,5 @@ export const Styled = {
   CastingItem,
   CastingWrapper,
   CastingContainer,
+  NoResult,
 };

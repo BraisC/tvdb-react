@@ -65,7 +65,7 @@ const SearchPage = () => {
           />
         </>
       ) : (
-        'No results found for this search'
+        <Styled.NoResult>No results found for this search</Styled.NoResult>
       )}
     </Styled.Wrapper>
   );

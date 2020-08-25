@@ -60,7 +60,7 @@ const Recommended = () => {
           />
         </>
       ) : (
-        'No recommendations found for this show'
+        <Styled.NoResult>No recommendations found for this show</Styled.NoResult>
       )}
     </Styled.Recommended>
   );

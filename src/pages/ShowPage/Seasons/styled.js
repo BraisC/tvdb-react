@@ -121,6 +121,11 @@ const SeasonsItemInfo = styled.section`
   }
 `;
 
+const NoResult = styled.p`
+  font-size: 1.4rem;
+  text-align: center;
+`;
+
 export const Styled = {
   Seasons,
   SeasonsWrapper,
@@ -131,4 +136,5 @@ export const Styled = {
   SeasonsItemImage,
   SeasonsItemImageWrapper,
   SeasonsItemContent,
+  NoResult,
 };
