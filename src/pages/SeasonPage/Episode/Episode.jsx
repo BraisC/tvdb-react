@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-import utils from 'utils';
-import { Loader } from 'components';
+import { Loader, Stars } from 'components';
 import { ConfigContext } from 'contexts/configContext';
 import { missingPoster } from 'images';
 import { Styled } from './styled';
@@ -48,7 +47,9 @@ const Episode = ({ episode }) => {
           <Styled.InfoTitle>
             {episode.episode_number} - {episode.name}
           </Styled.InfoTitle>
-          <Styled.InfoStars>{utils.generateStars(episode.vote_average)}</Styled.InfoStars>
+          <Styled.InfoStars>
+            <Stars valoration={episode.vote_average} />
+          </Styled.InfoStars>
         </Styled.InfoHeader>
         <Styled.Info>
           <Styled.InfoOverview>{episode.overview}</Styled.InfoOverview>

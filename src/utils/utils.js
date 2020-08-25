@@ -280,39 +280,8 @@ const limitTextLength = (title, limit = 18) => {
   return title;
 };
 
-const generateStars = (valoration) => {
-  const full = Math.trunc(valoration / 2);
-  const decimal = Math.round(((valoration / 2) % 1) * 10);
-  const result = [];
-
-  for (let i = 1; i <= 5; i++) {
-    if (i <= full || (i === full + 1 && decimal > 6)) {
-      result.push(
-        <span key={i}>
-          <FontAwesomeIcon icon={faStar} />
-        </span>
-      );
-    } else if (i === full + 1 && decimal > 2 && decimal <= 6) {
-      result.push(
-        <span key={i}>
-          <FontAwesomeIcon icon={faStarHalfAlt} />
-        </span>
-      );
-    } else {
-      result.push(
-        <span key={i}>
-          <FontAwesomeIcon icon={faStarEmpty} />
-        </span>
-      );
-    }
-  }
-
-  return result;
-};
-
 const utils = {
   generateTitle,
-  generateStars,
   limitTextLength,
   getCountryName,
 };

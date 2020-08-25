@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { ConfigContext } from 'contexts/configContext';
 
 import { missingPoster } from 'images';
-import { Button, Loader } from 'components';
+import { Button, Loader, Stars } from 'components';
 import ModalVideo from 'react-modal-video';
 
 import utils from 'utils';
@@ -144,7 +144,9 @@ const ShowInfo = ({ show, isLoading }) => {
           </Styled.DataSection>
           <Styled.DataRating>
             <h2>Rating</h2>
-            <Styled.DataStars>{utils.generateStars(show.vote_average)}</Styled.DataStars>
+            <Styled.DataStars>
+              <Stars valoration={show.vote_average} />
+            </Styled.DataStars>
             <Styled.DataVotes>
               {`${show.vote_average} with 
               ${show.vote_count} votes`}

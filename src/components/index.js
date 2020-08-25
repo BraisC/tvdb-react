@@ -9,3 +9,4 @@ export { default as Error } from './Error';
 export { default as SearchBar } from './SearchBar';
 export { default as ThemeToggler } from './ThemeToggler';
 export { default as MobileHeader } from './MobileHeader';
+export { default as Stars } from './Stars';

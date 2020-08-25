@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { missingPoster } from 'images';
 import { getDetails } from 'api/tmdb';
 import utils from 'utils';
-import { Loader } from 'components';
+import { Loader, Stars } from 'components';
 import { ConfigContext } from 'contexts/configContext';
 import { Styled } from './styled';
 import { ContentLoader } from './ContentLoader';
@@ -111,7 +111,7 @@ const ShowItem = ({ show }) => {
                   <Styled.ContentSection>
                     <h2>Rating</h2>
                     <Styled.ContentStars>
-                      {utils.generateStars(details.vote_average)}
+                      <Stars valoration={details.vote_average} />
                     </Styled.ContentStars>
                   </Styled.ContentSection>
                   {details.network?.logo ? (
