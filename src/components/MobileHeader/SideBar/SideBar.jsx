@@ -25,7 +25,7 @@ const sidebarVariants = {
     x: '0',
     transition: {
       // when: 'beforeChildren',
-      delayChildren: 0.2,
+      delayChildren: 0.1,
       staggerChildren: 0.1,
     },
   },
@@ -33,7 +33,7 @@ const sidebarVariants = {
 // These variants execute when the father (sidebar) changes its animation state
 const itemVariants = {
   close: { x: '140px', transition: { duration: 0.5 } },
-  open: { x: '0', transition: { duration: 0.5 } },
+  open: { x: '0', transition: { duration: 0.3 } },
 };
 
 const SubMenuItem = ({ value, closeMenu }) => (
