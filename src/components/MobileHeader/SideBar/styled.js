@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const SideBar = styled(motion.div)`
-  padding: 6rem 5rem 0 5rem;
+  padding: 6rem 8rem 0 5rem;
   flex-direction: column;
   background: var(--color-secondary);
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   min-height: 100%;
 `;
 
-const Logo = styled.div`
+const Logo = styled(motion.div)`
   color: var(--color-text);
   font-size: 3rem;
   font-weight: bold;

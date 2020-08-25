@@ -23,18 +23,23 @@ const sidebarVariants = {
     }, */
   },
   open: {
-    x: '0',
+    x: '3rem',
     transition: {
       // when: 'beforeChildren',
-      delayChildren: 0.1,
+      // delayChildren: 0.1,
       staggerChildren: 0.1,
     },
   },
 };
 // These variants execute when the father (sidebar) changes its animation state
 const itemVariants = {
-  close: { x: '140px', transition: { duration: 0 } },
+  close: { x: '160px', transition: { duration: 0 } },
   open: { x: '0', transition: { duration: 0.1 } },
+};
+
+const logoVariants = {
+  close: { opacity: 0, transition: { duration: 0 } },
+  open: { opacity: 1, transition: { duration: 0.1, delay: 0.5 } },
 };
 
 const SubMenuItem = ({ value, closeMenu }) => (
@@ -86,7 +91,7 @@ const SideBar = ({ closeMenu }) => {
   return (
     <Styled.SideBar initial="close" animate="open" exit="close" variants={sidebarVariants}>
       <Styled.Wrapper>
-        <Styled.Logo>TVDB</Styled.Logo>
+        <Styled.Logo variants={logoVariants}>TVDB</Styled.Logo>
         <Styled.Nav>
           <Styled.Menu>
             {MenuOptions.map((val) =>
