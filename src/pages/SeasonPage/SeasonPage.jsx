@@ -68,7 +68,7 @@ const SeasonPage = () => {
               <Styled.SelectWrapper>
                 <Styled.Select onChange={handleChange} name="seasons" id="seasons">
                   {season?.show.seasons.map((s) => (
-                    <option key={s.id} value={s.season_number}>
+                    <option key={s.id} value={s.season_number} selected={season.id === s.id}>
                       {s.name}
                     </option>
                   ))}
