@@ -71,18 +71,18 @@ const ShowItemLink = styled(Link)`
     height: 23rem;
   }
 
-  &:hover {
+  &.hover {
     z-index: 4;
     transform: ${(props) => (props.$isMobile ? 'none' : 'scaleY(1.2) scaleX(1.4)')};
     box-shadow: ${(props) =>
       props.$isMobile ? 'var(--shadow)' : '6px 6px 20px rgba(0, 0, 0, 0.3)'};
   }
 
-  &:hover ${Poster} {
+  &.hover ${Poster} {
     transform: ${(props) => (props.$isMobile ? 'none' : 'scaleY(1.2)')};
   }
 
-  &:hover ${Overlay} {
+  &.hover ${Overlay} {
     opacity: 1;
   }
 `;

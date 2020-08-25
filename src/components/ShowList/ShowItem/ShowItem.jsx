@@ -16,6 +16,7 @@ const ShowItem = ({ show }) => {
   const [logoLoaded, setLogoLoaded] = useState(false);
   const imgHeight = useRef();
   const isUnMounted = useRef(false);
+  const item = useRef();
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -28,7 +29,8 @@ const ShowItem = ({ show }) => {
     return () => window.removeEventListener('resize', changeMobile);
   }, []);
 
-  const handleHover = async () => {
+  const handleEnter = async () => {
+    item.current.classList.add('hover');
     if (!details && !isMobile) {
       const res = await getDetails(show.id);
       if (res.error) {
@@ -38,6 +40,14 @@ const ShowItem = ({ show }) => {
         !isUnMounted.current && setIsLoading(false);
       }
     }
+  };
+
+  const handleLeave = () => {
+    item.current.classList.remove('hover');
+  };
+
+  const handleMove = () => {
+    if (!item.current.classList.contains('hover')) handleEnter();
   };
 
   const handleLogoLoad = (event) => {
@@ -59,8 +69,9 @@ const ShowItem = ({ show }) => {
   );
 
   return (
-    <Styled.ShowItem onMouseEnter={handleHover}>
+    <Styled.ShowItem onMouseEnter={handleEnter} onMouseLeave={handleLeave} onMouseMove={handleMove}>
       <Styled.ShowItemLink
+        ref={item}
         to={{
           pathname: `${process.env.PUBLIC_URL}/show/${show.id}`,
           state: {
