@@ -16,8 +16,9 @@ const MenuOptions = [
 
 const sidebarVariants = {
   close: {
+    //transition activated will make the children hide before the sidebar
     x: '100%',
-    /*  transition: {
+    /* transition: {
       when: 'afterChildren',
       staggerChildren: 0.1,
     }, */
@@ -25,7 +26,7 @@ const sidebarVariants = {
   open: {
     x: '3rem',
     transition: {
-      // when: 'beforeChildren',
+      //when: 'beforeChildren', //this will make the children animate after the sidebar ends animation
       // delayChildren: 0.1,
       staggerChildren: 0.1,
     },
@@ -33,7 +34,7 @@ const sidebarVariants = {
 };
 // These variants execute when the father (sidebar) changes its animation state
 const itemVariants = {
-  close: { x: '160px', transition: { duration: 0 } },
+  close: { x: '160px', transition: { duration: 0.1 } },
   open: { x: '0', transition: { duration: 0.1 } },
 };
 
