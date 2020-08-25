@@ -11,12 +11,8 @@ const Title = styled.span`
   width: 100%;
   text-align: center;
   margin-top: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   transition: color 0.2s ease;
-
-  @media ${(props) => props.theme.mediaQueries.phone} {
-    font-size: 1.6rem;
-  }
 `;
 
 const Poster = styled.figure`

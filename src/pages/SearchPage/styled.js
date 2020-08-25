@@ -20,7 +20,7 @@ const PageTitle = styled.h1`
 `;
 
 const NoResult = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   text-align: center;
 `;
 

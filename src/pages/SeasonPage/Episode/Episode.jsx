@@ -40,6 +40,7 @@ const Episode = ({ episode }) => {
           missingPoster={!episode?.still_path}
           onLoad={handlePosterLoad}
           style={{ opacity: posterLoaded ? '1' : '0' }}
+          alt={episode?.name}
         />
       </Styled.EpisodePoster>
       <Styled.EpisodeInfo>

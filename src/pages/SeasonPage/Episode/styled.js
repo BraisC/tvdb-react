@@ -97,7 +97,7 @@ const Info = styled.div`
 `;
 
 const InfoOverview = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 `;
 
 export const Styled = {

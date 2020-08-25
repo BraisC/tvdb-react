@@ -66,6 +66,9 @@ const SeasonPage = () => {
             <Styled.SeasonHeaderRight>
               <Styled.PageTitle as="span">Select another season</Styled.PageTitle>
               <Styled.SelectWrapper>
+                <label style={{ opacity: '0', width: ' 0px' }} htmlFor="seasons">
+                  Select Season
+                </label>
                 <Styled.Select
                   onChange={handleChange}
                   name="seasons"
@@ -78,6 +81,7 @@ const SeasonPage = () => {
                     </option>
                   ))}
                 </Styled.Select>
+
                 <Styled.Icon icon={faChevronDown} />
               </Styled.SelectWrapper>
             </Styled.SeasonHeaderRight>

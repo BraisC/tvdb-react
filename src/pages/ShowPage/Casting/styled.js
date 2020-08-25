@@ -87,17 +87,17 @@ const CastingItemInfo = styled.section`
   padding: 1rem;
 
   & h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
   }
 
   & span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 `;
 
 const NoResult = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   text-align: center;
 `;
 

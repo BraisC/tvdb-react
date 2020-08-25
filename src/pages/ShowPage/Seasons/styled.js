@@ -60,12 +60,12 @@ const SeasonsItemContent = styled.div`
   transition: background-color 0.2s ease, color 0.2s ease;
 
   & h2 {
-    font-size: 1.4rem;
+ 
     margin-bottom: 5px;
   }
 
   & span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
 /*   @media ${(props) => props.theme.mediaQueries.phoneSmall} {
@@ -112,7 +112,7 @@ const SeasonsItemInfo = styled.section`
   }
 
   & p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-top: 1rem;
   }
 

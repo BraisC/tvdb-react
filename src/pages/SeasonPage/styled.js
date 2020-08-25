@@ -82,13 +82,12 @@ const SelectWrapper = styled.div`
 const Select = styled.select`
   margin: 1rem;
   padding: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   width: 100%;
   border: none;
   color: var(--color-text);
   background-color: var(--color-secondary);
   transition: 0.2s ease;
-
   appearance: none;
 `;
 
@@ -126,6 +125,9 @@ const Overview = styled.div`
 
   & div {
     padding: 0 2rem;
+    @media ${(props) => props.theme.mediaQueries.phone} {
+      padding: 0;
+    }
   }
 
   & h2 {
@@ -134,7 +136,7 @@ const Overview = styled.div`
   }
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 `;
 
