@@ -13,7 +13,7 @@ export const useThemeSwitch = () => {
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme');
+    const localTheme = window.localStorage?.getItem('theme');
     localTheme && setTheme(localTheme);
   }, []);
 
