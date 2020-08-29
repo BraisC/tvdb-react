@@ -27,7 +27,7 @@ npm install
 
 * ##### Create an .env.local file like this
 ```shell
-REACT_APP_API = (put your marvel api key here without quotes)
+REACT_APP_API = (put your TMDB API key here without quotes)
 ```
 
 * ##### To launch a live server
