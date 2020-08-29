@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useEffect, useState, useContext, useRef } from 'react';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { getSeasonDetails } from 'api/tmdb';
 import { faChevronLeft, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { missingPoster } from 'images';
@@ -14,10 +14,12 @@ import { SeasonsLoader } from './Loader';
 const SeasonPage = () => {
   const config = useContext(ConfigContext);
   const { id, number } = useParams();
+  const location = useLocation();
   const [season, setSeason] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const history = useHistory();
+  const prevLocation = useRef(location.pathname);
 
   useEffect(() => {
     async function getData() {
@@ -32,6 +34,11 @@ const SeasonPage = () => {
     getData();
     return () => setIsLoading(true);
   }, [id, number]);
+
+  useEffect(() => {
+    if (prevLocation !== location.pathname) window.scrollTo(0, 0);
+    prevLocation.current = location.pathname;
+  }, [location.pathname]);
 
   const handleChange = (event) => {
     history.push(`/show/${id}/season/${event.target.value}`);
