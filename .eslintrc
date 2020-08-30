@@ -6,21 +6,6 @@
       {
         "exceptions": ["Slider"]
       }
-    ],
-    "jsx-a11y/label-has-associated-control": [
-      2,
-      {
-        "required": {
-          "every": ["id"]
-        }
-      }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    }
   }
 }
