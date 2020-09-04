@@ -76,6 +76,21 @@ export async function getPeopleDetails(id) {
   return getData(`/person/${id}`);
 }
 
+export async function getAppearances(id) {
+  const res = await getData(`/person/${id}/tv_credits`, mapAppearences);
+  const arr = res.data.results;
+  const rest = arr.reduce((acc, val) => {
+    const x = acc.find((el) => el.id === val.id);
+    if (!x) {
+      return acc.concat([val]);
+    }
+    return acc;
+  }, []);
+  res.data = { results: rest };
+
+  return res;
+}
+
 //These are some special cases
 
 export async function getShowPage(id) {
@@ -89,29 +104,6 @@ export async function getShowPage(id) {
     const certificationsRes = await getCertifications(id);
     const videosRes = await getVideos(id);
     res.data = mapShowPage(showRes.data, certificationsRes.data, videosRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
-}
-
-export async function getAppearances(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const appearRes = await tmdb.get(`/person/${id}/tv_credits`);
-    const arr = mapAppearences(appearRes.data).results;
-    const rest = arr.reduce((acc, val) => {
-      const x = acc.find((el) => el.id === val.id);
-      if (!x) {
-        return acc.concat([val]);
-      }
-      return acc;
-    }, []);
-    res.data = { results: rest };
   } catch (err) {
     res.error = err.message;
   }
