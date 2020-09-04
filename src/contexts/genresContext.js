@@ -13,7 +13,7 @@ export const GenresProvider = ({ children }) => {
       if (res.error) {
         //setIsLoading(false);
       } else {
-        setGenres(res.data.data.genres);
+        setGenres(res.data.genres);
         //setIsLoading(false);
       }
     }

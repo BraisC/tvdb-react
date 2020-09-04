@@ -10,178 +10,73 @@ const tmdb = axios.create({
   },
 });
 
-export async function getConfig() {
+async function getData(route, mapper, params = {}) {
   const res = {
     data: null,
     error: null,
   };
   try {
-    const configRes = await tmdb.get(`/configuration`);
-    res.data = mapConfig(configRes.data);
+    const resData = await tmdb.get(route, {
+      params,
+    });
+    res.data = mapper ? mapper(resData.data) : resData.data;
   } catch (err) {
     res.error = err.message;
   }
-
   return res;
+}
+
+export async function getConfig() {
+  return getData(`/configuration`, mapConfig);
 }
 
 export async function getGenres() {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    res.data = await tmdb.get(`/genre/tv/list`);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/genre/tv/list`);
 }
 
 export async function getDetails(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const detailsRes = await tmdb.get(`/tv/${id}`);
-    res.data = mapShowDetails(detailsRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${id}`, mapShowDetails);
 }
 
 export async function getCertifications(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const certRes = await tmdb.get(`/tv/${id}/content_ratings`);
-    res.data = certRes.data;
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${id}/content_ratings`);
 }
 
 export async function getShows(page = 1, route = '/') {
   let path = route.split(' ').join('_');
   path = path === '/' ? 'popular' : path;
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const listRes = await tmdb.get(`/tv/${path}`, {
-      params: {
-        page,
-      },
-    });
 
-    res.data = mapShowList(listRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${path}`, mapShowList, { page });
 }
 
 export async function getShowsSearch(page = 1, query) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const searchRes = await tmdb.get(`/search/tv`, {
-      params: {
-        page,
-        query,
-      },
-    });
-
-    res.data = mapShowList(searchRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/search/tv`, mapShowList, { page, query });
 }
 
 export async function getShowsGenre(page = 1, genres) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const genreRes = await tmdb.get(`/discover/tv`, {
-      params: {
-        page,
-        with_genres: genres.join(','),
-      },
-    });
-
-    res.data = mapShowList(genreRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/discover/tv`, mapShowList, {
+    page,
+    with_genres: genres.join(','),
+  });
 }
 
 export async function getCredits(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const creditsRes = await tmdb.get(`/tv/${id}/credits`);
-    res.data = creditsRes.data;
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${id}/credits`);
 }
 
 export async function getRecommendations(page = 1, id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const recRes = await tmdb.get(`/tv/${id}/recommendations`, {
-      params: {
-        page,
-      },
-    });
-
-    res.data = mapShowList(recRes.data);
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${id}/recommendations`, mapShowList, { page });
 }
 
 export async function getVideos(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const videosRes = await tmdb.get(`/tv/${id}/videos`);
-    res.data = videosRes.data;
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
+  return getData(`/tv/${id}/videos`);
 }
+
+export async function getPeopleDetails(id) {
+  return getData(`/person/${id}`);
+}
+
+//These are some special cases
 
 export async function getShowPage(id) {
   const res = {
@@ -217,21 +112,6 @@ export async function getAppearances(id) {
       return acc;
     }, []);
     res.data = { results: rest };
-  } catch (err) {
-    res.error = err.message;
-  }
-
-  return res;
-}
-
-export async function getPeopleDetails(id) {
-  const res = {
-    data: null,
-    error: null,
-  };
-  try {
-    const peopleRes = await tmdb.get(`/person/${id}`);
-    res.data = peopleRes.data;
   } catch (err) {
     res.error = err.message;
   }
