@@ -6,11 +6,13 @@ import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 import { MyThemeProvider } from './contexts/myThemeContext';
 
-Sentry.init({
-  dsn: 'https://af92a6ebc86f44639fad2209a03aa749@o438950.ingest.sentry.io/5404882',
-  integrations: [new Integrations.BrowserTracing()],
-  tracesSampleRate: 1.0,
-});
+if (process.env.REACT_APP_DSN) {
+  Sentry.init({
+    dsn: process.env.REACT_APP_DSN,
+    integrations: [new Integrations.BrowserTracing()],
+    tracesSampleRate: 1.0,
+  });
+}
 
 ReactDOM.render(
   <MyThemeProvider>
