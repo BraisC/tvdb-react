@@ -10,7 +10,7 @@ import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 const NextArrow = ({ onClick }) => (
   <FontAwesomeIcon
     style={{
-      right: '-18px',
+      right: '-20px',
       position: 'absolute',
       top: '50%',
       display: 'block',
@@ -19,6 +19,7 @@ const NextArrow = ({ onClick }) => (
       padding: '0',
       transform: 'translate(0, -50%)',
       cursor: 'pointer',
+      zIndex: '2',
     }}
     onClick={onClick}
     icon={faCaretRight}
@@ -38,6 +39,7 @@ const PrevArrow = ({ onClick }) => (
       padding: '0',
       transform: 'translate(0, -50%)',
       cursor: 'pointer',
+      zIndex: '2',
     }}
     icon={faCaretLeft}
   />
