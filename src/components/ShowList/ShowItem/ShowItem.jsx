@@ -21,12 +21,13 @@ const ShowItem = ({ show }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 37.5em)');
     const changeMobile = () => {
-      window.matchMedia('(max-width: 37.5em)').matches ? setIsMobile(true) : setIsMobile(false);
+      mediaQuery.matches ? setIsMobile(true) : setIsMobile(false);
     };
+    mediaQuery.addListener(changeMobile);
     changeMobile();
-    window.addEventListener('resize', changeMobile);
-    return () => window.removeEventListener('resize', changeMobile);
+    return () => mediaQuery.removeListener(changeMobile);
   }, []);
 
   const handleEnter = async () => {

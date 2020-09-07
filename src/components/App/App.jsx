@@ -17,12 +17,13 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 75em)');
     const changeMobile = () => {
-      window.matchMedia('(max-width: 75em)').matches ? setIsMobile(true) : setIsMobile(false);
+      mediaQuery.matches ? setIsMobile(true) : setIsMobile(false);
     };
+    mediaQuery.addListener(changeMobile);
     changeMobile();
-    window.addEventListener('resize', changeMobile);
-    return () => window.removeEventListener('resize', changeMobile);
+    return () => mediaQuery.removeListener(changeMobile);
   }, []);
 
   return (
