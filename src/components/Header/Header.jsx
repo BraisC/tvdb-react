@@ -20,7 +20,7 @@ const SubMenuItem = ({ value }) => (
   </li>
 );
 
-const SubMenu = ({ value, subvalues }) => {
+export const SubMenu = ({ value, subvalues }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [delayHandler, setDelayHandler] = useState(null);
 
