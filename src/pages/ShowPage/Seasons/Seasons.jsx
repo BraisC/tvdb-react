@@ -24,10 +24,10 @@ const Seasons = ({ isLoading, show }) => {
         <SeasonsLoader />
       ) : (
         <>
-          {show.seasons.length ? (
+          {show?.seasons?.length ? (
             <Styled.SeasonsWrapper>
               <Carousel
-                length={show.seasons.length < 5 ? show.seasons.length : 5}
+                length={show?.seasons?.length < 5 ? show.seasons.length : 5}
                 responsive={[
                   {
                     breakpoint: 1920,
