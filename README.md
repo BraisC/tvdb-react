@@ -2,6 +2,7 @@
 ![](https://img.shields.io/netlify/22f25a41-3dfa-4716-88ee-171a3345e7ec?label=Netlify&logo=netlify&style=flat-square)
 ![](https://img.shields.io/github/repo-size/BraisC/tvdb-react?logo=github&style=flat-square)
 ![](https://img.shields.io/website?down_message=Down&label=Status&style=flat-square&up_message=Online&url=https%3A%2F%2Freact-tv.braiscao.dev)
+![](https://img.shields.io/badge/Powered%20by-React-61bdfb?logo=react&style=flat-square&logoColor=adbfb)
 
 Project fully designed and coded by me from scratch in order to practice React.
 Completely made using just hooks and the new context API
