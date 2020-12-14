@@ -21,9 +21,9 @@ function App() {
     const changeMobile = () => {
       mediaQuery.matches ? setIsMobile(true) : setIsMobile(false);
     };
-    mediaQuery.addListener(changeMobile);
+    mediaQuery.addEventListener(changeMobile);
     changeMobile();
-    return () => mediaQuery.removeListener(changeMobile);
+    return () => mediaQuery.removeEventListener(changeMobile);
   }, []);
 
   return (
