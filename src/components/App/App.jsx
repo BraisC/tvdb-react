@@ -23,7 +23,7 @@ function App() {
     };
     mediaQuery.addEventListener('change', changeMobile);
     changeMobile();
-    return () => mediaQuery.removeEventListener(changeMobile);
+    return () => mediaQuery.removeEventListener('change', changeMobile);
   }, []);
 
   return (

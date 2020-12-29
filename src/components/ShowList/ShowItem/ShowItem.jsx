@@ -27,7 +27,7 @@ const ShowItem = ({ show }) => {
     };
     mediaQuery.addEventListener('change', changeMobile);
     changeMobile();
-    return () => mediaQuery.removeEventListener(changeMobile);
+    return () => mediaQuery.removeEventListener('change', changeMobile);
   }, []);
 
   const handleEnter = async () => {
